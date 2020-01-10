@@ -1,0 +1,102 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 19/10/2019 06:01
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-aeroplane:before { content: "\f100"; }
+.flaticon-hot-air-balloon:before { content: "\f101"; }
+.flaticon-zeppelin:before { content: "\f102"; }
+.flaticon-aeroplane-1:before { content: "\f103"; }
+.flaticon-aeroplane-2:before { content: "\f104"; }
+.flaticon-stewardess:before { content: "\f105"; }
+.flaticon-aeroplane-3:before { content: "\f106"; }
+.flaticon-pilot:before { content: "\f107"; }
+.flaticon-hangar:before { content: "\f108"; }
+.flaticon-parachute:before { content: "\f109"; }
+.flaticon-wind-socket:before { content: "\f10a"; }
+.flaticon-museum:before { content: "\f10b"; }
+.flaticon-email:before { content: "\f10c"; }
+.flaticon-send:before { content: "\f10d"; }
+.flaticon-mail:before { content: "\f10e"; }
+.flaticon-address:before { content: "\f10f"; }
+.flaticon-mail-1:before { content: "\f110"; }
+.flaticon-mailbox:before { content: "\f111"; }
+.flaticon-chat:before { content: "\f112"; }
+.flaticon-telephone:before { content: "\f113"; }
+.flaticon-man:before { content: "\f114"; }
+.flaticon-temple:before { content: "\f115"; }
+.flaticon-hyderabad-charminar:before { content: "\f116"; }
+.flaticon-temple-1:before { content: "\f117"; }
+.flaticon-gate-of-india:before { content: "\f118"; }
+.flaticon-harmandir-sahib:before { content: "\f119"; }
+.flaticon-india:before { content: "\f11a"; }
+.flaticon-itinerary:before { content: "\f11b"; }
+.flaticon-money:before { content: "\f11c"; }
+.flaticon-daily-specials-board:before { content: "\f11d"; }
+.flaticon-contact:before { content: "\f11e"; }
+    
+    $font-Flaticon-aeroplane: "\f100";
+    $font-Flaticon-hot-air-balloon: "\f101";
+    $font-Flaticon-zeppelin: "\f102";
+    $font-Flaticon-aeroplane-1: "\f103";
+    $font-Flaticon-aeroplane-2: "\f104";
+    $font-Flaticon-stewardess: "\f105";
+    $font-Flaticon-aeroplane-3: "\f106";
+    $font-Flaticon-pilot: "\f107";
+    $font-Flaticon-hangar: "\f108";
+    $font-Flaticon-parachute: "\f109";
+    $font-Flaticon-wind-socket: "\f10a";
+    $font-Flaticon-museum: "\f10b";
+    $font-Flaticon-email: "\f10c";
+    $font-Flaticon-send: "\f10d";
+    $font-Flaticon-mail: "\f10e";
+    $font-Flaticon-address: "\f10f";
+    $font-Flaticon-mail-1: "\f110";
+    $font-Flaticon-mailbox: "\f111";
+    $font-Flaticon-chat: "\f112";
+    $font-Flaticon-telephone: "\f113";
+    $font-Flaticon-man: "\f114";
+    $font-Flaticon-temple: "\f115";
+    $font-Flaticon-hyderabad-charminar: "\f116";
+    $font-Flaticon-temple-1: "\f117";
+    $font-Flaticon-gate-of-india: "\f118";
+    $font-Flaticon-harmandir-sahib: "\f119";
+    $font-Flaticon-india: "\f11a";
+    $font-Flaticon-itinerary: "\f11b";
+    $font-Flaticon-money: "\f11c";
+    $font-Flaticon-daily-specials-board: "\f11d";
+    $font-Flaticon-contact: "\f11e";
