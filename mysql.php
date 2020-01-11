@@ -26,22 +26,50 @@ if (isset($_GET['show'])) {
     echo('Number Of Data = ' . $result->num_rows);
     print_h($result->fetch_all());
 }
-if (isset($_GET['yesterday'])) {
-    $sql = "select count(*) from ahmadi where date(clock)=date(date_sub(now(),interval 1 day));";       // نمایش تعداد ثبت شده های دیروز
-    $result = $mysqli->query($sql);
-    print_h($result->fetch_row());
-}
+
+//if (isset($_GET['count'])) {
+//    $sql = "SELECT  * FROM ahmadi;";
+//    $result = $mysqli->query($sql);
+//    rowcount($result);
+//}
+
+
+//if (isset($_GET['yesterday'])) {
+//    $sql = "select count(*) from ahmadi where date(clock)=date(date_sub(now(),interval 1 day));";       // نمایش تعداد ثبت شده های دیروز
+//    $result = $mysqli->query($sql);
+//    print_h($result->fetch_row());
+//}
+
 if (isset($_GET['last_week'])) {
     $sql = "select count(*) from ahmadi where date(clock)=date(date_sub(now(),interval 1 week));";
 //    $sql = "SELECT * FROM ahmadi WHERE clock > date_sub(now(), interval 1 week);";                    //  نمایش ثبت شده های هفته قبل
     $result = $mysqli->query($sql);
     print_h($result->fetch_row());
 }
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 if (isset($_GET['count'])) {
-    $sql = "SELECT  * FROM ahmadi;";
-    $result = $mysqli->query($sql);
-    rowcount($result);
+    if (isset($_GET['yesterday'])) {
+
+        $sql_1 = "SELECT  * FROM ahmadi;";
+        $result_1 = $mysqli->query($sql_1);
+
+        $sql_2 = "select count(*) from ahmadi where date(clock)=date(date_sub(now(),interval 1 day));";       // نمایش تعداد ثبت شده های دیروز
+        $result_2 = $mysqli->query($sql_2);
+
+        $res = array(mysqli_num_rows($result_1), mysqli_num_rows($result_2));
+        //print_r($res);
+        echo json_encode($res);
+
+    }
 }
+
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 if (isset($_GET['save'])) {
     $user_name = $_GET['user_name'];
     echo 'first name :' . $user_name . '<br>';

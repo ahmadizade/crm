@@ -126,7 +126,7 @@
 <!--                                <input class="input" title="میلادی" name="date" type="date">-->
 <!--                            </div>-->
                             <div class="group">
-                                <button id="saveas" class="data-table-button" type="submit" name="save">ذخیره سازی
+                                <button class="data-table-button" type="submit" name="save">ذخیره سازی
                                 </button>
                             </div>
                         </div>
@@ -145,19 +145,18 @@
 
                         <b>تعداد ثبت های من</b>
                         <p>
-                            <small>امروز</small>
+                            <small>دیروز</small>
                         </p>
+                        <p id="deput"></p>
                     </div>
                 </div>
                 <div class="col-sm-8">
                     <div class="myrate">
                         <b>تعداد ثبت های من</b>
                         <p>
-                            <small>در ماه</small>
+                            <small>امروز</small>
                         </p>
-                        <p>
-
-                        </p>
+                        <p id="emput"></p>
                     </div>
                 </div>
                 <div class="col-sm-8">
