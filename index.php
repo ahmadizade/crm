@@ -59,10 +59,10 @@
             <p>HOME</p>
         </div>
         <div class="side-menu-main">
-            <p class="btn w-100"><a class="txt-gold " href="http://localhost/setareh/mysql.php?show">
-                پایگاه داده</a></p>
-            <p class="btn w-100"><a href="http://localhost/setareh/mysql.php?show">SHOW DATABASE</a></p>
-            <p class="btn w-100"><a href="http://localhost/setareh/mysql.php?show">SHOW DATABASE</a></p>
+            <p class="btn w-100"><a class="txt-gold " href="http://localhost/crm/mysql.php?show">
+                    پایگاه داده</a></p>
+            <p class="btn w-100"><a href="http://localhost/crm/mysql.php?show">SHOW DATABASE</a></p>
+            <p class="btn w-100"><a href="http://localhost/crm/mysql.php?show">SHOW DATABASE</a></p>
         </div>
         <div class="side-menu-footer">
 
@@ -121,17 +121,17 @@
                                 <input class="input" title="شماره تماس" type="text" name="phone"
                                        placeholder="phone number">
                             </div>
+<!--                            <div class="group">-->
+<!--                                <label class="font-weight-bold" for="date">تاریخ</label>-->
+<!--                                <input class="input" title="میلادی" name="date" type="date">-->
+<!--                            </div>-->
                             <div class="group">
-                                <label class="font-weight-bold" for="date">تاریخ</label>
-                                <input class="input" title="میلادی" name="date" type="date">
-                            </div>
-                            <div class="group">
-                                <button id="saveas" class="data-table-button" type="submit" name="save">ذخیره سازی</button>
+                                <button id="saveas" class="data-table-button" type="submit" name="save">ذخیره سازی
+                                </button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div style="width: 400px;height: 200px;" id="resget"></div>
             </div>
         </div>
     </div>
@@ -144,19 +144,28 @@
                     <div class="myrate">
 
                         <b>تعداد ثبت های من</b>
-                        <p><small>امروز</small></p>
+                        <p>
+                            <small>امروز</small>
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-8">
                     <div class="myrate">
                         <b>تعداد ثبت های من</b>
-                        <p><small>در ماه</small></p>
+                        <p>
+                            <small>در ماه</small>
+                        </p>
+                        <p>
+
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-8">
                     <div class="myrate">
                         <b>تعداد ثبت های من</b>
-                        <p><small>در سال</small></p>
+                        <p>
+                            <small>در سال</small>
+                        </p>
                         <p id="output"></p>
                     </div>
                 </div>

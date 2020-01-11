@@ -26,6 +26,17 @@ if (isset($_GET['show'])) {
     echo('Number Of Data = ' . $result->num_rows);
     print_h($result->fetch_all());
 }
+if (isset($_GET['yesterday'])) {
+    $sql = "select count(*) from ahmadi where date(clock)=date(date_sub(now(),interval 1 day));";       // نمایش تعداد ثبت شده های دیروز
+    $result = $mysqli->query($sql);
+    print_h($result->fetch_row());
+}
+if (isset($_GET['last_week'])) {
+    $sql = "select count(*) from ahmadi where date(clock)=date(date_sub(now(),interval 1 week));";
+//    $sql = "SELECT * FROM ahmadi WHERE clock > date_sub(now(), interval 1 week);";                    //  نمایش ثبت شده های هفته قبل
+    $result = $mysqli->query($sql);
+    print_h($result->fetch_row());
+}
 if (isset($_GET['count'])) {
     $sql = "SELECT  * FROM ahmadi;";
     $result = $mysqli->query($sql);
@@ -42,14 +53,11 @@ if (isset($_GET['save'])) {
     echo 'phone number :' . $phone . '<br>';
     $rate = $_GET['rate'];
     echo 'User-Rate :' . $rate . '<br>';
-    $date_thr = $_GET['date'];
-    echo 'Date :' . $date_thr . '<br>';
-    if (!$mysqli->query("INSERT INTO ahmadi (user_name,family,email,phone,date_thr,rate) VALUES ('$user_name','$family','$email','$phone','$date_thr','$rate')")) {
+    if (!$mysqli->query("INSERT INTO ahmadi (user_name,family,email,phone,rate) VALUES ('$user_name','$family','$email','$phone','$rate')")) {
         if ($mysqli->errno == 1062)
             echo("  ایمیل وارد شده تکراری میباشد  <br>" . "Error Number = " . $mysqli->errno);
     } else if ($mysqli->errno == 0) {
         echo "اطلاعات با موفقیت ارسال شد";
-
     }
 
 

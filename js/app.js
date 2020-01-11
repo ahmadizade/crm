@@ -5,7 +5,7 @@ var $resget = document.getElementById('resget');
 
 
 function init() {
-    loadjson('GET', "http://localhost/setareh/mysql.php?count");
+    loadjson('GET', "http://localhost/crm/mysql.php?count");
 
     function loadjson(m,u){
         xhr = new XMLHttpRequest;
@@ -22,7 +22,7 @@ function init() {
 
         $saveas.addEventListener("click" , function (){
             xhr = new XMLHttpRequest;
-            xhr.open('GET', "http://localhost/setareh/mysql.php?show");
+            xhr.open('GET', "http://localhost/crm/mysql.php?show");
             xhr.onreadystatechange = function(){
                 if (this.readyState == 4 && this.status == 200) {
                     $resget.innerText = JSON.parse(xhr.response);
