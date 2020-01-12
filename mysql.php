@@ -23,7 +23,7 @@ if ($mysqli->connect_errno) {
 if (isset($_GET['show'])) {
     $sql = "SELECT  * FROM ahmadi;";
     $result = $mysqli->query($sql);
-    echo('Number Of Data = ' . $result->num_rows);
+//    echo('Number Of Data = ' . $result->num_rows);
     print_h($result->fetch_all());
 }
 if (isset($_GET['count'])) {
@@ -49,7 +49,6 @@ if (isset($_GET['save'])) {
             echo("  ایمیل وارد شده تکراری میباشد  <br>" . "Error Number = " . $mysqli->errno);
     } else if ($mysqli->errno == 0) {
         echo "اطلاعات با موفقیت ارسال شد";
-
     }
 
 
