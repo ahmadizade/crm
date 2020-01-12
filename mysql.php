@@ -54,7 +54,7 @@ if (isset( $_GET['count'] )) {          //sql_1
     if (isset( $_GET['yesterday'] )) {          //sql_2
         if (isset( $_GET['today'] )) {              //sql_3
             $sql_1 = "SELECT  * FROM ahmadi;";
-            $result_1 = $mysqli->query ( $sql_1 );
+            $result_1 = $mysqli->query ( $sql_1 );                                   // نمایش تعداد ثبت شده های کلی
             $sql_2 = "SELECT * FROM ahmadi WHERE DATE(clock) = DATE(NOW()- INTERVAL 1 DAY);";   // نمایش تعداد ثبت شده های دیروز
             $result_2 = $mysqli->query( $sql_2 );
             $sql_3 = "select * FROM ahmadi WHERE DATE (clock)=CURDATE();";       // نمایش تعداد ثبت شده های امروز
