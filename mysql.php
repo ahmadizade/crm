@@ -61,11 +61,9 @@ if (isset( $_GET['count'] )) {          //sql_1
             $result_3 = $mysqli->query ( $sql_3 );
             $res = array(mysqli_num_rows ( $result_1 ), mysqli_num_rows ( $result_2 ), mysqli_num_rows ( $result_3 ));
             echo json_encode ( $res );
-
         }
     }
 }
-
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
