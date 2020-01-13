@@ -1,6 +1,8 @@
 <?php
-session_start();
 require_once 'common.php';
+session_start();
+$login_user = $_SESSION['login_user'];
+//echo ($login_user);
 $dbHost = "localhost";
 $dbUser = "root";
 $dbPass = "";
@@ -11,8 +13,6 @@ if (!$conn) {
 } else {
 //    echo "Successfull.<br><br>";
 }
-$login_user = $_SESSION['login_user'];
-echo "$login_user";
 $mysqli = new mysqli( $dbHost, $dbUser, $dbPass );
 if (!$mysqli->select_db ( $dbName )) {
     echo "probleme in selecting data base";
@@ -23,7 +23,7 @@ if ($mysqli->connect_errno) {
     exit();
 }
 if (isset( $_GET['show'] )) {
-    $sql = "SELECT  * FROM ahmadi;";
+    $sql = "SELECT  * FROM $login_user;";
     $result = $mysqli->query ( $sql );
 //    echo('Number Of Data = ' . $result->num_rows);
     print_h ( $result->fetch_all () );
