@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if ($_SESSION['login_user'] == ''){
+        header ( "Location: http://localhost/crm/login.php" );
+    }else{
+        $login_user = $_SESSION['login_user'];
+    }
+?>
 <!doctype html>
 <html dir="rtl" lang="fa-IR">
 <head>
@@ -20,7 +28,11 @@
                     <div class="container">
                         <div class="mini-header-center">
                             <div class="small-nav-phone">
-                                <!--<p><i class=class="icon-vanak-phone-call"></i>021-88880000</p>-->
+                                <div><i class=class="icon-vanak-phone-call"></i>
+                                    <?php
+                                        echo ('<a class="text-danger" href="login.php">'.$login_user.'</a>');
+                                   ?>
+                                </div>
                             </div>
                             <ul class="small-nav">
                                 <li><a href="#" title="همکاران"> داخلی ها</a></li>

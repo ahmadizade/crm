@@ -1,6 +1,6 @@
 <?php
+session_start();
 require_once 'common.php';
-
 $dbHost = "localhost";
 $dbUser = "root";
 $dbPass = "";
@@ -11,6 +11,8 @@ if (!$conn) {
 } else {
 //    echo "Successfull.<br><br>";
 }
+$login_user = $_SESSION['login_user'];
+echo "$login_user";
 $mysqli = new mysqli( $dbHost, $dbUser, $dbPass );
 if (!$mysqli->select_db ( $dbName )) {
     echo "probleme in selecting data base";
