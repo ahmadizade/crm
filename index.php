@@ -1,10 +1,10 @@
 <?php
-    session_start();
-    if ($_SESSION['login_user'] == ''){
-        header ( "Location: http://localhost/crm/login.php" );
-    }else{
-        $login_user = $_SESSION['login_user'];
-    }
+session_start();
+if ($_SESSION['login_user'] == '') {
+    header("Location: http://localhost/crm/login.php");
+} else {
+    $login_user = $_SESSION['login_user'];
+}
 ?>
 <!doctype html>
 <html dir="rtl" lang="fa-IR">
@@ -28,10 +28,10 @@
                     <div class="container">
                         <div class="mini-header-center">
                             <div class="small-nav-phone">
-                                <div><i class=class="icon-vanak-phone-call"></i>
+                                <div class="user_display mt-1">
                                     <?php
-                                        echo ('<a class="text-danger" href="login.php">'.$login_user.'</a>');
-                                   ?>
+                                    echo ('<a href="login.php">' . ucfirst($_SESSION['display_name']) . '</a>') . ' ' . "<i class='icon-user'></i>";
+                                    ?>
                                 </div>
                             </div>
                             <ul class="small-nav">
@@ -72,7 +72,7 @@
         </div>
         <div class="side-menu-main">
             <p class="btn w-100"><a class="txt-gold " href="http://localhost/crm/mysql.php?show">
-                پایگاه داده</a></p>
+                    پایگاه داده</a></p>
             <p class="btn w-100"><a href="http://localhost/crm/mysql.php?show">SHOW DATABASE</a></p>
             <p class="btn w-100"><a href="http://localhost/crm/mysql.php?show">SHOW DATABASE</a></p>
         </div>
@@ -138,7 +138,7 @@
                             <!--                                <input class="input" title="میلادی" name="date" type="date">-->
                             <!--                            </div>-->
                             <div class="group">
-                                <button class="data-table-button" type="submit" name="save">ذخیره سازی
+                                <button id="save" class="data-table-button" type="submit" name="save">ذخیره سازی
                                 </button>
                             </div>
                         </div>
@@ -146,6 +146,14 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="fancybox_platform">
+        <div class="fancybox">
+
+        </div>
+    </div>
+    </div>
     </div>
 </section>
 <section class="trust">

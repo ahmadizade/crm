@@ -20,8 +20,13 @@ function init() {
         $output.innerText = res[0];
         $deput.innerText = res[1];
         $emput.innerText = res[2];
+        loadjson("","");
     }
 
+    var $save = document.getElementById('save');
+    $save.addEventListener("click", function () {
+        loadjson('GET', "http://localhost/crm/mysql.php?count&yesterday&today");
+    });
 
 
 

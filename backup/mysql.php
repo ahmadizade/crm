@@ -23,7 +23,7 @@ if ($mysqli->connect_errno) {
     exit();
 }
 if (isset( $_GET['show'] )) {
-    $sql = "SELECT  * FROM $login_user;";
+    $sql = "SELECT  * FROM ahmadi";
     $result = $mysqli->query ( $sql );
 //    echo('Number Of Data = ' . $result->num_rows);
     print_h ( $result->fetch_all () );
