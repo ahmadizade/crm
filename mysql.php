@@ -86,7 +86,5 @@ if (isset( $_GET['save'] )) {
     } else if ($mysqli->errno == 0) {
         echo "اطلاعات با موفقیت ارسال شد";
     }
-
-
 }
 

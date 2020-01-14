@@ -283,16 +283,29 @@ body {
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++FANCYBOX++++++++++++++++++++++++++++++++++++++++++++++++*/
 .fancybox_platform {
     width: 100%;
+    display: none;
 }
 
 .fancybox {
     position: absolute;
     top: 20%;
-    left: auto;
-    width: 400px;
-    height: 400px;
-    background-color: green;
+    left: 37%;
+    width: 500px;
+    /*height: 400px;*/
+    padding: 17px 20px;
+    background-color: rgba(255, 255, 255, .8);
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .35);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .35);
+    color: #4a4a4a;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    overflow: hidden;
+    transition: .4s ease-in-out;
+}
 
+.myjavacss {
+    display: block;
+    transition: .4s ease-in-out;
 }
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++FANCYBOX++++++++++++++++++++++++++++++++++++++++++++++++*/

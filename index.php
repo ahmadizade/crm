@@ -1,7 +1,7 @@
 <?php
-session_start();
+session_start ();
 if ($_SESSION['login_user'] == '') {
-    header("Location: http://localhost/crm/login.php");
+    header ( "Location: http://localhost/crm/login.php" );
 } else {
     $login_user = $_SESSION['login_user'];
 }
@@ -30,7 +30,7 @@ if ($_SESSION['login_user'] == '') {
                             <div class="small-nav-phone">
                                 <div class="user_display mt-1">
                                     <?php
-                                    echo ('<a href="login.php">' . ucfirst($_SESSION['display_name']) . '</a>') . ' ' . "<i class='icon-user'></i>";
+                                    echo ('<a href="login.php">' . ucfirst ( $_SESSION['display_name'] ) . '</a>') . ' ' . "<i class='icon-user'></i>";
                                     ?>
                                 </div>
                             </div>
@@ -94,43 +94,43 @@ if ($_SESSION['login_user'] == '') {
         <div class="row">
             <div class="col-md-12 d-flex align-items-center justify-content-center">
                 <div class="data-table">
-                    <form class="mt-2" action="mysql.php" method="GET">
+                    <form class="mt-2" id="form" name="form">
                         <div class="row p15 form-group mb-1">
                             <div class="group-row">
-                                <input class="check-object" type="radio" title="کاربر طلایی" name="rate" value="gold">
+                                <input id="rate0" class="check-object" type="radio" title="کاربر طلایی" name="rate" value="gold">
                                 <label class="form-check-label font-weight-bold f12 mr-2">طلایی</label>
                             </div>
                             <div class="group-row">
-                                <input class="check-object" type="radio" title="کاربر نقره ای" name="rate"
+                                <input id="rate1" class="check-object" type="radio" title="کاربر نقره ای" name="rate"
                                        value="silver">
                                 <label class="form-check-label font-weight-bold f12 mr-2">نقره ای</label>
                             </div>
                             <div class="group-row">
-                                <input class="check-object" type="radio" title="کاربر برنزی" name="rate" value="bronze">
+                                <input id="rate2" class="check-object" type="radio" title="کاربر برنزی" name="rate" value="bronze">
                                 <label class="form-check-label font-weight-bold f12 mr-2">برنز</label>
                             </div>
                         </div>
                         <div class="row p15 form-group">
                             <div class="group">
                                 <label class="font-weight-bold" for="user_name">نام</label>
-                                <input class="input" title="نام" type="text" name="user_name"
+                                <input class="input" title="نام" type="text" name="user_name" id="user_name"
                                        placeholder="enter your name">
                             </div>
                             <div class="group">
                                 <label class="font-weight-bold" for="family">نام خانوادگی</label>
-                                <input class="input" title="نام خانوادگی" type="text" name="family"
+                                <input class="input" title="نام خانوادگی" type="text" name="family" id="family"
                                        placeholder="enter your family">
                             </div>
                             <div class="group">
                                 <label class="font-weight-bold" for="email">رایانامه</label>
-                                <input class="input" title="رایانامه" type="email" name="email"
+                                <input class="input" title="رایانامه" type="email" name="email" id="email"
                                        placeholder="enter your email">
                             </div>
                         </div>
                         <div class="row p15 form-group d-flex align-items-center">
                             <div class="group">
                                 <label class="font-weight-bold" for="phone">شماره تماس</label>
-                                <input class="input" title="شماره تماس" type="text" name="phone"
+                                <input class="input" title="شماره تماس" type="text" name="phone" id="phone"
                                        placeholder="phone number">
                             </div>
                             <!--                            <div class="group">-->
@@ -138,7 +138,7 @@ if ($_SESSION['login_user'] == '') {
                             <!--                                <input class="input" title="میلادی" name="date" type="date">-->
                             <!--                            </div>-->
                             <div class="group">
-                                <button id="save" class="data-table-button" type="submit" name="save">ذخیره سازی
+                                <button class="data-table-button"  id="submit" type="button" value="Submit">ذخیره سازی
                                 </button>
                             </div>
                         </div>
@@ -147,11 +147,20 @@ if ($_SESSION['login_user'] == '') {
             </div>
         </div>
     </div>
-
-    <div class="fancybox_platform">
-        <div class="fancybox">
-
+    <div class="container">
+        <div class="row">
+            <div class="fancybox_platform" id="fancybox">
+                <div class="fancybox">
+                    <div class="fancybox_header text-center">
+                        <img src="img/logo.png">
+                    </div>
+                    <div class="fancybox_main text-center mt-4">
+                        <h4>اطلاعات با موفقیت ذخیره گردید</h4>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
     </div>
     </div>
@@ -197,6 +206,7 @@ if ($_SESSION['login_user'] == '') {
 </section>
 
 <script src="js/jquery-3.4.1.js"></script>
+<script src="js/jqueryapp.js"></script>
 <script src="./js/app.js"></script>
 </body>
 </html>
