@@ -44,38 +44,38 @@ if ($mysqli->connect_errno) {
 
 $sql = "SELECT displayname FROM `users` WHERE username='$login_user';";
 $result = $mysqli->query ( $sql );
-$display_name = $result->fetch_all();
+$display_name = $result->fetch_all ();
 //print_h ($display_name);
-$display_name =$display_name[0][0];
+$display_name = $display_name[0][0];
 //echo($display_name);
 $_SESSION['display_name'] = $display_name;
 ?>
 <html>
 <head>
     <title>User Login</title>
-    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="fonts/stylesheet.css" rel="stylesheet">
+    <link href="./css/fonts.css" rel="stylesheet">
 </head>
-<body>
-<form name="frmUser" method="post" action="">
-    <div class="message"><?php if ($message != "") {
-            echo $message;
-        } ?></div>
-    <table border="0" cellpadding="10" cellspacing="1" width="500" align="center" class="tblLogin">
-        <tr class="tableheader">
-            <td align="center" colspan="2">Enter Login Details</td>
-        </tr>
-        <tr class="tablerow">
-            <td>
+<body class="body-picture">
+<div class="form_platform">
+    <div class="form-container">
+        <form class="form_plate" name="frmUser" method="post" action="">
+            <div class="message"><?php if ($message != "") {
+                    echo $message;
+                } ?></div>
+            <div class="group-row">
                 <input type="text" name="userName" placeholder="User Name" class="login-input"></td>
-        </tr>
-        <tr class="tablerow">
-            <td>
                 <input type="password" name="password" placeholder="Password" class="login-input"></td>
-        </tr>
-        <tr class="tableheader">
-            <td align="center" colspan="2"><input type="submit" name="submit" value="Submit" class="btnSubmit"></td>
-        </tr>
-    </table>
-</form>
+                <input type="submit" name="submit" value="Submit" class="btnSubmit"></td>
+            </div>
+        </form>
+        <p>هر جای ایران ، همه جای جهان</p>
+    </div>
+</div>
+</div>
+</div>
+
 </body>
 </html>

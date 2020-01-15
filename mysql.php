@@ -71,20 +71,22 @@ if (isset( $_GET['count'] )) {          //sql_1
 
 if (isset( $_GET['save'] )) {
     $user_name = $_GET['user_name'];
-    echo 'first name :' . $user_name . '<br>';
+    //echo 'first name :' . $user_name . '<br>';
     $family = $_GET['family'];
-    echo 'Last name :' . $family . '<br>';
+    //echo 'Last name :' . $family . '<br>';
     $email = $_GET['email'];
-    echo 'Email :' . $email . '<br>';
+    //echo 'Email :' . $email . '<br>';
     $phone = $_GET['phone'];
-    echo 'phone number :' . $phone . '<br>';
+    //echo 'phone number :' . $phone . '<br>';
     $rate = $_GET['rate'];
-    echo 'User-Rate :' . $rate . '<br>';
+    //echo 'User-Rate :' . $rate . '<br>';
     if (!$mysqli->query ( "INSERT INTO $login_user (user_name,family,email,phone,rate) VALUES ('$user_name','$family','$email','$phone','$rate')" )) {
         if ($mysqli->errno == 1062)
-            echo ("  ایمیل وارد شده تکراری میباشد  <br>" . "Error Number = " . $mysqli->errno);
+//            echo ("  ایمیل وارد شده تکراری میباشد  <br>" . "Error Number = " . $mysqli->errno);
+            echo json_encode ( 1062 );
     } else if ($mysqli->errno == 0) {
-        echo "اطلاعات با موفقیت ارسال شد";
+//        echo "اطلاعات با موفقیت ارسال شد";
+            echo json_encode ( 1000 );
     }
 }
 

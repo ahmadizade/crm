@@ -20,6 +20,7 @@ if ($_SESSION['login_user'] == '') {
     <link href="./css/fonts.css" rel="stylesheet">
 </head>
 <body>
+<span class="fancy_background" id="fancy_back"></span>
 <section class="header">
     <div class="row">
         <div class="col-md-12">
@@ -97,7 +98,8 @@ if ($_SESSION['login_user'] == '') {
                     <form class="mt-2" id="form" name="form">
                         <div class="row p15 form-group mb-1">
                             <div class="group-row">
-                                <input id="rate0" class="check-object" type="radio" title="کاربر طلایی" name="rate" value="gold">
+                                <input id="rate0" class="check-object" type="radio" title="کاربر طلایی" name="rate"
+                                       value="gold">
                                 <label class="form-check-label font-weight-bold f12 mr-2">طلایی</label>
                             </div>
                             <div class="group-row">
@@ -106,7 +108,8 @@ if ($_SESSION['login_user'] == '') {
                                 <label class="form-check-label font-weight-bold f12 mr-2">نقره ای</label>
                             </div>
                             <div class="group-row">
-                                <input id="rate2" class="check-object" type="radio" title="کاربر برنزی" name="rate" value="bronze">
+                                <input id="rate2" class="check-object" type="radio" title="کاربر برنزی" name="rate"
+                                       value="bronze">
                                 <label class="form-check-label font-weight-bold f12 mr-2">برنز</label>
                             </div>
                         </div>
@@ -138,7 +141,7 @@ if ($_SESSION['login_user'] == '') {
                             <!--                                <input class="input" title="میلادی" name="date" type="date">-->
                             <!--                            </div>-->
                             <div class="group">
-                                <button class="data-table-button"  id="submit" type="button" value="Submit">ذخیره سازی
+                                <button class="data-table-button" id="submit" type="button" value="Submit">ذخیره سازی
                                 </button>
                             </div>
                         </div>
@@ -149,16 +152,19 @@ if ($_SESSION['login_user'] == '') {
     </div>
     <div class="container">
         <div class="row">
-            <div class="fancybox_platform" id="fancybox">
-                <div class="fancybox">
-                    <div class="fancybox_header text-center">
-                        <img src="img/logo.png">
-                    </div>
-                    <div class="fancybox_main text-center mt-4">
-                        <h4>اطلاعات با موفقیت ذخیره گردید</h4>
+                <div class="fancybox_platform" id="fancybox">
+                    <div class="fancybox">
+                        <div class="fancybox_header text-center">
+                            <img src="img/logo.png">
+                        </div>
+                        <div class="fancybox_main text-center mt-4">
+                                <p id="fancy_result"/p>
+                        </div>
+                        <div class="fancybox_footer text-center mt-4">
+                            <span id="fancy_btn" onclick="window.location.reload();"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
 
     </div>

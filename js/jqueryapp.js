@@ -1,7 +1,6 @@
-$(document).ready(function(){
-    $(".fancybox").click(function(){
-        $(".fancybox").hide();
-
-    });
-});
-
+// $(document).ready(function(){
+//     $(".fancybox").click(function(){
+//         $(".fancybox").hide();
+//     });
+// });
+//

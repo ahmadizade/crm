@@ -33,6 +33,9 @@ function init() {
         var email = document.getElementById("email").value;
         var phone = document.getElementById("phone").value;
         var save = document.getElementById("save");
+        var $fancy_btn = document.getElementById("fancy_btn");
+        var $fancy_result = document.getElementById('fancy_result');
+        var fancy_back = document.getElementById('fancy_back');
         
         if (rate0 == true){
             var rate=rate0 = document.getElementById("rate0").value;
@@ -46,7 +49,7 @@ function init() {
         }
         
         
-        
+        //http://localhost/crm/mysql.php?rate=bronze&user_name=&family=&email=hr.ahmadi689%40yahoo.com&phone=&date=&save=           url test pasokh
         var dataString = '&rate=' + rate + '&user_name=' + user_name + '&family=' + family + '&email=' + email + "&phone=" + phone + "&save=" ;
 // Returns successful data submission message when the entered information is stored in database.
         if (rate == '' || user_name == '' || family == '' || email == '' || phone == '') {
@@ -58,8 +61,20 @@ function init() {
                 url: 'http://localhost/crm/mysql.php',
                 data: dataString,
                 cache: false,
-                success: function() {
-                    fancybox.className += 'myjavacss';
+                success: function(respo) {
+                    fancy_back.className += ' fancy';
+                    fancybox.className += ' myjavacss';
+                    //console.log(respo);
+                    if (respo == 1000) {
+                        $fancy_result.innerHTML = "<h4>اطلاعات با موفقیت ذخیره گردید</h4>";
+                        $fancy_btn.innerHTML = "<button type='button' class='btn btn-primary'>بازگشت</button>"
+                    } else if (respo == 1062){
+                        $fancy_result.innerHTML = "<h4>ایمیل وارد شده تکراری می باشد</h4>";
+                        $fancy_btn.innerHTML = "<button type='button' class='btn btn-warning'>تغییر ایمیل</button>"
+                    } else {
+                        $fancy_result.innerHTML = "<h4>اطلاعات به درستی ذخیره نشد. لطفا دوباره تلاش کنید</h4>";
+                        $fancy_btn.innerHTML = "<button type='button' class='btn btn-danger'>بازگشت</button>"
+                    }
                 }
             });
         }
