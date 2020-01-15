@@ -1,7 +1,7 @@
 <?php
-session_start ();
+session_start();
 if ($_SESSION['login_user'] == '') {
-    header ( "Location: http://localhost/crm/login.php" );
+    header("Location: http://localhost/crm/login.php");
 } else {
     $login_user = $_SESSION['login_user'];
 }
@@ -31,18 +31,21 @@ if ($_SESSION['login_user'] == '') {
                             <div class="small-nav-phone">
                                 <div class="user_display mt-1">
                                     <?php
-                                    echo ('<a href="login.php">' . ucfirst ( $_SESSION['display_name'] ) . '</a>') . ' ' . "<i class='icon-user'></i>";
+                                    echo ('<a href="login.php">' . ucfirst($_SESSION['display_name']) . '</a>') . ' ' . "<i class='icon-user'></i>";
                                     ?>
                                 </div>
                             </div>
                             <ul class="small-nav">
-                                <li><a href="#" title="همکاران"> داخلی ها</a></li>
+                                <li><a id="phone_company" href="#" title="همکاران"> داخلی ها</a></li>
                                 <li><a href="#" title="اضافه کاری"> شیفت ها</a></li>
                                 <li><a href="#" title="تقویم میلادی"> تقویم</a></li>
                                 <li><a href="#" title="تماس با مدیریت"> مدیریت</a></li>
                             </ul>
                         </div>
                     </div>
+                </div>
+                <div class="mini-header-toggle" id="mini-header-toggle">
+
                 </div>
                 <div class="big-header">
                     <div class="setareh-icon">
@@ -82,6 +85,11 @@ if ($_SESSION['login_user'] == '') {
         </div>
     </div>
 </section>
+
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++WAVE-->
+
+
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++WAVE-->
 <section class="main">
     <div class="row">
         <div class="container">
@@ -152,19 +160,19 @@ if ($_SESSION['login_user'] == '') {
     </div>
     <div class="container">
         <div class="row">
-                <div class="fancybox_platform" id="fancybox">
-                    <div class="fancybox">
-                        <div class="fancybox_header text-center">
-                            <img src="img/logo.png">
-                        </div>
-                        <div class="fancybox_main text-center mt-4">
-                                <p id="fancy_result"/p>
-                        </div>
-                        <div class="fancybox_footer text-center mt-4">
-                            <span id="fancy_btn" onclick="window.location.reload();"></span>
-                        </div>
+            <div class="fancybox_platform" id="fancybox">
+                <div class="fancybox">
+                    <div class="fancybox_header text-center">
+                        <img src="img/logo.png">
+                    </div>
+                    <div class="fancybox_main text-center mt-4">
+                        <p id="fancy_result"/p>
+                    </div>
+                    <div class="fancybox_footer text-center mt-4">
+                        <span id="fancy_btn" onclick="window.location.reload();"></span>
                     </div>
                 </div>
+            </div>
         </div>
 
     </div>

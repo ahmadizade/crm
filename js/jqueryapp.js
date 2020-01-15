@@ -1,6 +1,6 @@
-// $(document).ready(function(){
-//     $(".fancybox").click(function(){
-//         $(".fancybox").hide();
-//     });
-// });
-//
+$(document).ready(function(){
+    $("#phone_company").click(function(){
+        $("#mini-header-toggle").slideToggle('slow');
+    });
+});
+
