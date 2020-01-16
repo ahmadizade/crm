@@ -10,6 +10,24 @@ if (count($_POST) > 0) {
     if ($count == 0) {
         $message = "نام کاربری و یا رمز عبور نامعتبر است";
     } else {
+
+
+
+
+        if(!empty($_POST["remember"])) {
+            setcookie ("member_login",$_POST["userName"],time()+ (10 * 365 * 24 * 60 * 60));
+        } else {
+            if(isset($_COOKIE["member_login"])) {
+                setcookie ("member_login","");
+            }
+        }
+
+
+
+
+
+
+
 //        $message = "You are successfully authenticated!";
         session_start();
         // Store Session Data
@@ -83,6 +101,7 @@ $_SESSION['display_name'] = $display_name;                      //ساخت سش�
                     <input type="text" name="userName" placeholder="User Name" class="login-input">
                     <input type="password" name="password" placeholder="Password" class="login-input">
                     <input type="submit" name="submit" value="Submit" class="btnSubmit">
+                    <input type="checkbox" name="remember" value="1">Remember Me
                 </div>
             </form>
         </div>

@@ -1,7 +1,7 @@
 <?php
-session_start();
+session_start ();
 if ($_SESSION['login_user'] == '') {
-    header("Location: http://localhost/crm/login.php");
+    header ( "Location: http://localhost/crm/login.php" );
 } else {
     $login_user = $_SESSION['login_user'];
 }
@@ -31,7 +31,7 @@ if ($_SESSION['login_user'] == '') {
                             <div class="small-nav-phone">
                                 <div class="user_display mt-1">
                                     <?php
-                                    echo ('<a href="login.php">' . ucfirst($_SESSION['display_name']) . '</a>') . ' ' . "<i class='icon-user'></i>";
+                                    echo ('<a href="login.php">' . ucfirst ( $_SESSION['display_name'] ) . '</a>') . ' ' . "<i class='icon-user'></i>";
                                     ?>
                                 </div>
                             </div>
@@ -44,6 +44,13 @@ if ($_SESSION['login_user'] == '') {
                         </div>
                     </div>
                 </div>
+<!--                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+
+
+
+                <!--                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                 <div class="mini-header-toggle" id="mini-header-toggle">
 
                 </div>
