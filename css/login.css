@@ -74,12 +74,13 @@ body {
 .login-input {
     margin-bottom: 15px;
     color: gold;
-    background-color: rgba(0, 0, 0, 0.69);
+    background-color:gold;
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .35);
     box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.38);
     border-radius: 6px;
     border: #CCC 1px solid;
-    padding: 10px 20px;
+    padding: 10px 100px;
+    padding-left: 5px;
 }
 
 .btnSubmit {
@@ -101,3 +102,6 @@ body {
     padding: 0 5px;
     margin-top: 33px;
 }
+
+
+

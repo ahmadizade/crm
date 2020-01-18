@@ -73,12 +73,15 @@ if (count($_POST) > 0) {
     <link rel="stylesheet" href="./css/style.css">
     <link href="fonts/stylesheet.css" rel="stylesheet">
     <link href="./css/fonts.css" rel="stylesheet">
+    <link href="./css/animate.css" rel="stylesheet">
+
 </head>
 <body class="body-picture">
+
 <div class="form_platform">
     <div class="form-container">
         <div class="form-container-header">
-            <p>آژانس هواپیمایی ستاره ونک</p>
+            <p class="animated flip delay-2s">آژانس هواپیمایی ستاره ونک</p>
             <div class="message">
 
                 <?php
@@ -102,7 +105,7 @@ if (count($_POST) > 0) {
         </div>
 
         <div class="form-container-footer">
-            <p>هر جای ایران ، همه جای جهان</p>
+            <p class="animated flip delay-2s">هر جای ایران ، همه جای جهان</p>
         </div>
     </div>
 </div>
