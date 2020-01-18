@@ -142,8 +142,7 @@ if ($_SESSION['login_user'] == '') {
                             </div>
                             <div class="group">
                                 <label class="font-weight-bold" for="email">رایانامه</label>
-                                <input class="input" title="رایانامه" type="email" name="email" id="email"
-                                       placeholder="enter your email">
+                                <input class="input" title="رایانامه" type="email" name="email" id="email" placeholder="enter your email">
                             </div>
                         </div>
                         <div class="row p15 form-group d-flex align-items-center">
