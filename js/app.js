@@ -4,7 +4,7 @@ var $deput = document.getElementById('deput');
 var $emput = document.getElementById('emput');
 
 function init() {
-    loadjson('GET', "http://localhost/crm/mysql.php?count&yesterday&today");
+    loadjson('GET', "http://localhost/crm/php/mysql.php?count&yesterday&today");
 
     function loadjson(m,u){
         xhr = new XMLHttpRequest;
@@ -58,7 +58,7 @@ function init() {
 // AJAX code to submit form.
             $.ajax({
                 type: "GET",
-                url: 'http://localhost/crm/mysql.php',
+                url: 'http://localhost/crm/php/mysql.php',
                 data: dataString,
                 cache: false,
                 success: function(respo) {

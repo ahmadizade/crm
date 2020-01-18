@@ -1,6 +1,7 @@
 <?php
 require_once './php/common.php';
 require_once './php/mysql.php';
+require_once './lib/func.php';
 
 
 //++++++++++++++++++++++++++++++++++ connect to mysql +++++++++++++++++++++++++++++++++++++++
