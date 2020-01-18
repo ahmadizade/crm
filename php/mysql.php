@@ -1,7 +1,12 @@
 <?php
 require_once 'common.php';
 session_start();
-$login_user = $_SESSION['login_user'];
+if(isset($_SESSION['display_name'])) {
+    $login_user = $_SESSION['login_user'];
+}
+
+
+
 //echo ($login_user);
 $dbHost = "localhost";
 $dbUser = "root";

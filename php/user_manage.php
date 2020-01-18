@@ -1,6 +1,6 @@
 <?php
-require_once '../common.php';
-require_once '../mysql.php';
+require_once './common.php';
+require_once './mysql.php';
 $login_user = $_SESSION['login_user'];
 echo (@$login_user);
 $dbHost = "localhost";

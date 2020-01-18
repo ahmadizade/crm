@@ -1,26 +1,10 @@
 <?php
-require_once './common.php';
-require_once './mysql.php';
-$message = "";
-if (count($_POST) > 0) {
-    $conn = mysqli_connect("localhost", "root", "", "payload");
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE username='" . $_POST["userName"] . "' and password = '" . $_POST["password"] . "'");
-    //print_r ($result);
-    $count = mysqli_num_rows($result);
-    if ($count == 0) {
-        $message = "نام کاربری و یا رمز عبور نامعتبر است";
-    } else {
-//        $message = "You are successfully authenticated!";
-        session_start();
-        // Store Session Data
-        $_SESSION['login_user'] = $_POST["userName"];           //ذخیره یوزر در سشن
-        //print_r ($_SESSION['login_user']);
-        header("Location: http://localhost/crm/index.php");
-    }
-}
-//++++++++++++++++++++++++++++++++++ DISPLAY NAME +++++++++++++++++++++++++++++++++++++++
+require_once './php/common.php';
+require_once './php/mysql.php';
 
-$login_user = $_SESSION['login_user'];
+
+//++++++++++++++++++++++++++++++++++ connect to mysql +++++++++++++++++++++++++++++++++++++++
+
 //echo (@$login_user);
 $dbHost = "localhost";
 $dbUser = "root";
@@ -42,13 +26,42 @@ if ($mysqli->connect_errno) {
     exit();
 }
 
-$sql = "SELECT displayname FROM `users` WHERE username='$login_user';";
-$result = $mysqli->query($sql);
-$display_name = $result->fetch_all();
+
+//++++++++++++++++++++++++++++++++++ connect to mysql +++++++++++++++++++++++++++++++++++++++
+
+
+
+$message = "";
+if (count($_POST) > 0) {
+    $conn = mysqli_connect("localhost", "root", "", "payload");
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE username='" . $_POST["userName"] . "' and password = '" . $_POST["password"] . "'");
+    //print_r ($result);
+    $count = mysqli_num_rows($result);
+    if ($count == 0) {
+        $message = "نام کاربری و یا رمز عبور نامعتبر است";
+        session_destroy();
+    } else {
+//        $message = "You are successfully authenticated!";
+        session_start();
+        // Store Session Data
+        $_SESSION['login_user'] = $_POST["userName"];
+        $login_user = $_SESSION['login_user'];
+//ذخیره یوزر در سشن
+        //print_r ($_SESSION['login_user']);
+        $sql = "SELECT displayname FROM `users` WHERE username='$login_user';";
+        $result = $mysqli->query($sql);
+        $display_name = $result->fetch_all();
 //print_h ($display_name);
-$display_name = $display_name[0][0];
+        $display_name = $display_name[0][0];
 //echo($display_name);
-$_SESSION['display_name'] = $display_name;                      //ساخت سشن برای اعلام یوزر به صفحه ها
+        $_SESSION['display_name'] = $display_name;                      //ساخت سشن برای اعلام یوزر به صفحه ها
+
+        header("Location: http://localhost/crm/index.php");
+    }
+}
+
+
+
 ?>
 
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++HTML-->
@@ -82,6 +95,7 @@ $_SESSION['display_name'] = $display_name;                      //ساخت سش�
                 <div class="group-column">
                     <input type="text" name="userName" placeholder="User Name" class="login-input">
                     <input type="password" name="password" placeholder="Password" class="login-input">
+                    <input type="checkbox" value="0" name="remember">Remember Me
                     <input type="submit" name="submit" value="Submit" class="btnSubmit">
                 </div>
             </form>
