@@ -1,5 +1,6 @@
 <?php
 require_once 'common.php';
+require "../lib/func.php";
 session_start();
 if(isset($_SESSION['display_name'])) {
     $login_user = $_SESSION['login_user'];
@@ -79,7 +80,8 @@ if (isset( $_GET['save'] )) {
     //echo 'first name :' . $user_name . '<br>';
     $family = $_GET['family'];
     //echo 'Last name :' . $family . '<br>';
-    $email = $_GET['email'];
+//    $email = $_GET['email'];
+    email_validate ($_GET['email']);
     //echo 'Email :' . $email . '<br>';
     $phone = $_GET['phone'];
     //echo 'phone number :' . $phone . '<br>';

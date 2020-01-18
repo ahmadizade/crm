@@ -1,4 +1,5 @@
 <?php
+require_once './lib/func.php';
 session_start ();
 if ($_SESSION['login_user'] == '') {
     header ( "Location: http://localhost/crm/login.php" );
