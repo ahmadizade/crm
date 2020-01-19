@@ -15,6 +15,7 @@ body {
     background: url("../img/sadaf.jpg") right bottom no-repeat;
     background-position: center;
     background-size: cover;
+
 }
 
 .form_platform {
@@ -31,8 +32,8 @@ body {
 
 .form-container {
     width: 100%;
-    height: 300px;
-    background-color: rgba(0, 0, 0, 0.69);
+    height: 330px;
+    background-color:rgba(0,90,241,0.30);
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .35);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, .35);
     /*border-radius: 4px;*/
@@ -64,7 +65,7 @@ body {
     color: white;
 }
 .message {
-    color: gold;
+    color: blue;
     font-weight: bold;
     text-align: center;
     width: 100%;
@@ -73,10 +74,11 @@ body {
 
 .login-input {
     margin-bottom: 15px;
-    color: gold;
-    background-color:gold;
+    font-size: 20px;
+    color:rgba(0,94,247,0.14);
+    background-color:rgba(0,88,221,0.53);
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .35);
-    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.38);
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.38);
     border-radius: 6px;
     border: #CCC 1px solid;
     padding: 10px 100px;
@@ -92,6 +94,7 @@ body {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, .35);
     border-radius: 7px;
     cursor: pointer;
+    margin-bottom: 50px;
 }
 
 .group-column {
@@ -100,8 +103,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0 5px;
-    margin-top: 33px;
+
 }
-
-
 

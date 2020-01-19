@@ -1,6 +1,6 @@
 <?php
 require_once './php/common.php';
-require_once './php/mysql.php';
+//require_once './php/mysql.php';
 //require_once './lib/func.php';
 
 
@@ -75,6 +75,8 @@ if (count($_POST) > 0) {
     <link href="fonts/stylesheet.css" rel="stylesheet">
     <link href="./css/fonts.css" rel="stylesheet">
     <link href="./css/animate.css" rel="stylesheet">
+    <link href="./bootstrap-4.3.1-dist/css/bootstrap.css" rel="stylesheet">
+
 
 </head>
 <body class="body-picture">
