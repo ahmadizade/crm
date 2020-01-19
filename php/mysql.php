@@ -47,12 +47,12 @@ if (isset($_GET['show'])) {
 //    print_h($result->fetch_row());
 //}
 
-if (isset($_GET['last_week'])) {
-    $sql = "select count(*) from $login_user where date(clock)=date(date_sub(now(),interval 1 week));";
-//    $sql = "SELECT * FROM $login_user WHERE clock > date_sub(now(), interval 1 week);";                    //  نمایش ثبت شده های هفته قبل
-    $result = $mysqli->query($sql);
-    print_h($result->fetch_row());
-}
+//if (isset($_GET['last_week'])) {
+//    $sql = "select count(*) from $login_user where date(clock)=date(date_sub(now(),interval 1 week));";
+////    $sql = "SELECT * FROM $login_user WHERE clock > date_sub(now(), interval 1 week);";                    //  نمایش ثبت شده های هفته قبل
+//    $result = $mysqli->query($sql);
+//    print_h($result->fetch_row());
+//}
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
