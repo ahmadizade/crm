@@ -74,40 +74,56 @@ if (count($_POST) > 0) {
     <link href="fonts/stylesheet.css" rel="stylesheet">
     <link href="./css/fonts.css" rel="stylesheet">
     <link href="./css/animate.css" rel="stylesheet">
-    <link href="./bootstrap-4.3.1-dist/css/bootstrap.css" rel="stylesheet">
+    <link href="./bs/css/bootstrap.css" rel="stylesheet">
 
 
 </head>
 <body class="body-picture">
+<!--<div class="row">-->
+<!--    <div class="container">-->
+<!--        <div class="col-md-12">-->
+<!--            <div class="head-text text-center">-->
+<!--                <p class="animated fadeIn delay-1s" id="text-1">آژانس هواپیمایی ستاره ونک</p>-->
+<!--                <p class="animated fadeIn delay-2s" id="text-2">بسیار سفر باید کرد تا پخته شود خامی</p>-->
+<!--                <p class="animated fadeIn delay-3s" id="text-3">هر جای ایران ، همه جای جهان</p>-->
+<!--                <p class="animated fadeIn delay-4s" id="text-4">با آژانس هواپیمایی ستاره ونک</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="error-holder">
 
+    <div class="message animated fadeInDown delay-1s">
+
+        <?php
+        if ($message != "") {
+            echo $message;
+        }
+        ?>
+
+    </div>
+</div>
 <div class="form_platform">
     <div class="form-container">
         <div class="form-container-header">
-            <p class="animated flip delay-2s">آژانس هواپیمایی ستاره ونک</p>
-            <div class="message">
+            <p class="animated fadeInDown delay-2s">آژانس هواپیمایی ستاره ونک</p>
+            <p class="animated fadeInDown delay-3s f-12">سامانه مدیریت پایگاه داده</p>
 
-                <?php
-                if ($message != "") {
-                    echo $message;
-                }
-                ?>
-
-            </div>
         </div>
 
         <div class="form-container-main">
             <form class="form_plate" name="frmUser" method="post" action="">
-                <div class="group-column">
+                <div class="group-column mt-5">
                     <input type="text" name="userName" placeholder="User Name" class="login-input">
                     <input type="password" name="password" placeholder="Password" class="login-input">
-                    <input type="checkbox" value="0" name="remember">Remember Me
+<!--                    <input type="checkbox" value="0" name="remember">Remember Me-->
                     <input type="submit" name="submit" value="Submit" class="btnSubmit">
                 </div>
             </form>
         </div>
 
         <div class="form-container-footer">
-            <p class="animated flip delay-1s">هر جای ایران ، همه جای جهان</p>
+            <p class="animated fadeInDown delay-4s">هر جای ایران ، همه جای جهان</p>
         </div>
     </div>
 </div>
