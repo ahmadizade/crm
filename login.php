@@ -1,6 +1,6 @@
 <?php
 require_once './php/common.php';
-require_once './php/mysql.php';
+//require_once './php/mysql.php';
 //require_once './lib/func.php';
 
 
@@ -40,7 +40,6 @@ if (count($_POST) > 0) {
     $count = mysqli_num_rows($result);
     if ($count == 0) {
         $message = "نام کاربری و یا رمز عبور نامعتبر است";
-        session_destroy();
     } else {
 //        $message = "You are successfully authenticated!";
         session_start();
@@ -106,7 +105,7 @@ if (count($_POST) > 0) {
         </div>
 
         <div class="form-container-footer">
-            <p class="animated flip delay-2s">هر جای ایران ، همه جای جهان</p>
+            <p class="animated flip delay-1s">هر جای ایران ، همه جای جهان</p>
         </div>
     </div>
 </div>

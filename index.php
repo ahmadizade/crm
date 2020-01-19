@@ -111,7 +111,7 @@ if ($_SESSION['login_user'] == '') {
         <div class="row">
             <div class="col-md-12 d-flex align-items-center justify-content-center">
                 <div class="data-table">
-                    <form class="mt-2" id="form" name="form">
+                    <form class="mt-2" id="form" name="form" action="">
                         <div class="row p15 form-group mb-1">
                             <div class="group-row">
                                 <input id="rate0" class="check-object" type="radio" title="کاربر طلایی" name="rate"
@@ -176,15 +176,14 @@ if ($_SESSION['login_user'] == '') {
                         <p id="fancy_result"/p>
                     </div>
                     <div class="fancybox_footer text-center mt-4">
-                        <span id="fancy_btn" onclick="window.location.reload();"></span>
+                        <span id="fancy_btn"></span>
+<!--                        <span id="fancy_btn" onclick="window.location.reload();"></span>-->
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-    </div>
-    </div>
-    </div>
 </section>
 <section class="trust">
     <div class="container">
