@@ -19,6 +19,7 @@ if ($_SESSION['login_user'] == '') {
     <link rel="stylesheet" href="./css/style.css">
     <link href="fonts/stylesheet.css" rel="stylesheet">
     <link href="./css/fonts.css" rel="stylesheet">
+    <link href="./css/animate.css" rel="stylesheet">
 </head>
 <body>
 <span class="fancy_background" id="fancy_back"></span>
@@ -46,12 +47,6 @@ if ($_SESSION['login_user'] == '') {
                     </div>
                 </div>
 <!--                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
-
-
-
-
-                <!--                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                 <div class="mini-header-toggle" id="mini-header-toggle">
 
                 </div>
@@ -102,7 +97,7 @@ if ($_SESSION['login_user'] == '') {
     <div class="row">
         <div class="container">
             <div class="headline text-center mt-5 mb-5">
-                <h5><b>سامانه مدیریت پایگاه داده آژانس هواپیمایی ستاره ونک</b></h5>
+                <h5><b class="animated fadeInDown delay-2s">سامانه مدیریت پایگاه داده آژانس هواپیمایی ستاره ونک</b></h5>
                 <p>هر جای ایران ، همه جای جهان</p>
             </div>
         </div>
@@ -183,7 +178,6 @@ if ($_SESSION['login_user'] == '') {
             </div>
         </div>
     </div>
-
 </section>
 <section class="trust">
     <div class="container">
