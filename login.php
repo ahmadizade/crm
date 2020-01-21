@@ -31,36 +31,36 @@ if ($mysqli->connect_errno) {
 //++++++++++++++++++++++++++++++++++ connect to mysql +++++++++++++++++++++++++++++++++++++++
 
 
-
-$message = "";
-if (count($_POST) > 0) {
-    $conn = mysqli_connect("localhost", "root", "", "payload");
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE username='" . $_POST["userName"] . "' and password = '" . $_POST["password"] . "'");
-    //print_r ($result);
-    $count = mysqli_num_rows($result);
-    if ($count == 0) {
-        $message = "نام کاربری و یا رمز عبور نامعتبر است";
-    } else {
-//        $message = "You are successfully authenticated!";
-        session_start();
-        // Store Session Data
-        $_SESSION['login_user'] = $_POST["userName"];
-        $login_user = $_SESSION['login_user'];
-//ذخیره یوزر در سشن
-        //print_r ($_SESSION['login_user']);
-        $sql = "SELECT displayname FROM `users` WHERE username='$login_user';";
-        $result = $mysqli->query($sql);
-        $display_name = $result->fetch_all();
-//print_h ($display_name);
-        $display_name = $display_name[0][0];
-//echo($display_name);
-        $_SESSION['display_name'] = $display_name;                      //ساخت سشن برای اعلام یوزر به صفحه ها
-
-        header("Location: http://localhost/crm/index.php");
-    }
-}
-
-
+//
+//$message = "";
+//if (count($_POST) > 0) {
+//    $conn = mysqli_connect("localhost", "root", "", "payload");
+//    $result = mysqli_query($conn, "SELECT * FROM users WHERE username='" . $_POST["userName"] . "' and password = '" . $_POST["password"] . "'");
+//    //print_r ($result);
+//    $count = mysqli_num_rows($result);
+//    if ($count == 0) {
+//        $message = "نام کاربری و یا رمز عبور نامعتبر است";
+//    } else {
+////        $message = "You are successfully authenticated!";
+//        session_start();``
+//        // Store Session Data
+////        $_SESSION['login_user'] = $_POST["userName"];
+////        $login_user = $_SESSION['login_user'];
+////ذخیره یوزر در سشن
+//        //print_r ($_SESSION['login_user']);
+//        $sql = "SELECT displayname FROM `users` WHERE username='$login_user';";
+//        $result = $mysqli->query($sql);
+//        $display_name = $result->fetch_all();
+////print_h ($display_name);
+//        $display_name = $display_name[0][0];
+////echo($display_name);
+//        $_SESSION['display_name'] = $display_name;                      //ساخت سشن برای اعلام یوزر به صفحه ها
+//
+//        header("Location: http://localhost/crm/index.php");
+//    }
+//}
+//
+//
 
 ?>
 
@@ -68,6 +68,8 @@ if (count($_POST) > 0) {
 
 <html>
 <head>
+
+
     <title>User Login</title>
     <link rel="stylesheet" type="text/css" href="css/login.css"/>
     <link rel="stylesheet" href="./css/style.css">
@@ -95,11 +97,11 @@ if (count($_POST) > 0) {
 
     <div class="message animated fadeInDown delay-1s">
 
-        <?php
-        if ($message != "") {
-            echo $message;
-        }
-        ?>
+<!--        --><?php
+//        if ($message != "") {
+//            echo $message;
+//        }
+//        ?>
 
     </div>
 </div>
