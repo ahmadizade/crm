@@ -74,7 +74,7 @@ if (isset( $_SESSION['login_user'] )) {
                 <div class="mini-header-toggle" id="mini-header-toggle">
 
                 </div>
-                <div class="big-header">
+                <div class="big-header" style="display: none">
                     <div class="setareh-icon">
                         <a href="#">
                             <img src="img/logo.png">
@@ -116,7 +116,7 @@ if (isset( $_SESSION['login_user'] )) {
 <section class="main">
 
 
-    <div class="wave2">
+    <div class="wave2" style="display: none">
         <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ WAVE 2 WAVE 2 WAVE 2 WAVE 2 WAVE 2 WAVE 2 WAVE 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
         <!-- wave-decoration start -->
 

@@ -12,7 +12,11 @@ body {
 }
 
 .mini-header {
-    background-color: #0f6843;
+    position: absolute;
+    top: 0;
+    z-index: 2000;
+    width: 100%;
+    padding: 20px;
 }
 
 .user_display i {
@@ -133,10 +137,11 @@ body {
 }
 
 .main {
-    background: url("../img/clouds.jpg") right bottom no-repeat;
+    background: url("../img/home.jpg") right bottom no-repeat;
     background-size: cover;
     z-index: 99;
     position: relative;
+    height: 700px;
 }
 
 .headline {
