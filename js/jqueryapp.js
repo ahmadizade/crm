@@ -103,4 +103,33 @@ $(document).ready(function () {
         // );
     });
 
+
+
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Airport Search API+++++++++++++++++++++
+
+
+
+
+
+
+    var settings = {
+        async: true,
+        crossDomain: true,
+        url: "https://cometari-airportsfinder-v1.p.rapidapi.com/api/cities/by-airports?code=lax",
+        method: "GET",
+        headers: {
+        }
+    }
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+    });
+
+
+
+
+
+
+
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Airport Search API+++++++++++++++++++++
 });
