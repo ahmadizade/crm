@@ -105,19 +105,15 @@ $(document).ready(function () {
 
 
 
-    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Airport Search API+++++++++++++++++++++
-
-
-
-
-
 
     var settings = {
-        async: true,
-        crossDomain: true,
-        url: "https://cometari-airportsfinder-v1.p.rapidapi.com/api/cities/by-airports?code=lax",
-        method: "GET",
-        headers: {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://hotels4.p.rapidapi.com/locations/search?locale=en_US&query=new%20york",
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "hotels4.p.rapidapi.com",
+            "x-rapidapi-key": "aee77541camshd1b9e4eabf15742p11fc54jsnfc6ab8658a57"
         }
     }
 
@@ -125,11 +121,4 @@ $(document).ready(function () {
         console.log(response);
     });
 
-
-
-
-
-
-
-    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Airport Search API+++++++++++++++++++++
 });
