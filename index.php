@@ -277,7 +277,31 @@ if (isset( $_SESSION['login_user'] )) {
         </div>
     </div>
 </section>
+
 <section id="cat" class="cat">
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER-->
+<div class="weather">
+    <select id="citySelect">
+        <option value="Select">Select</option>
+        <option value="tehran,ir">Tehran</option>
+        <option value="5391959">San Francisco</option>
+        <option value="London,uk">London</option>
+        <option value="1275339">Mumbai</option>
+        <option value="8199396">Santa Lucia</option>
+    </select>
+    <button id="submit2">Submit</button>
+    <div id="message"></div>
+
+    <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER-->
+
+
+
+
+
+
+
+
+
 
 </section>
 <script src="js/jquery-3.4.1.js"></script>

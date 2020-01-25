@@ -308,10 +308,12 @@ html {
 .fancybox_platform {
     width: 100%;
     display: none;
+    z-index: 12100;
+
 }
 
 .fancybox {
-    z-index: 1000;
+    z-index: 11201;
     position: absolute;
     left: 37%;
     top: 27%;
@@ -335,6 +337,7 @@ html {
 }
 
 .fancy_background {
+    z-index: 10;
     display: none;
     width: 100%;
     height: 100%;
@@ -348,7 +351,7 @@ html {
 }
 
 .fancy {
-    z-index: 999;
+    z-index: 1000;
     display: block;
     width: 100%;
     height: 100%;
@@ -448,3 +451,38 @@ svg:not(:root) {
     position: relative;
     right: 0;
 }
+
+/*+++++++++++++++++++++++++++++++++++++WHEDER*/
+
+#viewContent {
+    padding-left: 20px;
+}
+
+#viewContent select, #viewContent button {
+    font-size: 25px;
+}
+
+#viewContent h4 {
+    margin: 10px 0;
+}
+
+#viewContent .textAlignCenter {
+    text-align: center;
+}
+
+#viewContent .textAlignCenter img {
+    display: none;
+    width: 100px;
+}
+
+#viewContent #message table {
+    width: 100%;
+}
+
+#viewContent #message table th {
+    text-align: left;
+    text-decoration: underline;
+}
+
+/*+++++++++++++++++++++++++++++++++++++WHEDER*/
+
