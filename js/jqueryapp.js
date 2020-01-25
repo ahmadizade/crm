@@ -81,29 +81,4 @@ $(document).ready(function () {
     });
 
 
-    $('#login-input').click(function () {
-        $('#message').addClass('animated zoomOutUp delay-1s');
-        // $('#try').addClass('animated fadeOutDown');
-        // $('#error').hide();
-        // $('#try').hide();
-        // $('#error-holder').animate({height: '0px'}, 1000);
-    });
-    $('#login-password').click(function () {
-        // $('#message').animate({height: '80px'}, 1000);
-        // $('#greeting').html("<h5 class='animated fadeInDown delay-1s'>Setareh Vanak Travel Agency</h5>");
-
-        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Make a element with jquery
-
-        // $('#error-holder').append(
-        //     $('<p>')
-        //         .attr("id", "greeting")
-        //         .addClass("animated fadeInDown delay-1s")
-        //         .append("</p>")
-        //         .text("hello world")
-        // );
-    });
-
-
-
-
 });

@@ -1,6 +1,6 @@
 <?php
-session_start ();
-if (isset( $_SESSION['login_user'] )) {
+session_start();
+if (isset($_SESSION['login_user'])) {
     $login_user = $_SESSION['login_user'];
 } else {
     $login_user = "";
@@ -24,6 +24,8 @@ if (isset( $_SESSION['login_user'] )) {
     <link rel="stylesheet" href="bs/css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/hover.css">
+    <link rel="stylesheet" href="./aos-master/dist/aos.css">
+    <link rel="stylesheet" href="./css/sequencejs.css">
     <link href="fonts/stylesheet.css" rel="stylesheet">
     <link href="./css/fonts.css" rel="stylesheet">
     <link href="./css/animate.css" rel="stylesheet">
@@ -36,14 +38,14 @@ if (isset( $_SESSION['login_user'] )) {
                 <div class="mini-header">
                     <div class="logout">
                         <?php
-                        if (isset( $_SESSION['display_name'] )) {
+                        if (isset($_SESSION['display_name'])) {
 //                        if (!$_SESSION['display_name'] == "") {
-                            echo ('<a href="?&logout" class="hvr-buzz-out text-decoration-none">' . "LOGOUT" . '</a>');
+                            echo('<a href="?&logout" class="hvr-buzz-out text-decoration-none">' . "LOGOUT" . '</a>');
                         }
-                        if (isset( $_GET['logout'] )) {
-                            session_destroy ();
-                            unset( $_SESSION['login_user'] );
-                            header ( 'location:login.php' );
+                        if (isset($_GET['logout'])) {
+                            session_destroy();
+                            unset($_SESSION['login_user']);
+                            header('location:login.php');
                         }
                         ?>
                     </div>
@@ -52,20 +54,22 @@ if (isset( $_SESSION['login_user'] )) {
                             <div class="small-nav-phone">
                                 <div class="user_display mt-1">
                                     <?php
-                                    if (!isset( $_SESSION['display_name'] )) {
+                                    if (!isset($_SESSION['display_name'])) {
 //                                    if ($_SESSION['display_name'] == "") {
-                                        echo ('<a href="login.php" class="hvr-bob">' . "LOGIN" . '</a>');
+                                        echo('<a href="login.php" class="hvr-bob">' . "LOGIN" . '</a>');
                                     } else {
-                                        echo ('<a href="login.php">' . ucfirst ( $_SESSION['display_name'] ) . '</a>') . ' ' . "<i class='icon-user'></i>";
+                                        echo ('<a href="login.php">' . ucfirst($_SESSION['display_name']) . '</a>') . ' ' . "<i class='icon-user'></i>";
                                     }
                                     ?>
                                 </div>
                             </div>
                             <ul class="small-nav">
-                                <li><a id="phone_company" href="#" title="همکاران"> داخلی ها</a></li>
-                                <li><a href="#" title="اضافه کاری"> شیفت ها</a></li>
-                                <li><a href="#" title="تقویم میلادی"> تقویم</a></li>
-                                <li><a href="#" title="تماس با مدیریت"> مدیریت</a></li>
+                                <li><a class="hvr-underline-from-center" id="phone_company" href="#" title="همکاران">
+                                        داخلی ها</a></li>
+                                <li><a class="hvr-underline-from-center" href="#" title="اضافه کاری"> شیفت ها</a></li>
+                                <li><a class="hvr-underline-from-center" href="#" title="تقویم میلادی"> تقویم</a></li>
+                                <li><a class="hvr-underline-from-center" href="#" title="تماس با مدیریت"> مدیریت</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -126,91 +130,96 @@ if (isset( $_SESSION['login_user'] )) {
                 </div>
                 <p class="animated fadeInDown delay-5s">88880000</p>
 
-            </div>
-        </div>
-    </div>
-    <div class="information_table">
-<!--        <div class="container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-md-12 d-flex align-items-center justify-content-center">-->
-                    <div class="data-table">
-                        <form class="mt-2" id="form" name="form" action="">
-                            <div class="row p15 form-group mb-1">
-                                <div class="group-row">
-                                    <input id="rate0" class="check-object" type="radio" title="کاربر طلایی" name="rate"
-                                           value="gold">
-                                    <label class="form-check-label font-weight-bold f12 mr-2">طلایی</label>
-                                </div>
-                                <div class="group-row">
-                                    <input id="rate1" class="check-object" type="radio" title="کاربر نقره ای"
-                                           name="rate"
-                                           value="silver">
-                                    <label class="form-check-label font-weight-bold f12 mr-2">نقره ای</label>
-                                </div>
-                                <div class="group-row">
-                                    <input id="rate2" class="check-object" type="radio" title="کاربر برنزی" name="rate"
-                                           value="bronze">
-                                    <label class="form-check-label font-weight-bold f12 mr-2">برنز</label>
-                                </div>
-                            </div>
-                            <div class="row p15 form-group">
-                                <div class="group">
-                                    <label class="font-weight-bold" for="user_name">نام</label>
-                                    <input class="input" title="نام" type="text" name="user_name" id="user_name"
-                                           placeholder="enter your name">
-                                </div>
-                                <div class="group">
-                                    <label class="font-weight-bold" for="family">نام خانوادگی</label>
-                                    <input class="input" title="نام خانوادگی" type="text" name="family" id="family"
-                                           placeholder="enter your family">
-                                </div>
-                                <div class="group">
-                                    <label class="font-weight-bold" for="email">رایانامه</label>
-                                    <input class="input" title="رایانامه" type="email" name="email" id="email"
-                                           placeholder="enter your email">
-                                </div>
-                            </div>
-                            <div class="row p15 form-group d-flex align-items-center">
-                                <div class="group">
-                                    <label class="font-weight-bold" for="phone">شماره تماس</label>
-                                    <input class="input" title="شماره تماس" type="text" name="phone" id="phone"
-                                           placeholder="phone number">
-                                </div>
-                                <!--                            <div class="group">-->
-                                <!--                                <label class="font-weight-bold" for="date">تاریخ</label>-->
-                                <!--                                <input class="input" title="میلادی" name="date" type="date">-->
-                                <!--                            </div>-->
-                                <div class="group">
-                                    <button class="data-table-button hvr-float-shadow" id="submit" type="button" value="Submit">ذخیره
-                                        سازی
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-    <div class="container">
-        <div class="row">
-            <div class="fancybox_platform" id="fancybox">
-                <div class="fancybox">
-                    <div class="fancybox_header text-center">
-                        <img src="img/logo.png">
-                    </div>
-                    <div class="fancybox_main text-center mt-4">
-                        <p id="fancy_result"/p>
-                    </div>
-                    <div class="fancybox_footer text-center mt-4">
-                        <span id="fancy_btn"></span>
-                        <!--                        <span id="fancy_btn" onclick="window.location.reload();"></span>-->
+                <div id="sequence" class="animate-in">
+                    <div id="demo" class="info letter-container">
+                        <h2 class="animated fadeInUp">SepandParvaz Application</h2>
                     </div>
                 </div>
             </div>
-            <span class="fancy_background" id="fancy_back"></span>
         </div>
-    </div>
+        <div class="information_table">
+            <!--        <div class="container">-->
+            <!--            <div class="row">-->
+            <!--                <div class="col-md-12 d-flex align-items-center justify-content-center">-->
+            <div class="data-table">
+                <form class="mt-2" id="form" name="form" action="">
+                    <div class="row p15 form-group mb-1">
+                        <div class="group-row">
+                            <input id="rate0" class="check-object" type="radio" title="کاربر طلایی" name="rate"
+                                   value="gold">
+                            <label class="form-check-label font-weight-bold f12 mr-2">طلایی</label>
+                        </div>
+                        <div class="group-row">
+                            <input id="rate1" class="check-object" type="radio" title="کاربر نقره ای"
+                                   name="rate"
+                                   value="silver">
+                            <label class="form-check-label font-weight-bold f12 mr-2">نقره ای</label>
+                        </div>
+                        <div class="group-row">
+                            <input id="rate2" class="check-object" type="radio" title="کاربر برنزی" name="rate"
+                                   value="bronze">
+                            <label class="form-check-label font-weight-bold f12 mr-2">برنز</label>
+                        </div>
+                    </div>
+                    <div class="row p15 form-group">
+                        <div class="group">
+                            <label class="font-weight-bold" for="user_name">نام</label>
+                            <input class="input" title="نام" type="text" name="user_name" id="user_name"
+                                   placeholder="enter your name">
+                        </div>
+                        <div class="group">
+                            <label class="font-weight-bold" for="family">نام خانوادگی</label>
+                            <input class="input" title="نام خانوادگی" type="text" name="family" id="family"
+                                   placeholder="enter your family">
+                        </div>
+                        <div class="group">
+                            <label class="font-weight-bold" for="email">رایانامه</label>
+                            <input class="input" title="رایانامه" type="email" name="email" id="email"
+                                   placeholder="enter your email">
+                        </div>
+                    </div>
+                    <div class="row p15 form-group d-flex align-items-center">
+                        <div class="group">
+                            <label class="font-weight-bold" for="phone">شماره تماس</label>
+                            <input class="input" title="شماره تماس" type="text" name="phone" id="phone"
+                                   placeholder="phone number">
+                        </div>
+                        <!--                            <div class="group">-->
+                        <!--                                <label class="font-weight-bold" for="date">تاریخ</label>-->
+                        <!--                                <input class="input" title="میلادی" name="date" type="date">-->
+                        <!--                            </div>-->
+                        <div class="group">
+                            <button class="data-table-button hvr-float-shadow" id="submit" type="button" value="Submit">
+                                ذخیره
+                                سازی
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <div class="container">
+            <div class="row">
+                <div class="fancybox_platform" id="fancybox">
+                    <div class="fancybox">
+                        <div class="fancybox_header text-center">
+                            <img src="img/logo.png">
+                        </div>
+                        <div class="fancybox_main text-center mt-4">
+                            <p id="fancy_result"/p>
+                        </div>
+                        <div class="fancybox_footer text-center mt-4">
+                            <span id="fancy_btn"></span>
+                            <!--                        <span id="fancy_btn" onclick="window.location.reload();"></span>-->
+                        </div>
+                    </div>
+                </div>
+                <span class="fancy_background" id="fancy_back"></span>
+            </div>
+        </div>
 </section>
 <!--<div class="null"></div>-->
 <!--<div class="null"></div>-->
@@ -255,33 +264,16 @@ if (isset( $_SESSION['login_user'] )) {
 </section>
 
 <section id="cat" class="cat">
-<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER-->
-<div class="weather">
-    <select id="citySelect">
-        <option value="Select">Select</option>
-        <option value="tehran,ir">Tehran</option>
-        <option value="5391959">San Francisco</option>
-        <option value="London,uk">London</option>
-        <option value="1275339">Mumbai</option>
-        <option value="8199396">Santa Lucia</option>
-    </select>
-    <button id="submit2">Submit</button>
-    <div id="message"></div>
-
-    <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER-->
-
-
-
-
-
-
-
-
 
 
 </section>
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/jqueryapp.js"></script>
 <script src="./js/app.js"></script>
+<script src="./js/jquery.lettering.js"></script>
+<script src="./js/sequence.js"></script>
+<script src="./js/sequencejs-options.sliding-horizontal-parallax.js"></script>
+<script src="./aos-master/dist/aos.css""></script>
+
 </body>
 </html>

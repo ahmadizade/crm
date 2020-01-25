@@ -60,7 +60,7 @@ html {
 .small-nav li > a {
     font-size: 17px;
     color: white;
-    padding: 12px;
+    padding: 0px 14px;
     text-decoration: none;
     border-radius: 11px;
 }
