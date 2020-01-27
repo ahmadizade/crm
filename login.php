@@ -48,7 +48,7 @@ if (count ( $_POST ) > 0) {
         $display_name = $display_name[0][0];
 //echo($display_name);
         $_SESSION['display_name'] = $display_name;                      //ساخت سشن برای اعلام یوزر به صفحه ها
-        header ( "Location: http://localhost/crm/index.php" );
+        header ( "Location: http://10.0.23.95/crm/index.php" );
     }
 }
 ?>

@@ -1901,43 +1901,35 @@
 
 @-webkit-keyframes flip {
     from {
-        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
-        rotate3d(0, 1, 0, -360deg);
+        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg);
         transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg);
         -webkit-animation-timing-function: ease-out;
         animation-timing-function: ease-out;
     }
 
     40% {
-        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
-        rotate3d(0, 1, 0, -190deg);
-        transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
-        rotate3d(0, 1, 0, -190deg);
+        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
+        transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
         -webkit-animation-timing-function: ease-out;
         animation-timing-function: ease-out;
     }
 
     50% {
-        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
-        rotate3d(0, 1, 0, -170deg);
-        transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
-        rotate3d(0, 1, 0, -170deg);
+        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
+        transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
         -webkit-animation-timing-function: ease-in;
         animation-timing-function: ease-in;
     }
 
     80% {
-        -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
-        rotate3d(0, 1, 0, 0deg);
-        transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
-        rotate3d(0, 1, 0, 0deg);
+        -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
+        transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
         -webkit-animation-timing-function: ease-in;
         animation-timing-function: ease-in;
     }
 
     to {
-        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
-        rotate3d(0, 1, 0, 0deg);
+        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
         transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
         -webkit-animation-timing-function: ease-in;
         animation-timing-function: ease-in;
@@ -1946,43 +1938,35 @@
 
 @keyframes flip {
     from {
-        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
-        rotate3d(0, 1, 0, -360deg);
+        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg);
         transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg);
         -webkit-animation-timing-function: ease-out;
         animation-timing-function: ease-out;
     }
 
     40% {
-        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
-        rotate3d(0, 1, 0, -190deg);
-        transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
-        rotate3d(0, 1, 0, -190deg);
+        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
+        transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
         -webkit-animation-timing-function: ease-out;
         animation-timing-function: ease-out;
     }
 
     50% {
-        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
-        rotate3d(0, 1, 0, -170deg);
-        transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
-        rotate3d(0, 1, 0, -170deg);
+        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
+        transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
         -webkit-animation-timing-function: ease-in;
         animation-timing-function: ease-in;
     }
 
     80% {
-        -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
-        rotate3d(0, 1, 0, 0deg);
-        transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
-        rotate3d(0, 1, 0, 0deg);
+        -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
+        transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
         -webkit-animation-timing-function: ease-in;
         animation-timing-function: ease-in;
     }
 
     to {
-        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
-        rotate3d(0, 1, 0, 0deg);
+        -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
         transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
         -webkit-animation-timing-function: ease-in;
         animation-timing-function: ease-in;
@@ -3591,6 +3575,31 @@
 .animated.delay-5s {
     -webkit-animation-delay: 5s;
     animation-delay: 5s;
+}
+
+.animated.delay-6s {
+    -webkit-animation-delay: 6s;
+    animation-delay: 6s;
+}
+
+.animated.delay-7s {
+    -webkit-animation-delay: 7s;
+    animation-delay: 7s;
+}
+
+.animated.delay-8s {
+    -webkit-animation-delay: 8s;
+    animation-delay: 8s;
+}
+
+.animated.delay-9s {
+    -webkit-animation-delay: 9s;
+    animation-delay: 9s;
+}
+
+.animated.delay-10s {
+    -webkit-animation-delay: 10s;
+    animation-delay: 10s;
 }
 
 .animated.fast {

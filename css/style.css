@@ -1,10 +1,12 @@
 @import url(fonts.css);
+
 body {
     min-height: 100%;
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
 }
+
 html {
     height: 100%;
 }
@@ -147,17 +149,50 @@ html {
 }
 
 .main {
-    background: url("../img/glass/1.jpg") right bottom no-repeat;
-    background-size: cover;
+    background-image: url("../img/17844.jpg");
+    /*background-size: cover;*/
+
+    -webkit-background-size: 100%;
+    background-size: 100%;
+
+    background-position: 50% 50%;
+
+    background-repeat: no-repeat;
+
+
+    /*background-attachment: fixed;*/
     z-index: 99;
     position: relative;
     height: 800px;
 }
 
-.headline {
-    position: relative;
-    top: 210px;
+.head {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 17%;
+    /*bottom: 28%;*/
+    width: 100%;
 }
+
+.headline {
+    display: inline;
+    ` position: relative;
+    /*top:90%;*/
+}
+
+.our-services {
+    position: absolute;
+    left: 100px;
+    top: 65%;
+    z-index: 10;
+    text-align: left;
+    display: inline;
+    width: 300px;
+    color: black;
+}
+
 .information_table {
     display: flex;
     justify-content: center;
@@ -165,6 +200,7 @@ html {
     position: absolute;
     bottom: 40px;
 }
+
 .data-table {
     padding: 7px 20px;
     background-color: #00000040;
@@ -191,11 +227,32 @@ html {
 
 .group > label {
     font-size: 12px;
+    color: white;
 }
 
-.f12 {
+.gold {
     font-size: 13px;
-    color: gold;
+    color: #FFC200;
+    cursor: pointer;
+}
+
+.silver {
+    font-size: 13px;
+    color: #ececec;
+    cursor: pointer;
+}
+.silver:hover {
+    color: #b8b8b8;
+}
+
+.bronze {
+    font-size: 13px;
+    color: #c14f1c;
+    cursor: pointer;
+}
+
+.bronze:hover {
+    color: #df561e;
 }
 
 .form-group {
@@ -238,14 +295,14 @@ html {
 }
 
 .data-table-button {
-    color: #fff;
+    color: gold;
     width: 192px;
     border: none;
     outline: 0;
     -webkit-border-radius: 3px;
     border-radius: 3px;
     font-family: inherit;
-    background: #0063d2;
+    background: #4c4c4c;
     height: 38px;
     margin-top: 5px;
     display: -webkit-box;
@@ -270,10 +327,8 @@ html {
 
 .data-table-button:hover {
     cursor: pointer;
-    /*-webkit-transition: .3s ease-in-out;*/
-    /*-o-transition: .3s ease-in-out;*/
-    /*transition: .3s ease-in-out;*/
-    background: #003a98;
+    background: gold;
+    color: black;
 }
 
 .trust {
@@ -384,9 +439,11 @@ html {
     top: 0;
     left: 0;
 }
+
 .input-color-red {
     color: red;
 }
+
 .input-color-green {
     color: green;
 }
@@ -398,6 +455,7 @@ html {
     top: 5px;
     right: 25px;
 }
+
 .logout a {
     color: white;
 }
@@ -407,9 +465,10 @@ html {
     height: 700px;
     background: url("../img/glass/gradient-purple-blue-linear-1920x1080-c2-9400d3-00ced1-a-345-f-14.jpg");
     background-size: cover;
-    background-position:center;
+    background-position: center;
     position: relative;
 }
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++FANCYBOX++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 
@@ -418,6 +477,7 @@ html {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
+
 .wave-decoration {
     position: absolute;
     top: 0;
@@ -427,17 +487,18 @@ html {
     left: 50%;
     margin: 0 0 0 -1000px;
 }
+
 /*enable-background: new 0 0 1998 109;*/
 svg:not(:root) {
     overflow: hidden;
 }
+
 .wave-decoration svg {
     vertical-align: bottom;
     margin: -2px -2px 0;
 }
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++ WAVE 2 ++++++++++++++++++++++++++++++++++++++++*/
-
-
 
 
 /*++++++++++++++++++++++++++ WAVE 1 +++++++++++++++++++++++++++++++++++*/
@@ -446,6 +507,7 @@ svg:not(:root) {
     top: auto;
     bottom: 0;
 }
+
 .wave-decoration {
     position: absolute;
     /*top: 0;*/
@@ -455,16 +517,20 @@ svg:not(:root) {
     right: 0;
     /*margin: 0 0 0 -1000px;*/
 }
+
 .wave-decoration.is-bottom svg {
     margin: 0 -2px -6px;
 }
+
 svg:not(:root) {
     overflow: hidden;
 }
+
 .wave-decoration svg {
     vertical-align: bottom;
     margin: -2px 0 0 0;
 }
+
 /*++++++++++++++++++++++++++++++++++WAVW 1+++++++++++++++++++++++++++++++++++++++*/
 
 
@@ -472,6 +538,7 @@ svg:not(:root) {
     position: relative;
     right: 0;
 }
+
 .null {
     width: 100%;
     height: 300px;

@@ -11,7 +11,7 @@ if (isset($_SESSION['display_name'])) {
 $dbHost = "localhost";
 $dbUser = "root";
 $dbPass = "";
-$dbName = "setareh";
+$dbName = "payload";
 $conn = mysqli_connect($dbHost, $dbUser, $dbPass, "$dbName");
 if (!$conn) {
     die('Could not Connect My Sql:' . $mysqli->error);
