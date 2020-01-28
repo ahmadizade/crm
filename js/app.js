@@ -12,6 +12,7 @@ function init() {
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 build(JSON.parse(xhr.response));
+                console.log(JSON.parse(xhr.response));
             }
         }
         xhr.send();
@@ -32,7 +33,7 @@ function init() {
 //         var user_name = document.getElementById("user_name").value;
 //         var family = document.getElementById("family").value;
 //         var email = document.getElementById("email").value;
-//         var phone = document.getElementById("phone").value;
+//         var mobile = document.getElementById("mobile").value;
 //         var save = document.getElementById("save");
 //         var $fancy_btn = document.getElementById("fancy_btn");
 //         var $fancy_result = document.getElementById('fancy_result');
@@ -51,10 +52,10 @@ function init() {
 //         }
 //
 //
-//         //http://localhost/crm/php/mysql.php?rate=bronze&user_name=&family=&email=hr.ahmadi689%40yahoo.com&phone=&date=&save=           url test pasokh
-//         var dataString = '&rate=' + rate + '&user_name=' + user_name + '&family=' + family + '&email=' + email + "&phone=" + phone + "&save=";
+//         //http://localhost/crm/php/mysql.php?rate=bronze&user_name=&family=&email=hr.ahmadi689%40yahoo.com&mobile=&date=&save=           url test pasokh
+//         var dataString = '&rate=' + rate + '&user_name=' + user_name + '&family=' + family + '&email=' + email + "&mobile=" + mobile + "&save=";
 // // Returns successful data submission message when the entered information is stored in database.
-//         if (rate == '' || user_name == '' || family == '' || email == '' || phone == '') {
+//         if (rate == '' || user_name == '' || family == '' || email == '' || mobile == '') {
 //             alert("لطفا تمام فیلد های داخل جدول را پر کنید");
 //         } else {
 // // AJAX code to submit form.

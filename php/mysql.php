@@ -4,10 +4,10 @@ require '../lib/func.php';
 session_start();
 if (isset($_SESSION['display_name'])) {
     $login_user = $_SESSION['login_user'];
+    $userid = $_SESSION['userid'];
+    echo ($login_user).'<br>';
+    echo ($userid).'<br>';
 }
-
-
-//echo ($login_user);
 $dbHost = "localhost";
 $dbUser = "root";
 $dbPass = "";
@@ -16,7 +16,7 @@ $conn = mysqli_connect($dbHost, $dbUser, $dbPass, "$dbName");
 if (!$conn) {
     die('Could not Connect My Sql:' . $mysqli->error);
 } else {
-//    echo "Successfull.<br><br>";
+    echo "Successfull connect to database<br><br>";
 }
 $mysqli = new mysqli($dbHost, $dbUser, $dbPass);
 if (!$mysqli->select_db($dbName)) {
@@ -30,7 +30,7 @@ if ($mysqli->connect_errno) {
 if (isset($_GET['show'])) {
     $sql = "SELECT  * FROM $login_user;";
     $result = $mysqli->query($sql);
-//    echo('Number Of Data = ' . $result->num_rows);
+    echo('Number Of Data = ' . $result->num_rows);
     print_h($result->fetch_all());
 }
 
@@ -60,11 +60,11 @@ if (isset($_GET['show'])) {
 if (isset($_GET['count'])) {          //sql_1
     if (isset($_GET['yesterday'])) {          //sql_2
         if (isset($_GET['today'])) {              //sql_3
-            $sql_1 = "SELECT  * FROM $login_user;";
+            $sql_1 = "SELECT  * FROM customers_log;";
             $result_1 = $mysqli->query($sql_1);                                   // نمایش تعداد ثبت شده های کلی
-            $sql_2 = "SELECT * FROM $login_user WHERE DATE(clock) = DATE(NOW()- INTERVAL 1 DAY);";   // نمایش تعداد ثبت شده های دیروز
+            $sql_2 = "SELECT * FROM customers_log WHERE DATE(clock) = DATE(NOW()- INTERVAL 1 DAY);";   // نمایش تعداد ثبت شده های دیروز
             $result_2 = $mysqli->query($sql_2);
-            $sql_3 = "select * FROM $login_user WHERE DATE (clock)=CURDATE();";       // نمایش تعداد ثبت شده های امروز
+            $sql_3 = "select * FROM customers_log WHERE DATE (clock)=CURDATE();";       // نمایش تعداد ثبت شده های امروز
             $result_3 = $mysqli->query($sql_3);
             $res = array(mysqli_num_rows($result_1), mysqli_num_rows($result_2), mysqli_num_rows($result_3));
             echo json_encode($res);
@@ -100,12 +100,12 @@ if (isset($_GET['save'])) {
             } else {
                 $email = $uemail;
 
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++PHONE VALIDATE 0912.......
-                $uphone = $_GET['phone'];
-                if (!preg_match("/^09[0-9]{9}$/", $uphone)) {
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++mobile VALIDATE 0912.......
+                $umobile = $_GET['mobile'];
+                if (!preg_match("/^09[0-9]{9}$/", $umobile)) {
                     echo json_encode(6000);
                 } else {
-                    $phone = $uphone;
+                    $mobile = $umobile;
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ RATE Do not needed
 
@@ -113,7 +113,7 @@ if (isset($_GET['save'])) {
                     //echo 'User-Rate :' . $rate . '<br>';
 
 
-                    if (!$mysqli->query("INSERT INTO $login_user (user_name,family,email,phone,rate) VALUES ('$user_name','$family','$email','$phone','$rate')")) {
+                    if (!$mysqli->query("INSERT INTO customers_log (name,family,email,mobile,rate) VALUES ('$user_name','$family','$email','$mobile','$rate')")) {
                         if ($mysqli->errno == 1062)
 //            echo ("  ایمیل وارد شده تکراری میباشد  <br>" . "Error Number = " . $mysqli->errno);
                             echo json_encode(1062);

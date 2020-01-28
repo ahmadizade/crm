@@ -2,11 +2,10 @@
 session_start ();
 if (isset( $_SESSION['login_user'] )) {
     $login_user = $_SESSION['login_user'];
+    $userid = $_SESSION['userid'];
 } else {
     $login_user = "";
 }
-
-
 //if ($_SESSION['login_user'] == '') {
 //    header ( "Location: http://localhost/crm/login.php" );
 //} else {
@@ -21,7 +20,7 @@ if (isset( $_SESSION['login_user'] )) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+<!--    <link rel="stylesheet" href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">-->
     <link rel="stylesheet" href="bs/css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/hover.css">
@@ -52,20 +51,20 @@ if (isset( $_SESSION['login_user'] )) {
                     </div>
                     <div class="container">
                         <div class="mini-header-center">
-                            <div class="small-nav-phone">
+                            <div class="small-nav-mobile">
                                 <div class="user_display mt-1">
                                     <?php
                                     if (!isset( $_SESSION['display_name'] )) {
 //                                    if ($_SESSION['display_name'] == "") {
                                         echo ('<a href="login.php" class="hvr-bob">' . "LOGIN" . '</a>');
                                     } else {
-                                        echo ('<a href="login.php">' . ucfirst ( $_SESSION['display_name'] ) . '</a>') . ' ' . "<i class='icon-user'></i>";
+                                        echo ('<a href="login.php">' . ( $_SESSION['display_name'] ) ." / ". $userid . '</a>') . ' ' . "<i class='icon-user'></i>";
                                     }
                                     ?>
                                 </div>
                             </div>
                             <ul class="small-nav">
-                                <li><a class="hvr-underline-from-center" id="phone_company" href="#" title="همکاران">
+                                <li><a class="hvr-underline-from-center" id="mobile_company" href="#" title="همکاران">
                                         داخلی ها</a></li>
                                 <li><a class="hvr-underline-from-center" href="#" title="اضافه کاری"> شیفت ها</a></li>
                                 <li><a class="hvr-underline-from-center" href="#" title="تقویم میلادی"> تقویم</a></li>
@@ -77,7 +76,6 @@ if (isset( $_SESSION['login_user'] )) {
                 </div>
                 <!--                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                 <div class="mini-header-toggle" id="mini-header-toggle">
-
                 </div>
                 <div class="big-header">
                     <div class="setareh-icon">
@@ -119,30 +117,30 @@ if (isset( $_SESSION['login_user'] )) {
 <!--</section>-->
 
 <section class="main">
-        <div class="head">
-<!--            <div class="our-services">-->
-<!--                <p class="animated zoomInRight delay-6s">Iran accommodation</p>-->
-<!--                <p class="animated zoomInRight delay-7s">Transfer Services</p>-->
-<!--                <p class="animated zoomInRight delay-8s">tailor-made tour</p>-->
-<!--                <p class="animated zoomInRight delay-9s">Visa</p>-->
-<!--            </div>-->
-            <div class="headline text-center mb-5">
-                <h5><b class="animated fadeInDown delay-4s">سامانه مدیریت پایگاه داده آژانس هواپیمایی ستاره ونک</b></h5>
-                <p class="animated fadeInDown delay-5s">هر جای ایران ، همه جای جهان</p>
-                <div class="animated fadeInDown delay-6s setareh-icon">
-                    <a href="#">
-                        <img src="img/logo.png">
-                    </a>
-                </div>
-                <p class="animated fadeInDown delay-7s">88880000</p>
-
-                <!--                <div id="sequence" class="animate-in">-->
-                <!--                    <div id="demo" class="info letter-container">-->
-                <!--                        <h2 class="animated fadeInUp">SepandParvaz Application</h2>-->
-                <!--                    </div>-->
-                <!--                </div>-->
+    <div class="head">
+        <!--            <div class="our-services">-->
+        <!--                <p class="animated zoomInRight delay-6s">Iran accommodation</p>-->
+        <!--                <p class="animated zoomInRight delay-7s">Transfer Services</p>-->
+        <!--                <p class="animated zoomInRight delay-8s">tailor-made tour</p>-->
+        <!--                <p class="animated zoomInRight delay-9s">Visa</p>-->
+        <!--            </div>-->
+        <div class="headline text-center mb-5">
+            <h5><b class="animated fadeInDown delay-4s">سامانه مدیریت پایگاه داده آژانس هواپیمایی ستاره ونک</b></h5>
+            <p class="animated fadeInDown delay-5s">هر جای ایران ، همه جای جهان</p>
+            <div class="animated fadeInDown delay-6s setareh-icon">
+                <a href="#">
+                    <img src="img/logo.png">
+                </a>
             </div>
+            <p class="animated fadeInDown delay-7s">88880000</p>
+
+            <!--                <div id="sequence" class="animate-in">-->
+            <!--                    <div id="demo" class="info letter-container">-->
+            <!--                        <h2 class="animated fadeInUp">SepandParvaz Application</h2>-->
+            <!--                    </div>-->
+            <!--                </div>-->
         </div>
+    </div>
 
     <div class="information_table">
         <!--        <div class="container">-->
@@ -154,18 +152,18 @@ if (isset( $_SESSION['login_user'] )) {
                     <div class="group-row">
                         <input id="rate0" class="check-object" type="radio" title="کاربر طلایی" name="rate"
                                value="gold">
-                        <label for="rate0" class="hvr-ripple-in form-check-label font-weight-bold gold mr-2">طلایی</label>
+                        <label for="rate0" class="form-check-label font-weight-bold gold mr-2">طلایی</label>
                     </div>
                     <div class="group-row">
                         <input id="rate1" class="check-object" type="radio" title="کاربر نقره ای"
                                name="rate"
                                value="silver">
-                        <label for="rate1" class="hvr-ripple-in form-check-label font-weight-bold silver mr-2">نقره ای</label>
+                        <label for="rate1" class="form-check-label font-weight-bold silver mr-2">نقره ای</label>
                     </div>
                     <div class="group-row">
                         <input id="rate2" class="check-object" type="radio" title="کاربر برنزی" name="rate"
                                value="bronze">
-                        <label for="rate2" class="hvr-ripple-in form-check-label font-weight-bold bronze mr-2">برنز</label>
+                        <label for="rate2" class="form-check-label font-weight-bold bronze mr-2">برنز</label>
                     </div>
                 </div>
                 <div class="row p15 form-group">
@@ -187,9 +185,9 @@ if (isset( $_SESSION['login_user'] )) {
                 </div>
                 <div class="row p15 form-group d-flex align-items-center">
                     <div class="group">
-                        <label class="font-weight-bold" for="phone">شماره تماس</label>
-                        <input class="input" title="شماره تماس" type="text" name="phone" id="phone"
-                               placeholder="phone number">
+                        <label class="font-weight-bold" for="mobile">شماره تماس</label>
+                        <input class="input" title="شماره تماس" type="text" name="mobile" id="mobile"
+                               placeholder="mobile number">
                     </div>
                     <!--                            <div class="group">-->
                     <!--                                <label class="font-weight-bold" for="date">تاریخ</label>-->
@@ -277,10 +275,10 @@ if (isset( $_SESSION['login_user'] )) {
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/jqueryapp.js"></script>
 <script src="./js/app.js"></script>
-<script src="cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script src="./js/jquery.lettering.js"></script>
-<script src="./js/sequence.js"></script>
-<script src="./js/sequencejs-options.sliding-horizontal-parallax.js"></script>
-<script src="./aos-master/dist/aos.css"</script>
+<!--<script src="cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>-->
+<!--<script src="./js/jquery.lettering.js"></script>-->
+    <!--<script src="./js/sequence.js"></script>-->
+    <!--<script src="./js/sequencejs-options.sliding-horizontal-parallax.js"></script>-->
+<!--<script src="./aos-master/dist/aos.css"</script>-->
 </body>
 </html>

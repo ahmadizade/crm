@@ -28,7 +28,7 @@ $message = "";
 if (count ( $_POST ) > 0) {
     $conn = mysqli_connect ( "localhost", "root", "", "payload" );
     $result = mysqli_query ( $conn, "SELECT * FROM users WHERE username='" . $_POST["userName"] . "' and password = '" . $_POST["password"] . "'" );
-    //print_r ($result);
+//    print_r ($result);
     $count = mysqli_num_rows ( $result );
     if ($count == 0) {
         $message = "نام کاربری و یا رمز عبور نامعتبر است";
@@ -42,13 +42,20 @@ if (count ( $_POST ) > 0) {
 //ذخیره یوزر در سشن
         //print_r ($_SESSION['login_user']);
         $sql = "SELECT displayname FROM `users` WHERE username='$login_user';";
+        $sql2 = "SELECT userid FROM `users` WHERE username='$login_user';";
         $result = $mysqli->query ( $sql );
+        $result2 = $mysqli->query ( $sql2 );
         $display_name = $result->fetch_all ();
+        $userid = $result2->fetch_all ();
 //print_h ($display_name);
+//print_h ($userid);
         $display_name = $display_name[0][0];
-//echo($display_name);
+        $userid = $userid[0][0];
+//        echo($display_name).'<br>';
+//        echo($userid);
         $_SESSION['display_name'] = $display_name;                      //ساخت سشن برای اعلام یوزر به صفحه ها
-        header ( "Location: http://10.0.23.95/crm/index.php" );
+        $_SESSION['userid'] = $userid;                      //ساخت سشن برای اعلام یوزر آی دی به صفحه ها
+        header ( "Location: http://localhost/crm/index.php" );
     }
 }
 ?>
