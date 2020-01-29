@@ -5,8 +5,10 @@ session_start();
 if (isset($_SESSION['display_name'])) {
     $login_user = $_SESSION['login_user'];
     $userid = $_SESSION['userid'];
-    echo ($login_user).'<br>';
-    echo ($userid).'<br>';
+    $Colleague = $userid;
+//    echo ('Username = ' . $login_user) . '<br>';
+//    echo ('Userid = ' . $userid) . '<br>';
+//    echo ('Colleague = ' . $Colleague) . '<br>';
 }
 $dbHost = "localhost";
 $dbUser = "root";
@@ -16,7 +18,7 @@ $conn = mysqli_connect($dbHost, $dbUser, $dbPass, "$dbName");
 if (!$conn) {
     die('Could not Connect My Sql:' . $mysqli->error);
 } else {
-    echo "Successfull connect to database<br><br>";
+//    echo "Successfull connect to database<br><br>";
 }
 $mysqli = new mysqli($dbHost, $dbUser, $dbPass);
 if (!$mysqli->select_db($dbName)) {
@@ -60,11 +62,14 @@ if (isset($_GET['show'])) {
 if (isset($_GET['count'])) {          //sql_1
     if (isset($_GET['yesterday'])) {          //sql_2
         if (isset($_GET['today'])) {              //sql_3
-            $sql_1 = "SELECT  * FROM customers_log;";
+//            $sql_1 = "SELECT  * FROM customers_log;";
+            $sql_1 = "SELECT * FROM `customers_log` WHERE colleague=$userid;";
             $result_1 = $mysqli->query($sql_1);                                   // نمایش تعداد ثبت شده های کلی
-            $sql_2 = "SELECT * FROM customers_log WHERE DATE(clock) = DATE(NOW()- INTERVAL 1 DAY);";   // نمایش تعداد ثبت شده های دیروز
+//            $sql_2 = "SELECT * FROM customers_log  WHERE DATE(clock) = DATE(NOW()- INTERVAL 1 DAY);";   // نمایش تعداد ثبت شده های دیروز
+            $sql_2 = "SELECT `Colleague`=$userid FROM customers_log WHERE DATE(NOW()- INTERVAL 1 DAY)";   // نمایش تعداد ثبت شده های دیروز
             $result_2 = $mysqli->query($sql_2);
-            $sql_3 = "select * FROM customers_log WHERE DATE (clock)=CURDATE();";       // نمایش تعداد ثبت شده های امروز
+//            $sql_3 = "select * FROM customers_log WHERE DATE (clock)=CURDATE();";       // نمایش تعداد ثبت شده های امروز
+            $sql_3 = "select `Colleague`=$userid FROM customers_log WHERE DATE (clock)=CURDATE();";       // نمایش تعداد ثبت شده های امروز
             $result_3 = $mysqli->query($sql_3);
             $res = array(mysqli_num_rows($result_1), mysqli_num_rows($result_2), mysqli_num_rows($result_3));
             echo json_encode($res);
@@ -110,15 +115,15 @@ if (isset($_GET['save'])) {
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ RATE Do not needed
 
                     $rate = $_GET['rate'];
-                    //echo 'User-Rate :' . $rate . '<br>';
+//                    echo 'User-Rate :' . $rate . '<br>';
+//                    echo ('End of Colleague = ' . $Colleague) . "<br>";
 
-
-                    if (!$mysqli->query("INSERT INTO customers_log (name,family,email,mobile,rate) VALUES ('$user_name','$family','$email','$mobile','$rate')")) {
+                    if (!$mysqli->query("INSERT INTO customers_log (user_name,family,email,mobile,rate,Colleague) VALUES ('$user_name','$family','$email','$mobile','$rate','$Colleague')")) {
                         if ($mysqli->errno == 1062)
-//            echo ("  ایمیل وارد شده تکراری میباشد  <br>" . "Error Number = " . $mysqli->errno);
+//                            echo("  ایمیل وارد شده تکراری میباشد  " . '<br>' . "Error Number = " . $mysqli->errno);
                             echo json_encode(1062);
                     } else if ($mysqli->errno == 0) {
-//        echo "اطلاعات با موفقیت ارسال شد";
+//                        echo "اطلاعات با موفقیت ارسال شد";
                         echo json_encode(1000);
                     }
                 }

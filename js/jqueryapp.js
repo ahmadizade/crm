@@ -15,17 +15,18 @@ $(document).ready(function () {
         var fancy_back = $('#fancy_back');
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Check or not check in jquery
         if ($('#rate0').is(':checked')) {
-            var rate = "GOLD";
+            var rate = "1";
             window.console && console.log("rate =", rate);
         } else if ($('#rate1').is(':checked')) {
-            var rate = "SILVER";
+            var rate = "2";
             window.console && console.log("rate =", rate);
         } else if ($('#rate2').is(':checked')) {
-            var rate = "BRONZE";
+            var rate = "3";
             window.console && console.log("rate =", rate);
         }
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Check or not check in jquery
-        //http://localhost/crm/php/mysql.php?rate=bronze&user_name=&family=&email=hr.ahmadi689%40yahoo.com&mobile=&date=&save=           url test pasokh
+        //http://localhost/crm/php/mysql.php?rate=&user_name=&family=&email=&mobile=&save=           url test pasokh
+        //http://localhost/crm/php/mysql.php?rate=2&user_name=hamidreza&family=kamrava&email=hr.ahmadi6819%40yahoo.com&mobile=09121112233&save=           url test pasokh
         var dataString = '&rate=' + rate + '&user_name=' + user_name + '&family=' + family + '&email=' + email + "&mobile=" + mobile + "&save=";
 // Returns successful data submission message when the entered information is stored in database.
         if (rate == '' || user_name == '' || family == '' || email == '' || mobile == '') {
@@ -67,7 +68,7 @@ $(document).ready(function () {
                         $fancy_btn.html("<button type='button' class='border-color:red btn btn-warning'>تغییر ایمیل</button>");
                         $('#email').addClass('input-color-red');
                     } else {
-                        $fancy_result.html("<h4>اطلاعات به درستی ذخیره نشد! لطفا دوباره تلاش کنید!</h4>");
+                        $fancy_result.html("<h4>اطلاعات به درستی ذخیره نشد! لطفا دوباره تلاش کنید!</h4><p>احتمالا امتیاز نداده اید!</p>");
                         $fancy_btn.html("<button type='button' class='border-color:red btn btn-danger'>بازگشت</button>");
                     }
                 }

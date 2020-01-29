@@ -151,18 +151,18 @@ if (isset( $_SESSION['login_user'] )) {
                 <div class="row p15 form-group mb-1">
                     <div class="group-row">
                         <input id="rate0" class="check-object" type="radio" title="کاربر طلایی" name="rate"
-                               value="gold">
+                               value="1">
                         <label for="rate0" class="form-check-label font-weight-bold gold mr-2">طلایی</label>
                     </div>
                     <div class="group-row">
                         <input id="rate1" class="check-object" type="radio" title="کاربر نقره ای"
                                name="rate"
-                               value="silver">
+                               value="2">
                         <label for="rate1" class="form-check-label font-weight-bold silver mr-2">نقره ای</label>
                     </div>
                     <div class="group-row">
                         <input id="rate2" class="check-object" type="radio" title="کاربر برنزی" name="rate"
-                               value="bronze">
+                               value="3">
                         <label for="rate2" class="form-check-label font-weight-bold bronze mr-2">برنز</label>
                     </div>
                 </div>

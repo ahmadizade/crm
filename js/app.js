@@ -4,7 +4,7 @@ var $deput = document.getElementById('deput');
 var $emput = document.getElementById('emput');
 
 function init() {
-    loadjson('GET', "http://10.0.23.95/crm/php/mysql.php?count&yesterday&today");
+    loadjson('GET', "http://localhost/crm/php/mysql.php?count&yesterday&today");
 
     function loadjson(m, u) {
         xhr = new XMLHttpRequest;
