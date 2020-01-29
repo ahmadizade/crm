@@ -60,16 +60,16 @@ if (isset($_GET['show'])) {
 
 
 if (isset($_GET['count'])) {          //sql_1
-    if (isset($_GET['yesterday'])) {          //sql_2
-        if (isset($_GET['today'])) {              //sql_3
+    if (isset($_GET['yesterday'])) {            //sql_2
+        if (isset($_GET['today'])) {                    //sql_3
 //            $sql_1 = "SELECT  * FROM customers_log;";
-            $sql_1 = "SELECT * FROM `customers_log` WHERE colleague=$userid;";
-            $result_1 = $mysqli->query($sql_1);                                   // نمایش تعداد ثبت شده های کلی
+            $sql_1 = "SELECT * FROM `customers_log` WHERE colleague=$userid;"; // نمایش تعداد ثبت شده های کلی
+            $result_1 = $mysqli->query($sql_1);
 //            $sql_2 = "SELECT * FROM customers_log  WHERE DATE(clock) = DATE(NOW()- INTERVAL 1 DAY);";   // نمایش تعداد ثبت شده های دیروز
-            $sql_2 = "SELECT `Colleague`=$userid FROM customers_log WHERE DATE(NOW()- INTERVAL 1 DAY)";   // نمایش تعداد ثبت شده های دیروز
+            $sql_2 = "SELECT * FROM `customers_log` WHERE `Colleague` = 3 AND DATE(NOW()- INTERVAL 1 DAY);";   // نمایش تعداد ثبت شده های دیروز
             $result_2 = $mysqli->query($sql_2);
 //            $sql_3 = "select * FROM customers_log WHERE DATE (clock)=CURDATE();";       // نمایش تعداد ثبت شده های امروز
-            $sql_3 = "select `Colleague`=$userid FROM customers_log WHERE DATE (clock)=CURDATE();";       // نمایش تعداد ثبت شده های امروز
+            $sql_3 = "SELECT * FROM `customers_log` WHERE `Colleague` = 3 AND DATE (clock)=CURDATE();";       // نمایش تعداد ثبت شده های امروز
             $result_3 = $mysqli->query($sql_3);
             $res = array(mysqli_num_rows($result_1), mysqli_num_rows($result_2), mysqli_num_rows($result_3));
             echo json_encode($res);
