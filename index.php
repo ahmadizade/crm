@@ -20,12 +20,12 @@ if (isset( $_SESSION['login_user'] )) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-<!--    <link rel="stylesheet" href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">-->
+    <!--    <link rel="stylesheet" href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">-->
     <link rel="stylesheet" href="bs/css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/hover.css">
-    <link rel="stylesheet" href="./aos-master/dist/aos.css">
-    <link rel="stylesheet" href="./css/sequencejs.css">
+    <!--    <link rel="stylesheet" href="./aos-master/dist/aos.css">-->
+    <!--    <link rel="stylesheet" href="./css/sequencejs.css">-->
     <link href="fonts/stylesheet.css" rel="stylesheet">
     <link href="./css/fonts.css" rel="stylesheet">
     <link href="./css/animate.css" rel="stylesheet">
@@ -58,7 +58,7 @@ if (isset( $_SESSION['login_user'] )) {
 //                                    if ($_SESSION['display_name'] == "") {
                                         echo ('<a href="login.php" class="hvr-bob">' . "LOGIN" . '</a>');
                                     } else {
-                                        echo ('<a href="login.php">' . ( $_SESSION['display_name'] ) ." / ". $userid . '</a>') . ' ' . "<i class='icon-user'></i>";
+                                        echo ('<a href="login.php">' . ($_SESSION['display_name']) . " / " . $userid . '</a>') . ' ' . "<i class='icon-user'></i>";
                                     }
                                     ?>
                                 </div>
@@ -270,6 +270,16 @@ if (isset( $_SESSION['login_user'] )) {
 
 <section id="cat" class="cat">
 
+    <div class="search_platform">
+        <form action="./php/search.php" method="GET">
+            <input title="بر اساس نام خانوادگی" type="text" name="query" placeholder="Enter Family for search...">
+            <input type="submit" value="Search"/>
+        </form>
+    </div>
+
+
+
+
 
 </section>
 <script src="js/jquery-3.4.1.js"></script>
@@ -277,8 +287,8 @@ if (isset( $_SESSION['login_user'] )) {
 <script src="./js/app.js"></script>
 <!--<script src="cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>-->
 <!--<script src="./js/jquery.lettering.js"></script>-->
-    <!--<script src="./js/sequence.js"></script>-->
-    <!--<script src="./js/sequencejs-options.sliding-horizontal-parallax.js"></script>-->
+<!--<script src="./js/sequence.js"></script>-->
+<!--<script src="./js/sequencejs-options.sliding-horizontal-parallax.js"></script>-->
 <!--<script src="./aos-master/dist/aos.css"</script>-->
 </body>
 </html>

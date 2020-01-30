@@ -544,6 +544,14 @@ svg:not(:root) {
     height: 300px;
 }
 
+.search_platform {
+    position: relative;
+    top: 200px;
+    right: 500px;
+    width: 400px;
+    height: 220px;
+    background-color: #0c5460;
+}
 
 
 
