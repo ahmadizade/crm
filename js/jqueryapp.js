@@ -2,6 +2,16 @@ $(document).ready(function () {
     $("#mobile_company").click(function () {
         $("#mini-header-toggle").fadeToggle('slow');
     });
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SELECT PROFILE INDEX>PHP+++++++++++
+
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SELECT PROFILE INDEX>PHP+++++++++++
+
+
+
+
+
     var submit = $('#submit');
     submit.click(function () {
         var fancybox = $("#fancybox");
