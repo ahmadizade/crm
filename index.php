@@ -29,7 +29,6 @@ if (isset( $_SESSION['login_user'] )) {
     <link href="fonts/stylesheet.css" rel="stylesheet">
     <link href="./css/fonts.css" rel="stylesheet">
     <link href="./css/animate.css" rel="stylesheet">
-
 </head>
 <body>
 <section class="header">
@@ -56,26 +55,29 @@ if (isset( $_SESSION['login_user'] )) {
                     <div class="container">
                         <div class="mini-header-center">
                             <div class="small-nav-mobile">
-                                <button class="btn btn-primary" id="profile_collapse">
+                                <i style="color: orange;" class='icon-user'></i>
+                                <a class="profile-btn" id="profile_collapse">
                                     Profile
-                                </button>
+                                </a>
                                 <div id="profile_collapse_card" class="profile_collapse_card">
                                     <div class="cart">
                                         <div class="cart-top">
-                                            <button id="cart-close" type="button" class="close" aria-label="Close">
+                                            <button id="cart-close" type="button" class="close mt-3" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="cart-center">
-                                            <i class='icon-user'></i>
-                                            <p>Profile Name</p
+<!--                                            <i class='icon-user'></i>-->
+<!--                                            <p>Profile Name</p>-->
                                             <?php
                                             if (!isset( $_SESSION['display_name'] )) {
-                                                echo ("<a href='login.php' class='hvr-bob'>" . 'LOGIN' . "</a>");
+                                                echo ('<p>' . '<a href="login.php">' . "LOGIN" . '</a>' . '</p>');
                                             } else {
 //                                                echo ('<p>' . '<a class="profile-result" href="login.php">' . ($_SESSION['display_name']) . " / " . $userid . '</a>' . '</p>');
-                                                echo ('<p>' . '<a class="profile-result" href="login.php">' . ($_SESSION['display_name']));
-                                                echo ('<p>' . "شناسه :" . " $userid" . '</p>');
+                                                echo ('<i style="color: orange;" class="icon-user">' . '</i>');
+                                                echo ('<p>' . "Profile Name" . '</p>');
+                                                echo ('<p>' . '<a class="profile-result" href="login.php">' . ucfirst (($_SESSION['display_name']) ) . '</a>' . '</p>');
+                                                echo ('<p style="margin-top: 10px">' . "شناسه :" . " $userid" . '</p>');
                                             }
                                             ?>
                                         </div>
