@@ -2,14 +2,17 @@ $(document).ready(function () {
     $("#mobile_company").click(function () {
         $("#mini-header-toggle").fadeToggle('slow');
     });
+    $("#profile_collapse").click(function () {
+        $("#profile_collapse_card").fadeToggle('slow');
+    });
+    $("#cart-close").click(function () {
+        $("#profile_collapse_card").fadeOut('slow');
+    });
 
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SELECT PROFILE INDEX>PHP+++++++++++
 
 
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SELECT PROFILE INDEX>PHP+++++++++++
-
-
-
 
 
     var submit = $('#submit');

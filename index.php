@@ -1,6 +1,6 @@
 <?php
-session_start();
-if (isset($_SESSION['login_user'])) {
+session_start ();
+if (isset( $_SESSION['login_user'] )) {
     $login_user = $_SESSION['login_user'];
     $userid = $_SESSION['userid'];
 } else {
@@ -37,56 +37,65 @@ if (isset($_SESSION['login_user'])) {
         <div class="col-md-12">
             <div class="site-header">
                 <div class="mini-header">
-                    <div class="logout">
-<!--                        --><?php
-//                        if (isset($_SESSION['display_name'])) {
-////                        if (!$_SESSION['display_name'] == "") {
-//                            echo('<a href="?&logout" class="hvr-buzz-out text-decoration-none">' . "LOGOUT" . '</a>');
-//                        }
-//                        if (isset($_GET['logout'])) {
-//                            session_destroy();
-//                            unset($_SESSION['login_user']);
-//                            header('location:login.php');
-//                        }
-//                        ?>
-                    </div>
+                    <!--                    <div class="logout">-->
+
+                    <!--                        --><?php
+                    //                        if (isset( $_SESSION['display_name'] )) {
+                    //                            if (!$_SESSION['display_name'] == "") {
+                    //                                echo ('<a href="?&logout" class="hvr-buzz-out text-decoration-none">' . "LOGOUT" . '</a>');
+                    //                            }
+                    //                            if (isset( $_GET['logout'] )) {
+                    //                                session_destroy ();
+                    //                                unset( $_SESSION['login_user'] );
+                    //                                header ( 'location:login.php' );
+                    //                            }
+                    //                        }
+                    //                        ?>
+
+                    <!--                    </div>-->
                     <div class="container">
                         <div class="mini-header-center">
                             <div class="small-nav-mobile">
-                                <div class="user_display mt-1">
-                                    <select class="old-select">
-                                        <option value="html">   <?php
-                                            if (!isset($_SESSION['display_name'])) {
-//                                    if ($_SESSION['display_name'] == "") {
-                                                echo('<a href="login.php" class="hvr-bob">' . "LOGIN" . '</a>');
+                                <button class="btn btn-primary" id="profile_collapse">
+                                    Profile
+                                </button>
+                                <div id="profile_collapse_card" class="profile_collapse_card">
+                                    <div class="cart">
+                                        <div class="cart-top">
+                                            <button id="cart-close" type="button" class="close" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="cart-center">
+                                            <i class='icon-user'></i>
+                                            <p>Profile Name</p
+                                            <?php
+                                            if (!isset( $_SESSION['display_name'] )) {
+                                                echo ("<a href='login.php' class='hvr-bob'>" . 'LOGIN' . "</a>");
                                             } else {
-                                                echo ('<a href="login.php">' . ($_SESSION['display_name']) . " / " . $userid . '</a>') . ' ' . "<i class='icon-user'></i>";
+//                                                echo ('<p>' . '<a class="profile-result" href="login.php">' . ($_SESSION['display_name']) . " / " . $userid . '</a>' . '</p>');
+                                                echo ('<p>' . '<a class="profile-result" href="login.php">' . ($_SESSION['display_name']));
+                                                echo ('<p>' . "شناسه :" . " $userid" . '</p>');
                                             }
-                                            ?></option>
-                                        <option value="css"><?php
-                                            if (isset($_SESSION['display_name'])) {
-//                        if (!$_SESSION['display_name'] == "") {
-                                                echo('<a href="?&logout" class="hvr-buzz-out text-decoration-none">' . "LOGOUT" . '</a>');
-                                            }
-                                            if (isset($_GET['logout'])) {
-                                                session_destroy();
-                                                unset($_SESSION['login_user']);
-                                                header('location:login.php');
-                                            }
-                                            ?></option>
-                                        <option value="sass">SASS</option>
-                                        <option value="javascript">Javascript</option>
-                                        <option value="jquery" selected>jQuery</option>
-                                    </select>
-
-
-
-
-
-
-
-
-
+                                            ?>
+                                        </div>
+                                        <div class="cart-down">
+                                            <div class="logout">
+                                                <?php
+                                                if (isset( $_SESSION['display_name'] )) {
+                                                    if (!$_SESSION['display_name'] == "") {
+                                                        echo ('<a href="?&logout" class="hvr-buzz-out text-decoration-none">' . "LOGOUT" . '</a>');
+                                                    }
+                                                    if (isset( $_GET['logout'] )) {
+                                                        session_destroy ();
+                                                        unset( $_SESSION['login_user'] );
+                                                        header ( 'location:login.php' );
+                                                    }
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <ul class="small-nav">
@@ -100,7 +109,6 @@ if (isset($_SESSION['login_user'])) {
                         </div>
                     </div>
                 </div>
-                <!--                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                 <div class="mini-header-toggle" id="mini-header-toggle">
                 </div>
                 <div class="big-header">
@@ -300,7 +308,8 @@ if (isset($_SESSION['login_user'])) {
         <div class="form-group mt-2 text-center">
             <form action="./php/search.php" method="GET">
                 <p>جستجو بر اساس نام و نام خانوادگی</p>
-                <input class="form-control" title="بر اساس نام خانوادگی" type="text" name="query" placeholder="Enter Family for search">
+                <input class="form-control" title="بر اساس نام خانوادگی" type="text" name="query"
+                       placeholder="Enter Family for search">
                 <button class="btn btn-warning mt-2" type="submit" value="Search">Search</button>
         </div>
         </form>
@@ -309,6 +318,7 @@ if (isset($_SESSION['login_user'])) {
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/jqueryapp.js"></script>
 <script src="./js/app.js"></script>
+<script src="./bs/js/bootstrap.js"></script>
 
 <!--<script src="cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>-->
 <!--<script src="./js/jquery.lettering.js"></script>-->
