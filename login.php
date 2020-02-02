@@ -97,7 +97,7 @@ if (count ( $_POST ) > 0) {
 <div class="form_platform">
     <div class="form-container">
         <div class="form-container-header">
-            <p id="text1" class="animated fadeInDown delay-2s">آژانس هواپیمایی ستاره ونک</p>
+            <p id="text1" class="animated fadeInDown delay-2s f-12">آژانس هواپیمایی ستاره ونک</p>
             <p id="text2" class="animated fadeInDown delay-3s f-12">سامانه مدیریت پایگاه داده</p>
 
         </div>
@@ -115,7 +115,7 @@ if (count ( $_POST ) > 0) {
         </div>
 
         <div class="form-container-footer">
-            <p id="text3" class="animated fadeInDown delay-4s">هر جای ایران ، همه جای جهان</p>
+            <p id="text3" class="animated fadeInDown delay-4s f-12">هر جای ایران ، همه جای جهان</p>
         </div>
     </div>
 </div>

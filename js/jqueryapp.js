@@ -9,6 +9,45 @@ $(document).ready(function () {
         $("#profile_collapse_card").fadeOut('slow');
     });
 
+
+
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++According
+
+    // $(".accordion_header").click(function () {
+    //     $(this).next().slideToggle({
+    //         duration: 600,
+    //     });
+    // });
+
+
+    $(".accordion_header1").click("slow", function (e) {
+        e.preventDefault();
+        var $this = $(this);
+
+        if ($this.next().hasClass('show')) {
+            $this.next().removeClass('show');
+            // $this.next().slideUp("slow");
+        } else {
+            $this.parent().parent().find('.accordion_footer1').removeClass('show');
+            $this.next().addClass('show');
+        }
+    });
+
+    $(".accordion_header2").click("slow", function (e) {
+        e.preventDefault();
+        var $this = $(this);
+
+        if ($this.next().hasClass('show')) {
+            $this.next().removeClass('show');
+            // $this.next().slideUp("slow");
+        } else {
+            $this.parent().parent().find('.accordion_footer2').removeClass('show');
+            $this.next().addClass('show');
+        }
+    });
+
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++According
+
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SELECT PROFILE INDEX>PHP+++++++++++
 
 

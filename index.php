@@ -29,6 +29,9 @@ if (isset( $_SESSION['login_user'] )) {
     <link href="fonts/stylesheet.css" rel="stylesheet">
     <link href="./css/fonts.css" rel="stylesheet">
     <link href="./css/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+
 </head>
 <body>
 <section class="header">
@@ -67,8 +70,8 @@ if (isset( $_SESSION['login_user'] )) {
                                             </button>
                                         </div>
                                         <div class="cart-center">
-<!--                                            <i class='icon-user'></i>-->
-<!--                                            <p>Profile Name</p>-->
+                                            <!--                                            <i class='icon-user'></i>-->
+                                            <!--                                            <p>Profile Name</p>-->
                                             <?php
                                             if (!isset( $_SESSION['display_name'] )) {
                                                 echo ('<p>' . '<a href="login.php">' . "LOGIN" . '</a>' . '</p>');
@@ -76,7 +79,7 @@ if (isset( $_SESSION['login_user'] )) {
 //                                                echo ('<p>' . '<a class="profile-result" href="login.php">' . ($_SESSION['display_name']) . " / " . $userid . '</a>' . '</p>');
                                                 echo ('<i style="color: orange;" class="icon-user">' . '</i>');
                                                 echo ('<p>' . "Profile Name" . '</p>');
-                                                echo ('<p>' . '<a class="profile-result" href="login.php">' . ucfirst (($_SESSION['display_name']) ) . '</a>' . '</p>');
+                                                echo ('<p>' . '<a class="profile-result" href="login.php">' . ucfirst ( ($_SESSION['display_name']) ) . '</a>' . '</p>');
                                                 echo ('<p style="margin-top: 10px">' . "شناسه :" . " $userid" . '</p>');
                                             }
                                             ?>
@@ -305,18 +308,80 @@ if (isset( $_SESSION['login_user'] )) {
 </section>
 
 <section id="cat" class="cat">
+    <div class="cat-flex">
+            <div class="accordion1">
 
-    <div class="search_platform mb-5">
-        <div class="form-group mt-2 text-center">
-            <form action="./php/search.php" method="GET">
-                <p>جستجو بر اساس نام و نام خانوادگی</p>
-                <input class="form-control" title="بر اساس نام خانوادگی" type="text" name="query"
-                       placeholder="Enter Family for search">
-                <button class="btn btn-warning mt-2" type="submit" value="Search">Search</button>
+
+                <div class="accordion_header1">
+                    <p>Accounting Server A</p>
+                </div>
+                <div class="accordion_footer1 show">
+                    <p>Accounting Server : OK</p>
+                    <p>Transmited : 83,Mbps</p>
+                    <p>Ping : 8Ms</p>
+                </div>
+
+                <div class="accordion_header1">
+                    <p>Accounting Server B</p>
+                </div>
+                <div class="accordion_footer1">
+                    <p>Accounting Server : OK</p>
+                    <p>Transmited : 69,Mbps</p>
+                    <p>Ping : 8Ms</p>
+                </div>
+
+                <div class="accordion_header1">
+                    <p>Accounting Server Airarabia</p>
+                </div>
+                <div class="accordion_footer1">
+                    <p>Accounting Server : OK</p>
+                    <p>Transmited : 75,Mbps</p>
+                    <p>Ping : 4Ms</p>
+                </div>
+
+
+            </div>
+            <div class="search_platform mb-5">
+                <div class="form-group mt-2 text-center">
+                    <form action="./php/search.php" method="GET">
+                        <p>جستجو بر اساس نام و نام خانوادگی</p>
+                        <input class="form-control" title="بر اساس نام خانوادگی" type="text" name="query"
+                               placeholder="Enter Family for search">
+                        <button class="btn btn-warning mt-2" type="submit" value="Search">Search</button>
+                </div>
+                </form>
+            </div>
+            <div class="accordion2">
+
+
+                <div class="accordion_header2">
+                    <p>Arman Server</p>
+                </div>
+                <div class="accordion_footer2 show">
+                    <p>Accounting Server : OK</p>
+                </div>
+
+                <div class="accordion_header2">
+                    <p>Hamidreza Ahmadizadeh</p>
+                </div>
+                <div class="accordion_footer2">
+                    <p>Accounting Server : OK</p>
+                </div>
+
+                <div class="accordion_header2">
+                    <p>Hamidreza Ahmadizadeh</p>
+                </div>
+                <div class="accordion_footer2">
+                    <p>Accounting Server : OK</p>
+                </div>
+
+
+            </div>
         </div>
-        </form>
     </div>
 </section>
+
+
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/jqueryapp.js"></script>
 <script src="./js/app.js"></script>
