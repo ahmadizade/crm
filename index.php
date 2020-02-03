@@ -108,7 +108,7 @@ if (isset( $_SESSION['login_user'] )) {
                                         داخلی ها</a></li>
                                 <li><a class="hvr-underline-from-center" href="#" title="اضافه کاری"> شیفت ها</a></li>
                                 <li><a class="hvr-underline-from-center" href="#" title="تقویم میلادی"> تقویم</a></li>
-                                <li><a class="hvr-underline-from-center" href="#" title="تماس با مدیریت"> مدیریت</a>
+                                <li><a class="hvr-underline-from-center" href="./php/manager.php?manager_count" title="تماس با مدیریت"> مدیریت</a>
                                 </li>
                             </ul>
                         </div>
