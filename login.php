@@ -55,14 +55,16 @@ if (count ( $_POST ) > 0) {
 //        echo($userid);
         $_SESSION['display_name'] = $display_name;                      //ساخت سشن برای اعلام یوزر به صفحه ها
         $_SESSION['userid'] = $userid;                      //ساخت سشن برای اعلام یوزر آی دی به صفحه ها
+        $cookie_data = array($login_user, $display_name, $userid);
+
         if( isset($_POST['rememberme']) ){
             // Set cookie variables
             $days = 30;
 //            $value = encryptCookie($userid);
-            $value = $login_user;
-            setcookie ("rememberme",$value,time()+ ($days * 24 * 60 * 60 * 1000));
+            $value = $cookie_data;
+            setcookie ("rememberme",json_encode($value),time()+ ($days * 24 * 60 * 60 * 1000));
         }
-        header ( "Location: http://10.0.23.95/crm/index.php" );
+        header ( "Location: http://localhost/crm/index.php" );
     }
 }
 ?>
@@ -115,7 +117,7 @@ if (count ( $_POST ) > 0) {
                     <input id="login-input" type="text" name="userName" placeholder="User Name" class="login-input">
                     <input id="login-password" type="password" name="password" placeholder="Password"
                            class="login-input">
-                    <input class="text-white" type="checkbox" name="rememberme" value="1" />&nbsp;Remember Me
+                    <input class="text-white" type="checkbox" name="rememberme">&nbsp;Remember Me
                     <input type="submit" name="submit" value="Submit" class="btnSubmit">
                 </div>
             </form>

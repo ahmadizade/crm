@@ -1,15 +1,26 @@
 <?php
+require "./php/common.php";
 session_start ();
 if (isset( $_SESSION['login_user'] )) {
     $login_user = $_SESSION['login_user'];
     $userid = $_SESSION['userid'];
-} else if( isset($_COOKIE['rememberme'] )){
-        // Decrypt cookie variable value
-    $login_user = $_COOKIE['rememberme'];
-        echo ("login user is : " . $login_user);
-}else if ($_SESSION['login_user'] == '' && $_COOKIE['rememberme'] == '') {
-    $login_user = "";
-    header ( "Location: http://10.0.23.95/crm/login.php" );
+    $display_name = $_SESSION['display_name'];
+//    echo("session login user is : " . $login_user);
+}else if(isset($_COOKIE['rememberme'] )) {
+    // Decrypt cookie variable value
+    $cookie_data = json_decode($_COOKIE['rememberme'], true);
+//    print_h($cookie_data);
+    $login_user = $cookie_data[0];
+    $display_name = $cookie_data[1];
+    $userid = $cookie_data[2];
+//    echo("cookie login user is : " . $login_user);
+}else if ( !isset($_SESSION['login_user'])) {
+    if (!isset($_COOKIE['rememberme'])) {
+        $login_user = "";
+        $display_name = "";
+        $userid = "";
+    header ( "Location: http://localhost/crm/login.php" );
+    }
 }
 //++++++++++++++++++++++++++++++++++++++++++++++++salem bedune coockie
 //session_start ();
@@ -89,13 +100,13 @@ if (isset( $_SESSION['login_user'] )) {
                                             <!--                                            <i class='icon-user'></i>-->
                                             <!--                                            <p>Profile Name</p>-->
                                             <?php
-                                            if (!isset($_SESSION['display_name']) && $_COOKIE['rememberme'] ) {
+                                            if ($display_name == '' && $login_user == '' ) {
                                                 echo ('<p>' . '<a href="login.php">' . "LOGIN" . '</a>' . '</p>');
                                             } else {
 //                                                echo ('<p>' . '<a class="profile-result" href="login.php">' . ($_SESSION['display_name']) . " / " . $userid . '</a>' . '</p>');
                                                 echo ('<i style="color: orange;" class="icon-user">' . '</i>');
                                                 echo ('<p>' . "Profile Name" . '</p>');
-                                                echo ('<p>' . '<a class="profile-result" href="login.php">' . ucfirst ( ($_SESSION['display_name']) ||  $_COOKIE['rememberme'] ) . '</a>' . '</p>');
+                                                echo ('<p>' . '<a class="profile-result" href="login.php">' . ucfirst ( ($display_name)) . '</a>' . '</p>');
                                                 echo ('<p style="margin-top: 10px">' . "شناسه :" . " $userid" . '</p>');
                                             }
                                             ?>
@@ -103,15 +114,15 @@ if (isset( $_SESSION['login_user'] )) {
                                         <div class="cart-down">
                                             <div class="logout">
                                                 <?php
-                                                if (isset( $_SESSION['display_name']) ||  $_COOKIE['rememberme']  ){
-                                                    if (!$_SESSION['display_name'] == "" || !$_COOKIE['rememberme'] == "") {
+//                                                if (isset( $_SESSION['display_name']) ||  $_COOKIE['rememberme']  ){
+                                                    if (!$display_name == '' || !$login_user == '') {
                                                         echo ('<a href="?&logout" class="hvr-buzz-out text-decoration-none">' . "LOGOUT" . '</a>');
                                                     }
                                                     if (isset( $_GET['logout'] )) {
                                                         session_destroy ();
                                                         unset( $_SESSION['login_user'] );
                                                         header ( 'location:login.php' );
-                                                    }
+//                                                    }
                                                 }
                                                 ?>
                                             </div>
