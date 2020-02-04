@@ -3,14 +3,30 @@ session_start ();
 if (isset( $_SESSION['login_user'] )) {
     $login_user = $_SESSION['login_user'];
     $userid = $_SESSION['userid'];
-} else {
+} else if( isset($_COOKIE['rememberme'] )){
+        // Decrypt cookie variable value
+    $login_user = $_COOKIE['rememberme'];
+        echo ("login user is : " . $login_user);
+}else if ($_SESSION['login_user'] == '' && $_COOKIE['rememberme'] == '') {
     $login_user = "";
+    header ( "Location: http://10.0.23.95/crm/login.php" );
 }
+//++++++++++++++++++++++++++++++++++++++++++++++++salem bedune coockie
+//session_start ();
+//if (isset( $_SESSION['login_user'] )) {
+//    $login_user = $_SESSION['login_user'];
+//    $userid = $_SESSION['userid'];
+//} else {
+//    $login_user = "";
+//}
 //if ($_SESSION['login_user'] == '') {
-//    header ( "Location: http://localhost/crm/login.php" );
+//    header ( "Location: http://10.0.23.95/crm/login.php" );
 //} else {
 //    $login_user = $_SESSION['login_user'];
 //}
+//++++++++++++++++++++++++++++++++++++++++++++++++salem bedune coockie
+
+
 ?>
 <!doctype html>
 <html dir="rtl" lang="fa-IR">
@@ -29,6 +45,9 @@ if (isset( $_SESSION['login_user'] )) {
     <link href="fonts/stylesheet.css" rel="stylesheet">
     <link href="./css/fonts.css" rel="stylesheet">
     <link href="./css/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+
 </head>
 <body>
 <section class="header">
@@ -67,16 +86,16 @@ if (isset( $_SESSION['login_user'] )) {
                                             </button>
                                         </div>
                                         <div class="cart-center">
-<!--                                            <i class='icon-user'></i>-->
-<!--                                            <p>Profile Name</p>-->
+                                            <!--                                            <i class='icon-user'></i>-->
+                                            <!--                                            <p>Profile Name</p>-->
                                             <?php
-                                            if (!isset( $_SESSION['display_name'] )) {
+                                            if (!isset($_SESSION['display_name']) && $_COOKIE['rememberme'] ) {
                                                 echo ('<p>' . '<a href="login.php">' . "LOGIN" . '</a>' . '</p>');
                                             } else {
 //                                                echo ('<p>' . '<a class="profile-result" href="login.php">' . ($_SESSION['display_name']) . " / " . $userid . '</a>' . '</p>');
                                                 echo ('<i style="color: orange;" class="icon-user">' . '</i>');
                                                 echo ('<p>' . "Profile Name" . '</p>');
-                                                echo ('<p>' . '<a class="profile-result" href="login.php">' . ucfirst (($_SESSION['display_name']) ) . '</a>' . '</p>');
+                                                echo ('<p>' . '<a class="profile-result" href="login.php">' . ucfirst ( ($_SESSION['display_name']) ||  $_COOKIE['rememberme'] ) . '</a>' . '</p>');
                                                 echo ('<p style="margin-top: 10px">' . "شناسه :" . " $userid" . '</p>');
                                             }
                                             ?>
@@ -84,8 +103,8 @@ if (isset( $_SESSION['login_user'] )) {
                                         <div class="cart-down">
                                             <div class="logout">
                                                 <?php
-                                                if (isset( $_SESSION['display_name'] )) {
-                                                    if (!$_SESSION['display_name'] == "") {
+                                                if (isset( $_SESSION['display_name']) ||  $_COOKIE['rememberme']  ){
+                                                    if (!$_SESSION['display_name'] == "" || !$_COOKIE['rememberme'] == "") {
                                                         echo ('<a href="?&logout" class="hvr-buzz-out text-decoration-none">' . "LOGOUT" . '</a>');
                                                     }
                                                     if (isset( $_GET['logout'] )) {
@@ -105,7 +124,7 @@ if (isset( $_SESSION['login_user'] )) {
                                         داخلی ها</a></li>
                                 <li><a class="hvr-underline-from-center" href="#" title="اضافه کاری"> شیفت ها</a></li>
                                 <li><a class="hvr-underline-from-center" href="#" title="تقویم میلادی"> تقویم</a></li>
-                                <li><a class="hvr-underline-from-center" href="#" title="تماس با مدیریت"> مدیریت</a>
+                                <li><a class="hvr-underline-from-center" href="./php/manager.php?manager_count" title="تماس با مدیریت"> مدیریت</a>
                                 </li>
                             </ul>
                         </div>
@@ -305,18 +324,86 @@ if (isset( $_SESSION['login_user'] )) {
 </section>
 
 <section id="cat" class="cat">
+    <div class="cat-flex">
+            <div class="accordion1">
 
-    <div class="search_platform mb-5">
-        <div class="form-group mt-2 text-center">
-            <form action="./php/search.php" method="GET">
-                <p>جستجو بر اساس نام و نام خانوادگی</p>
-                <input class="form-control" title="بر اساس نام خانوادگی" type="text" name="query"
-                       placeholder="Enter Family for search">
-                <button class="btn btn-warning mt-2" type="submit" value="Search">Search</button>
+
+                <div class="accordion_header1">
+                    <p>Accounting Server A</p>
+                </div>
+                <div class="accordion_footer1 show">
+                    <p>Accounting Server : OK</p>
+                    <p>Transmited : 83,Mbps</p>
+                    <p>Ping : 8Ms</p>
+                </div>
+
+                <div class="accordion_header1">
+                    <p>Accounting Server B</p>
+                </div>
+                <div class="accordion_footer1">
+                    <p>Accounting Server : OK</p>
+                    <p>Transmited : 69,Mbps</p>
+                    <p>Ping : 8Ms</p>
+                </div>
+
+                <div class="accordion_header1">
+                    <p>Accounting Server Airarabia</p>
+                </div>
+                <div class="accordion_footer1">
+                    <p>Accounting Server : OK</p>
+                    <p>Transmited : 75,Mbps</p>
+                    <p>Ping : 4Ms</p>
+                </div>
+
+
+            </div>
+            <div class="search_platform mb-5">
+                <div class="form-group mt-2 text-center">
+                    <form action="./php/search.php" method="GET">
+                        <p>جستجو بر اساس نام و نام خانوادگی</p>
+                        <input class="form-control" title="بر اساس نام خانوادگی" type="text" name="query"
+                               placeholder="Enter Family for search">
+                        <button class="btn btn-warning mt-2" type="submit" value="Search">Search</button>
+                </div>
+                </form>
+            </div>
+            <div class="accordion2">
+
+
+                <div class="accordion_header2">
+                    <p>Arman Server</p>
+                </div>
+                <div class="accordion_footer2 show">
+                    <p>Arman Server : OK</p>
+                    <p>Transmited : 99,Mbps</p>
+                    <p>Ping : 2Ms</p>
+                </div>
+
+                <div class="accordion_header2">
+                    <p>Artiman/Itour</p>
+                </div>
+                <div class="accordion_footer2">
+                    <p>Artiman Server : OK</p>
+                    <p>Transmited : 49,Mbps</p>
+                    <p>Ping : 12Ms</p>
+                </div>
+
+                <div class="accordion_header2">
+                    <p>Virtualization VMWare</p>
+                </div>
+                <div class="accordion_footer2">
+                    <p>VMWare Server : OK</p>
+                    <p>Transmited : 29,Mbps</p>
+                    <p>Ping : 2Ms</p>
+                </div>
+
+
+            </div>
         </div>
-        </form>
     </div>
 </section>
+
+
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/jqueryapp.js"></script>
 <script src="./js/app.js"></script>

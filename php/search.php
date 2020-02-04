@@ -8,7 +8,8 @@
     <title>Document</title>
     <!--    <link rel="stylesheet" href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">-->
     <link rel="stylesheet" href="../bs/css/bootstrap.css">
-    <link rel="stylesheet" href="../css/style.css">
+<!--    <link rel="stylesheet" href="../css/style.css">-->
+    <link rel="stylesheet" href="../css/search.css">
     <link rel="stylesheet" href="../css/hover.css">
     <!--    <link rel="stylesheet" href="./aos-master/dist/aos.css">-->
     <!--    <link rel="stylesheet" href="./css/sequencejs.css">-->
@@ -20,7 +21,7 @@
 <body>
 
 <section class="answer">
-    <div class="table_container">
+    <div class="table_container" style="overflow:auto;">
         <div class="container">
             <div class="row">
 
@@ -138,20 +139,20 @@
 <section class="footer_container">
     <footer>
         <div class="footer_right">
-            <p><i class="icon-vanak-home"></i><a href="../index.php">خانه</a></p>
-            <p><i class="icon-vanak-magnifying"></i><a href="../index.php">سایت ستاره ونک</a></p>
-            <p><i class="icon-vanak-luggage-1"></i><a href="../index.php">وب لاگ ستاره ونک</a></p>
-            <p><i class="icon-customer-service"></i><a href="../index.php">اطلاع رسانی مشکلات</a></p>
+<!--            <p><i class="icon-vanak-home"></i><a href="../index.php">خانه</a></p>-->
+<!--            <p><i class="icon-vanak-magnifying"></i><a href="../index.php">سایت ستاره ونک</a></p>-->
+<!--            <p><i class="icon-vanak-luggage-1"></i><a href="../index.php">وب لاگ ستاره ونک</a></p>-->
+<!--            <p><i class="icon-customer-service"></i><a href="../index.php">اطلاع رسانی مشکلات</a></p>-->
         </div>
-        <div class="footer_center">
+        <div class="footer_center text-center">
             <p>Setareh Vanak Travel Agency</p>
-            <img src="../img/logo.png">
+<!--            <img src="../img/logo.png">-->
         </div>
         <div class="footer_left">
-            <p><i class="icon-instagram"></i><a href="../index.php">Instagram</a></p>
-            <p><i class="icon-vanak-facebook"></i><a href="../index.php">Facebook</a></p>
-            <p><i class="icon-spa"></i><a href="../index.php">setarehvanak.com</a></p>
-            <p><i class="icon-customer-service"></i><a href="../index.php">dooronazdik.ir</a></p>
+<!--            <p><i class="icon-instagram"></i><a href="../index.php">Instagram</a></p>-->
+<!--            <p><i class="icon-vanak-facebook"></i><a href="../index.php">Facebook</a></p>-->
+<!--            <p><i class="icon-spa"></i><a href="../index.php">setarehvanak.com</a></p>-->
+<!--            <p><i class="icon-customer-service"></i><a href="../index.php">dooronazdik.ir</a></p>-->
         </div>
     </footer>
 </section>

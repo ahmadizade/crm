@@ -55,7 +55,14 @@ if (count ( $_POST ) > 0) {
 //        echo($userid);
         $_SESSION['display_name'] = $display_name;                      //ساخت سشن برای اعلام یوزر به صفحه ها
         $_SESSION['userid'] = $userid;                      //ساخت سشن برای اعلام یوزر آی دی به صفحه ها
-        header ( "Location: http://localhost/crm/index.php" );
+        if( isset($_POST['rememberme']) ){
+            // Set cookie variables
+            $days = 30;
+//            $value = encryptCookie($userid);
+            $value = $login_user;
+            setcookie ("rememberme",$value,time()+ ($days * 24 * 60 * 60 * 1000));
+        }
+        header ( "Location: http://10.0.23.95/crm/index.php" );
     }
 }
 ?>
@@ -87,7 +94,7 @@ if (count ( $_POST ) > 0) {
     <div id="message">
         <?php
         if ($message != "") {
-            echo ("<div id='error-holder' class='animated zoomInUp delay-1s error-holder'>"."</div>");
+            echo ("<div id='error-holder' class='animated zoomInUp delay-1s error-holder'>" . "</div>");
             echo ("<p id='error' class='animated fadeInDown delay-2s'>" . $message . "</p>");
             echo ("<p id='try' class='animated fadeInDown delay-3s'>" . $try . "</p>");
         }
@@ -97,7 +104,7 @@ if (count ( $_POST ) > 0) {
 <div class="form_platform">
     <div class="form-container">
         <div class="form-container-header">
-            <p id="text1" class="animated fadeInDown delay-2s">آژانس هواپیمایی ستاره ونک</p>
+            <p id="text1" class="animated fadeInDown delay-2s f-12">آژانس هواپیمایی ستاره ونک</p>
             <p id="text2" class="animated fadeInDown delay-3s f-12">سامانه مدیریت پایگاه داده</p>
 
         </div>
@@ -108,14 +115,14 @@ if (count ( $_POST ) > 0) {
                     <input id="login-input" type="text" name="userName" placeholder="User Name" class="login-input">
                     <input id="login-password" type="password" name="password" placeholder="Password"
                            class="login-input">
-                    <!--                    <input type="checkbox" value="0" name="remember">Remember Me-->
+                    <input class="text-white" type="checkbox" name="rememberme" value="1" />&nbsp;Remember Me
                     <input type="submit" name="submit" value="Submit" class="btnSubmit">
                 </div>
             </form>
         </div>
 
         <div class="form-container-footer">
-            <p id="text3" class="animated fadeInDown delay-4s">هر جای ایران ، همه جای جهان</p>
+            <p id="text3" class="animated fadeInDown delay-4s f-12">هر جای ایران ، همه جای جهان</p>
         </div>
     </div>
 </div>

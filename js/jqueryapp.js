@@ -2,6 +2,58 @@ $(document).ready(function () {
     $("#mobile_company").click(function () {
         $("#mini-header-toggle").fadeToggle('slow');
     });
+    $("#profile_collapse").click(function () {
+        $("#profile_collapse_card").fadeToggle('slow');
+    });
+    $("#cart-close").click(function () {
+        $("#profile_collapse_card").fadeOut('slow');
+    });
+
+
+
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++According
+
+    // $(".accordion_header").click(function () {
+    //     $(this).next().slideToggle({
+    //         duration: 600,
+    //     });
+    // });
+
+
+    $(".accordion_header1").click("slow", function (e) {
+        e.preventDefault();
+        var $this = $(this);
+
+        if ($this.next().hasClass('show')) {
+            $this.next().removeClass('show');
+            // $this.next().slideUp("slow");
+        } else {
+            $this.parent().parent().find('.accordion_footer1').removeClass('show');
+            $this.next().addClass('show');
+        }
+    });
+
+    $(".accordion_header2").click("slow", function (e) {
+        e.preventDefault();
+        var $this = $(this);
+
+        if ($this.next().hasClass('show')) {
+            $this.next().removeClass('show');
+            // $this.next().slideUp("slow");
+        } else {
+            $this.parent().parent().find('.accordion_footer2').removeClass('show');
+            $this.next().addClass('show');
+        }
+    });
+
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++According
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SELECT PROFILE INDEX>PHP+++++++++++
+
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SELECT PROFILE INDEX>PHP+++++++++++
+
+
     var submit = $('#submit');
     submit.click(function () {
         var fancybox = $("#fancybox");
@@ -35,7 +87,7 @@ $(document).ready(function () {
 // AJAX code to submit form.
             $.ajax({
                 type: "GET",
-                url: 'http://localhost/crm/php/mysql.php',
+                url: 'http://10.0.23.95/crm/php/mysql.php',
                 data: dataString,
                 cache: false,
                 success: function (respo) {
