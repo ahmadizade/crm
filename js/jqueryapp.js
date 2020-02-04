@@ -87,7 +87,7 @@ $(document).ready(function () {
 // AJAX code to submit form.
             $.ajax({
                 type: "GET",
-                url: 'http://localhost/crm/php/mysql.php',
+                url: 'http://10.0.23.95/crm/php/mysql.php',
                 data: dataString,
                 cache: false,
                 success: function (respo) {
