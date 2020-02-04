@@ -12,7 +12,6 @@
     <link href="../css/fonts.css" rel="stylesheet">
 </head>
 <body>
-
 <section class="answer">
     <div class="table_container" style="overflow:auto;">
         <div class="container">
@@ -39,6 +38,14 @@
                     echo '<th scope="col">' . "UserName" . '</th>';
                     echo '<th scope="col">' . "ADD_COUNT" . '</th>';
                     echo '</tr>';
+//                    echo '<tfoot>';
+//                    echo '<th>';
+//                    print_h ( "تعداد مشتریان ثبت شده : " . $res2_row[0] );
+//                    echo '</th>';
+//                    echo '<th>';
+//                    print_h ( "تعداد همکاران: " . $res_row[0] );
+//                    echo '</th>';
+//                    echo '</tfoot>';
                     echo '</thead>';
                     echo '<tbody>';
                     $user_add_count = 0;
@@ -57,19 +64,28 @@
                         echo '</tr>';
                         $user_add_count = 0;
                     }
-                    echo '<tfooter>';
-                    echo '<td>';
-                    print_h ( "تعداد ثبت شده ها در جدول کاستومرز : " . $res2_row[0] );
-                    echo '</td>';
-                    echo '<td>';
-                    print_h ( "تعداد یوزرها در جدول یوزر: " . $res_row[0] );
-                    echo '</td>';
-                    echo '</tfooter>';
+                    echo '</tbody>';
                 }
                 ?>
             </div>
         </div>
     </div>
+</section>
+<section class="result_header">
+        <div class="result_header_box_1">
+            <p>
+                <?php
+                echo ( "تعداد همکاران ثبت شده : " . $res_row[0] );
+                ?>
+            </p>
+        </div>
+        <div class="result_header_box_1">
+            <p>
+                <?php
+                echo ( "تعداد مشتریان ثبت شده : " . $res2_row[0] );
+                ?>
+            </p>
+        </div>
 </section>
 </body>
 </html>
