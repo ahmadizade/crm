@@ -22,6 +22,8 @@ if (isset( $_SESSION['login_user'] )) {
     header ( "Location: http://localhost/crm/login.php" );
     }
 }
+$admin_group = array("admin", "akbarpour");
+
 //++++++++++++++++++++++++++++++++++++++++++++++++salem bedune coockie
 //session_start ();
 //if (isset( $_SESSION['login_user'] )) {
@@ -36,8 +38,9 @@ if (isset( $_SESSION['login_user'] )) {
 //    $login_user = $_SESSION['login_user'];
 //}
 //++++++++++++++++++++++++++++++++++++++++++++++++salem bedune coockie
-
-
+//$admin_group = array("admin", "akbarpour");
+//$keys = in_array("$login_user",$admin_group);
+//print_h ('<p>' . $keys. '</p>');
 ?>
 <!doctype html>
 <html dir="rtl" lang="fa-IR">
@@ -114,7 +117,6 @@ if (isset( $_SESSION['login_user'] )) {
                                         <div class="cart-down">
                                             <div class="logout">
                                                 <?php
-//                                                if (isset( $_SESSION['display_name']) ||  $_COOKIE['rememberme']  ){
                                                     if (!$display_name == '' || !$login_user == '') {
                                                         echo ('<a href="?&logout" class="hvr-buzz-out text-decoration-none">' . "LOGOUT" . '</a>');
                                                     }
@@ -122,7 +124,6 @@ if (isset( $_SESSION['login_user'] )) {
                                                         session_destroy ();
                                                         unset( $_SESSION['login_user'] );
                                                         header ( 'location:login.php' );
-//                                                    }
                                                 }
                                                 ?>
                                             </div>
@@ -135,7 +136,15 @@ if (isset( $_SESSION['login_user'] )) {
                                         داخلی ها</a></li>
                                 <li><a class="hvr-underline-from-center" href="#" title="اضافه کاری"> شیفت ها</a></li>
                                 <li><a class="hvr-underline-from-center" href="#" title="تقویم میلادی"> تقویم</a></li>
-                                <li><a class="hvr-underline-from-center" href="./php/manager.php?manager_count" title="تماس با مدیریت"> مدیریت</a>
+                                <?php
+
+                                if (in_array("$login_user",$admin_group) == 1) {
+                                    echo ('<li>' . '<a class="hvr-underline-from-center" href="./php/manager.php?manager_count" title="Administrator">' . "مدیریت" .'</a>'.'</li>');
+                                }else {
+                                    echo ('<li>' . '<a class="text-muted" title="دسترسی ندارید">' . "مدیریت" . '</a>' . '</li>');
+                                }
+                                ?>
+                                <li><a class="hvr-underline-from-center" href="./php/design.php" title="طراحی و گرافیک"> Design</a>
                                 </li>
                             </ul>
                         </div>

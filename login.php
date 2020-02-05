@@ -57,12 +57,12 @@ if (count ( $_POST ) > 0) {
         $_SESSION['userid'] = $userid;                      //ساخت سشن برای اعلام یوزر آی دی به صفحه ها
         $cookie_data = array($login_user, $display_name, $userid);
 
-        if( isset($_POST['rememberme']) ){
+        if (isset( $_POST['rememberme'] )) {
             // Set cookie variables
             $days = 30;
 //            $value = encryptCookie($userid);
             $value = $cookie_data;
-            setcookie ("rememberme",json_encode($value),time()+ ($days * 24 * 60 * 60 * 1000));
+            setcookie ( "rememberme", json_encode ( $value ), time () + ($days * 24 * 60 * 60 * 1000) );
         }
         header ( "Location: http://localhost/crm/index.php" );
     }
@@ -117,15 +117,18 @@ if (count ( $_POST ) > 0) {
                     <input id="login-input" type="text" name="userName" placeholder="User Name" class="login-input">
                     <input id="login-password" type="password" name="password" placeholder="Password"
                            class="login-input">
-                    <input class="text-white" type="checkbox" name="rememberme">&nbsp;Remember Me
+                    <div class="group-row mb-2 ">
+                        <label for="rememberme" class="mr-2 f-12 form-check-label text-white"> &nbsp;Remember Me  </label>
+                        <input type="checkbox" name="rememberme" id="rememberme">
+                    </div>
                     <input type="submit" name="submit" value="Submit" class="btnSubmit">
                 </div>
             </form>
         </div>
 
-        <div class="form-container-footer">
-            <p id="text3" class="animated fadeInDown delay-4s f-12">هر جای ایران ، همه جای جهان</p>
-        </div>
+        <!--        <div class="form-container-footer">-->
+        <!--            <p id="text3" class="animated fadeInDown delay-4s f-12">هر جای ایران ، همه جای جهان</p>-->
+        <!--        </div>-->
     </div>
 </div>
 </div>
