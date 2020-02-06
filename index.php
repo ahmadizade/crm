@@ -6,20 +6,20 @@ if (isset( $_SESSION['login_user'] )) {
     $userid = $_SESSION['userid'];
     $display_name = $_SESSION['display_name'];
 //    echo("session login user is : " . $login_user);
-}else if(isset($_COOKIE['rememberme'] )) {
+} else if (isset( $_COOKIE['rememberme'] )) {
     // Decrypt cookie variable value
-    $cookie_data = json_decode($_COOKIE['rememberme'], true);
+    $cookie_data = json_decode ( $_COOKIE['rememberme'], true );
 //    print_h($cookie_data);
     $login_user = $cookie_data[0];
     $display_name = $cookie_data[1];
     $userid = $cookie_data[2];
 //    echo("cookie login user is : " . $login_user);
-}else if ( !isset($_SESSION['login_user'])) {
-    if (!isset($_COOKIE['rememberme'])) {
+} else if (!isset( $_SESSION['login_user'] )) {
+    if (!isset( $_COOKIE['rememberme'] )) {
         $login_user = "";
         $display_name = "";
         $userid = "";
-    header ( "Location: http://localhost/crm/login.php" );
+        header ( "Location: http://localhost/crm/login.php" );
     }
 }
 $admin_group = array("admin", "akbarpour");
@@ -221,81 +221,105 @@ include "./includes/header.php";
 
 <section id="cat" class="cat">
     <div class="cat-flex">
-            <div class="accordion1">
+        <div class="accordion1">
 
 
-                <div class="accordion_header1">
-                    <p>Accounting Server A</p>
-                </div>
-                <div class="accordion_footer1 show">
-                    <p>Accounting Server : OK</p>
-                    <p>Transmited : 83,Mbps</p>
-                    <p>Ping : 8Ms</p>
-                </div>
-
-                <div class="accordion_header1">
-                    <p>Accounting Server B</p>
-                </div>
-                <div class="accordion_footer1">
-                    <p>Accounting Server : OK</p>
-                    <p>Transmited : 69,Mbps</p>
-                    <p>Ping : 8Ms</p>
-                </div>
-
-                <div class="accordion_header1">
-                    <p>Accounting Server Airarabia</p>
-                </div>
-                <div class="accordion_footer1">
-                    <p>Accounting Server : OK</p>
-                    <p>Transmited : 75,Mbps</p>
-                    <p>Ping : 4Ms</p>
-                </div>
-
-
+            <div class="accordion_header1">
+                <p>Accounting Server A</p>
             </div>
-            <div class="search_platform mb-5">
-                <div class="form-group mt-2 text-center">
-                    <form action="./php/search.php" method="GET">
-                        <p>جستجو بر اساس نام و نام خانوادگی</p>
-                        <input class="form-control" title="بر اساس نام خانوادگی" type="text" name="query"
-                               placeholder="Enter Family for search">
-                        <button class="btn btn-warning mt-2" type="submit" value="Search">Search</button>
-                </div>
-                </form>
+            <div class="accordion_footer1 show">
+                <p>Accounting Server : OK</p>
+                <p>Transmited : 83,Mbps</p>
+                <p>Ping : 8Ms</p>
             </div>
-            <div class="accordion2">
 
-
-                <div class="accordion_header2">
-                    <p>Arman Server</p>
-                </div>
-                <div class="accordion_footer2 show">
-                    <p>Arman Server : OK</p>
-                    <p>Transmited : 99,Mbps</p>
-                    <p>Ping : 2Ms</p>
-                </div>
-
-                <div class="accordion_header2">
-                    <p>Artiman/Itour</p>
-                </div>
-                <div class="accordion_footer2">
-                    <p>Artiman Server : OK</p>
-                    <p>Transmited : 49,Mbps</p>
-                    <p>Ping : 12Ms</p>
-                </div>
-
-                <div class="accordion_header2">
-                    <p>Virtualization VMWare</p>
-                </div>
-                <div class="accordion_footer2">
-                    <p>VMWare Server : OK</p>
-                    <p>Transmited : 29,Mbps</p>
-                    <p>Ping : 2Ms</p>
-                </div>
-
-
+            <div class="accordion_header1">
+                <p>Accounting Server B</p>
             </div>
+            <div class="accordion_footer1">
+                <p>Accounting Server : OK</p>
+                <p>Transmited : 69,Mbps</p>
+                <p>Ping : 8Ms</p>
+            </div>
+
+            <div class="accordion_header1">
+                <p>Accounting Server Airarabia</p>
+            </div>
+            <div class="accordion_footer1">
+                <p>Accounting Server : OK</p>
+                <p>Transmited : 75,Mbps</p>
+                <p>Ping : 4Ms</p>
+            </div>
+
+
         </div>
+        <div class="center_platform">
+            <form method="GET" class="mt-2" id="design_form" name="design_form" action="">
+                <div class="data-table mb-3">
+                    <form class="mt-2" id="form" name="form" action="">
+                        <div class="row p15 form-group mb-1">
+                            <div class="group">
+                                <input id="design_user" name="design_user" type="hidden" value="$login_user">
+                                <label class="font-weight-bold" for="job_list">Job Name</label>
+                                <input class="input" title="Job_List" type="text" name="job_list" id="job_list"
+                                       placeholder="For Example : Catalog">
+                            </div>
+                            <button class="design-table-button hvr-float-shadow" id="design_submit" type="button"
+                                    value="Submit">
+                                ارسال درخواست
+                            </button>
+                        </div>
+                        <div class="row p15 form-group mb-1">
+                            <div class="group">
+                                <label class="font-weight-bold" for="user_desc">توضیحات</label>
+                                <textarea placeholder="برای مثال سایز عکس 1024 * 800" maxlength="256" wrap="hard" rows="4" cols="50" id="user_desc" name="user_desc" form="design_form">
+                            </textarea>
+                            </div>
+                        </div>
+                        <p class="text-center text-white mt-1">فرم درخواست طراحی</p>
+                </div>
+            </form>
+            <form>
+                <div class="search_platform mb-5">
+                    <div class="form-group mt-2 text-center">
+                        <form action="./php/search.php" method="GET">
+                            <p>جستجو بر اساس نام و نام خانوادگی</p>
+                            <input class="form-control" title="بر اساس نام خانوادگی" type="text" name="query"
+                                   placeholder="Enter Family for search">
+                            <button class="btn btn-warning mt-2" type="submit" value="Search">Search</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+    <div class="accordion2">
+        <div class="accordion_header2">
+            <p>درخواست طراحی</p>
+        </div>
+        <div class="accordion_footer2 show">
+            <p>Arman Server : OK</p>
+            <p>Transmited : 99,Mbps</p>
+            <p>Ping : 2Ms</p>
+        </div>
+
+        <div class="accordion_header2">
+            <p>Artiman/Itour</p>
+        </div>
+        <div class="accordion_footer2">
+            <p>Artiman Server : OK</p>
+            <p>Transmited : 49,Mbps</p>
+            <p>Ping : 12Ms</p>
+        </div>
+
+        <div class="accordion_header2">
+            <p>Virtualization VMWare</p>
+        </div>
+        <div class="accordion_footer2">
+            <p>VMWare Server : OK</p>
+            <p>Transmited : 29,Mbps</p>
+            <p>Ping : 2Ms</p>
+        </div>
+    </div>
+    </div>
     </div>
 </section>
 

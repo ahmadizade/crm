@@ -1,28 +1,7 @@
 <?php
 require "../php/common.php";
 session_start ();
-if (isset( $_SESSION['login_user'] )) {
-    $login_user = $_SESSION['login_user'];
-    $userid = $_SESSION['userid'];
-    $display_name = $_SESSION['display_name'];
-//    echo("session login user is : " . $login_user);
-}else if(isset($_COOKIE['rememberme'] )) {
-    // Decrypt cookie variable value
-    $cookie_data = json_decode($_COOKIE['rememberme'], true);
-//    print_h($cookie_data);
-    $login_user = $cookie_data[0];
-    $display_name = $cookie_data[1];
-    $userid = $cookie_data[2];
-//    echo("cookie login user is : " . $login_user);
-}else if ( !isset($_SESSION['login_user'])) {
-    if (!isset($_COOKIE['rememberme'])) {
-        $login_user = "";
-        $display_name = "";
-        $userid = "";
-        header ( "Location: http://localhost/crm/login.php" );
-    }
-}
-$admin_group = array("admin", "akbarpour");
+require "./config.php";
 ?>
 <!doctype html>
 <html dir="rtl" lang="fa-IR">
@@ -50,20 +29,29 @@ $admin_group = array("admin", "akbarpour");
 include "../includes/header.php";
 include "../includes/sidebar.php";
 ?>
+<section class="section-top">
+    <div class="to_do_table">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-hover design_table">
+                        <thead>
+                        <th>USER</th>
+                        <th>لیست تمام کارها</th>
+                        <th>وضعیت</th>
+                        <th>روزهای هفته</th>
+                        <th>وضعیت صف</th>
+                        <th>توضیحات</th>
+                        </thead>
+                        <tbody>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <script src="../js/jquery-3.4.1.js"></script>

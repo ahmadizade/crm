@@ -48,10 +48,6 @@ $(document).ready(function () {
 
     // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++According
 
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SELECT PROFILE INDEX>PHP+++++++++++
-
-
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SELECT PROFILE INDEX>PHP+++++++++++
 
 
     var submit = $('#submit');
@@ -133,5 +129,25 @@ $(document).ready(function () {
         return false;
     });
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Design Form
+
+    var design_key = $('#design_submit');
+    design_key.click(function () {
+        var job_list = $("#job_list").val();
+        var user_desc = $("#user_desc").val();
+        var user_desc = $("#user_desc").val();
+
+
+    });
+
+    var design_dataString = '&job_list=' + job_list + '&user_desc=' + user_desc + '&user=' + family + '&email=' + email + "&mobile=" + mobile + "&save=";
+
+
+
+
+
+
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Design Form
 
 });
