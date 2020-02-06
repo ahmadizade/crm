@@ -1,20 +1,28 @@
 <section class="side">
     <div class="side-menu">
         <div class="side-menu-header">
-
-            <a href="#"><i class="icon-vanak-grid"></i>HOME</a>
-
-            <a href="#"><i class="icon-envelope"></i>TEHRAN</a>
-
-            <a href="#"><i class="icon-search-flight"></i>Search</a>
-
-            <a href="#"><i class="icon-vanak-user"></i>USERS</a>
-
-            <a href="#"><i class="icon-vanak-thunderbolt"></i>Search</a>
-
+            <div class="side-flex">
+                <a href="#">HOME</a>
+                <i class="icon-vanak-grid"></i>
+            </div>
+            <div class="side-flex">
+                <a href="#">TEHRAN</a>
+                <i class="icon-envelope"></i>
+            </div>
+            <div class="side-flex">
+                <a href="#">Search</a>
+                <i class="icon-search-flight"></i>
+            </div>
+            <div class="side-flex">
+                <a href="#">USERS</a>
+                <i class="icon-vanak-user"></i>
+            </div>
+            <div class="side-flex">
+                <a href="#">Search</a>
+                <i class="icon-vanak-thunderbolt"></i>
+            </div>
         </div>
         <div class="side-menu-main">
-        
         </div>
         <div class="side-menu-footer">
             <i class="icon-vanak-thunderbolt"></i>
