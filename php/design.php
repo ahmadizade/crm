@@ -1,6 +1,5 @@
 <?php
 require "../php/common.php";
-session_start ();
 require "./config.php";
 ?>
 <!doctype html>
@@ -11,16 +10,13 @@ require "./config.php";
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <!--    <link rel="stylesheet" href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">-->
     <link rel="stylesheet" href="../bs/css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/hover.css">
-    <!--    <link rel="stylesheet" href="./aos-master/dist/aos.css">-->
-    <!--    <link rel="stylesheet" href="./css/sequencejs.css">-->
     <link href="../fonts/stylesheet.css" rel="stylesheet">
     <link href="../css/fonts.css" rel="stylesheet">
     <link href="../css/animate.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script src="https://use.fontawesome.com/34053886b7.js"></script>
+
 
 
 </head>
@@ -33,36 +29,78 @@ include "../includes/sidebar.php";
     <div class="to_do_table">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <table class="table table-bordered table-hover design_table">
-                        <thead>
-                        <th>USER</th>
-                        <th>لیست تمام کارها</th>
-                        <th>وضعیت</th>
-                        <th>روزهای هفته</th>
-                        <th>وضعیت صف</th>
-                        <th>توضیحات</th>
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                    </table>
+                <div class="table-responsive">
+                    <?php
+                    $sql = "SELECT * FROM `design` WHERE DATE (date_registration)=CURDATE();";
+                    $respon = $mysqli->query($sql);
+                    $res = mysqli_fetch_array($respon);         // response to array
+                    //print_h($res);
+                    $number = mysqli_num_rows($respon);                 //number of Results
+                    //echo($number);
+                    if (mysqli_num_rows($respon) == 0) {
+                        echo "موردی یافت نشد";
+                    } else {
+                        echo '<table id="editable-table" class="table table-bordered table-striped">';
+                        echo '<thead>';
+                        echo '<tr>';
+                        echo '<th scope="col">' . "ID" . '</th>';
+                        echo '<th scope="col">' . "کاربر" . '</th>';
+                        echo '<th scope="col">' . "Job_List" . '</th>';
+                        echo '<th scope="col">' . "وضعیت" . '</th>';
+                        echo '<th scope="col">' . "تاریخ ثبت" . '</th>';
+                        echo '<th scope="col">' . "نوع درخواست" . '</th>';
+                        echo '<th scope="col">' . "توضیحات من" . '</th>';
+                        echo '<th scope="col">' . "توضیحات کاربر" . '</th>';
+                        echo '</tr>';
+                        echo '</thead>';
+                        echo '<tbody>';
+                        while ($result = mysqli_fetch_array($respon))
+                        {
+                            echo '
+                                <tr>
+                                    <td>'.$result["id"].'</td>
+                                    <td>'.$result["design_user"].'</td>
+                                    <td>'.$result["job_list"].'</td>
+                                    <td>'.$result["conditions"].'</td>
+                                    <td>'.$result["date_registration"].'</td>
+                                    <td>'.$result["queue"].'</td>
+                                    <td>'.$result["admin_desc"].'</td>
+                                    <td>'.$result["user_desc"].'</td>
+                                </tr>
+                            ';
+                            echo '</tbody>';
+                        }
+                        echo '</table>';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
+<script>
+    $(document).ready(function () {
+        $('#editable-table').Tabledit({
+            url:'action.php',
+            columns: {
+                identifier: [0, 'id'],
+                editable: [[3, 'conditions'], [5, 'queue'], [6, 'admin_desc']]
+            },
+            restoreButton:false,
+            onSuccess:function (data, textStatus, jqXHR)
+            {
+              if (data.action == 'delete')
+              {
+                  $('#'+data.id).remove();
+              }
+            }
+        });
+    });
+</script>
 
 <script src="../js/jquery-3.4.1.js"></script>
 <script src="../js/jqueryapp.js"></script>
-<script src="../js/app.js"></script>
+<script src="../jquery-tabledit-1.2.3/jquery.tabledit.js"></script>
 <script src="../bs/js/bootstrap.js"></script>
-
-<!--<script src="cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>-->
-<!--<script src="./js/jquery.lettering.js"></script>-->
-<!--<script src="./js/sequence.js"></script>-->
-<!--<script src="./js/sequencejs-options.sliding-horizontal-parallax.js"></script>-->
-<!--<script src="./aos-master/dist/aos.css"</script>-->
 </body>
 </html>

@@ -52,3 +52,4 @@ if ($mysqli->connect_errno) {
     printf ( "connect failed: %s/n", $mysqli->connect_error );
     exit();
 }
+$admin_group = array("admin", "akbarpour");

@@ -54,13 +54,6 @@
                     printf("connect failed: %s/n", $mysqli->connect_error);
                     exit();
                 }
-                if (isset($_GET['show'])) {
-                    $sql = "SELECT  * FROM $login_user;";
-                    $result = $mysqli->query($sql);
-                    echo('Number Of Data = ' . $result->num_rows);
-                    print_h($result->fetch_all());
-                }
-
 
                 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Serach Code +++++++++++++++++++++++++++++++++++++
 

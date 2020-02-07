@@ -10,7 +10,6 @@ $(document).ready(function () {
     });
 
 
-
     // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++According
 
     // $(".accordion_header").click(function () {
@@ -18,7 +17,6 @@ $(document).ready(function () {
     //         duration: 600,
     //     });
     // });
-
 
     $(".accordion_header1").click("slow", function (e) {
         e.preventDefault();
@@ -47,7 +45,6 @@ $(document).ready(function () {
     });
 
     // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++According
-
 
 
     var submit = $('#submit');
@@ -135,17 +132,38 @@ $(document).ready(function () {
     design_key.click(function () {
         var job_list = $("#job_list").val();
         var user_desc = $("#user_desc").val();
-        var user_desc = $("#user_desc").val();
+        var design_user = $("#design_user").val();
+        var $fancy_btn = $("#fancy_btn");
+        var $fancy_result = $('#fancy_result');
+        var fancy_back = $('#fancy_back');
 
 
+        http://localhost/crm/php/mysql.php?&job_list=drrgsdh&user_desc=Hamidrezadesc&design_user=sara&design=&_=1580999491851
+
+            var design_dataString = '&job_list=' + job_list + '&user_desc=' + user_desc + '&design_user=' + design_user + "&design=";
+
+        if (job_list == '' || user_desc == '' || design_user == '') {
+            alert("پر کردن فیلد نام طرح و توضیحات آن اجباری است");
+        } else {
+            $.ajax({
+                type: "GET",
+                url: 'http://localhost/crm/php/mysql.php',
+                data: design_dataString,
+                cache: false,
+                success: function (respon) {
+                    $('#fancy_back').addClass(' fancy');
+                    $('#fancybox').addClass(' myjavacss');
+                    if (respon == 1001) {
+                        $fancy_result.html("<h4>اطلاعات با موفقیت ذخیره گردید</h4>");
+                        $fancy_btn.html("<button type='button' class='border-color:red btn btn-primary'>بازگشت</button>");
+                        $fancy_btn.click(function () {
+                            window.location.reload();
+                        });
+                    }
+                }
+            });
+        }
     });
-
-    var design_dataString = '&job_list=' + job_list + '&user_desc=' + user_desc + '&user=' + family + '&email=' + email + "&mobile=" + mobile + "&save=";
-
-
-
-
-
 
 
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Design Form
