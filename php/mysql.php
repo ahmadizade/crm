@@ -155,7 +155,7 @@ if (isset( $_GET['save'] )) {
     }
 }
 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DESIGN
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DESIGN START
 //http://localhost/crm/php/mysql.php?&job_list=drrgsdh&user_desc=Hamidrezadesc&design_user=sara&design=&_=1580999491851
 
 
@@ -164,22 +164,12 @@ if (isset( $_GET['design'] )) {
     $job_list = $_GET['job_list'];
     $user_desc = $_GET['user_desc'];
 
-//    echo ('<p>' . $design_user . '</p>' . '<br>' );
-//    echo ('<p>' . $job_list . '</p>' . '<br>' );
-//    echo ('<p>' . $user_desc . '</p>' . '<br>' );
-
-    if (!$mysqli->query ( "INSERT INTO design (design_user,job_list,user_desc) VALUES ('$design_user','$job_list','$user_desc')" )) {
-//        if ($mysqli->errno == 1062) {
-//            echo("  ایمیل وارد شده تکراری میباشد  " . '<br>' . "Error Number = " . $mysqli->errno);
-//            echo json_encode ( 1062 );
-//        }
-    } if ($mysqli->errno == 0) {
-//        echo "اطلاعات با موفقیت ثبت شد";
+    $mysqli->query ( "INSERT INTO design (design_user,job_list,user_desc) VALUES ('$design_user','$job_list','$user_desc')" );
+     if ($mysqli->errno == 0) {
         echo json_encode ( 1001 );
     }
-
 }
 
 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DESIGN
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DESIGN END
 

@@ -1,3 +1,4 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
 @import url(fonts.css);
 
 body {
@@ -15,7 +16,7 @@ html {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: iranyekan, icomoon, sans-serif !important;
+    /*font-family: iranyekan, icomoon, sans-serif !important;*/
 }
 
 p {
@@ -27,6 +28,7 @@ a {
 }
 
 .mini-header {
+    font-family: iranyekan, icomoon, sans-serif;
     background-color: #00000040;
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .35);
     box-shadow: 0px 8px 20px 0 rgba(0, 0, 0, 0.62);
@@ -363,9 +365,6 @@ a {
     border-bottom: 1px solid #e1e1e1;
 }
 
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Collapse*/
-
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Collapse*/
 .side {
     /*background-image: url("../img/bg_1.jpg");*/
     /*background-size: cover;*/
@@ -381,6 +380,9 @@ a {
     box-shadow: 0px 8px 20px 0 rgba(0, 0, 0, 0.62);
 }
 
+/*.side-menu {*/
+/*    font-family: iranyekan, icomoon, sans-serif !important;*/
+/*}*/
 .side-menu-header {
     /*padding: 10px;*/
     width: 100%;
@@ -411,9 +413,9 @@ a {
     text-decoration: none;
 }
 
-.side-flex a {
+/*.side-flex a {*/
 
-}
+/*}*/
 
 .side-flex i {
     position: absolute;
@@ -1005,8 +1007,8 @@ svg:not(:root) {
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DESIGN START*/
 
 .section-top {
-    /*background-image: url("../img/glass/purpel.png");*/
-    /*background-size: cover;*/
+    background-image: url("../img/glass/purpel.png");
+    background-size: cover;
 
     -webkit-background-size: 100%;
     background-size: 100%;

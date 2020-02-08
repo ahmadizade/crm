@@ -138,7 +138,7 @@ $(document).ready(function () {
         var fancy_back = $('#fancy_back');
 
 
-        http://localhost/crm/php/mysql.php?&job_list=drrgsdh&user_desc=Hamidrezadesc&design_user=sara&design=&_=1580999491851
+        // http://localhost/crm/php/mysql.php?&job_list=drrgsdh&user_desc=Hamidrezadesc&design_user=sara&design=&_=1580999491851
 
             var design_dataString = '&job_list=' + job_list + '&user_desc=' + user_desc + '&design_user=' + design_user + "&design=";
 
@@ -156,6 +156,12 @@ $(document).ready(function () {
                     if (respon == 1001) {
                         $fancy_result.html("<h4>اطلاعات با موفقیت ذخیره گردید</h4>");
                         $fancy_btn.html("<button type='button' class='border-color:red btn btn-primary'>بازگشت</button>");
+                        $fancy_btn.click(function () {
+                            window.location.reload();
+                        });
+                    }else {
+                        $fancy_result.html("<h4>اطلاعات به درستی ذخیره نشد! لطفا دوباره تلاش کنید!</h4>");
+                        $fancy_btn.html("<button type='button' class='border-color:red btn btn-danger'>بازگشت</button>");
                         $fancy_btn.click(function () {
                             window.location.reload();
                         });
