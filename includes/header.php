@@ -78,7 +78,7 @@
                                     echo ('<li>' . '<a class="text-muted" title="دسترسی ندارید">' . "مدیریت" . '</a>' . '</li>');
                                 }
                                 ?>
-                                <li><a class="hvr-underline-from-center" href="./php/design.php" title="طراحی و گرافیک"> Design</a>
+                                <li><a class="hvr-underline-from-center" href="livetable/index.html" title="طراحی و گرافیک"> Design</a>
                                 </li>
                             </ul>
                         </div>
