@@ -57,24 +57,15 @@ $result = mysqli_query($connect, $query . $query1);
 
 $data = array();
 
-while($row = mysqli_fetch_array($result))       //  ریزالت را آرایه کرده و به row میریزد و مثل آرایه ها به اجزای آن دسترسی خواهیم داشت.
+while($row = mysqli_fetch_array($result))
 {
     $sub_array = array();
     $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="id">' . $row["id"] . '</div>';
     $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="design_user">' . $row["design_user"] . '</div>';
     $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="job_list">' . $row["job_list"] . '</div>';
-    if ($row["conditions"] == 1){
-        $row["conditions"] = "اتمام کار";
-    }elseif ($row["conditions"] == 2){
-        $row["conditions"] = "تایید نشد";
-    }elseif ($row["conditions"] == 3){
-        $row["conditions"] = "در حال ویرایش";
-    }else {
-        $row["conditions"] = "وضعیتی ثبت نشده";
-    }
     $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="conditions">' . $row["conditions"] . '</div>';
     $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="date_registration">' . $row["date_registration"] . '</div>';
-    $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="queue">' . "شما نفر " .$row["queue"]. " از صف انتظار می باشید" . '</div>';
+    $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="queue">' . $row["queue"] . '</div>';
     $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="admin_desc">' . $row["admin_desc"] . '</div>';
     $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="user_desc">' . $row["user_desc"] . '</div>';
     $sub_array[] = '<button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$row["id"].'">Delete</button>';

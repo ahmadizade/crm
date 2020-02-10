@@ -61,7 +61,7 @@
 <script type="text/javascript" language="javascript" >
     $(document).ready(function(){
 
-        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++FETCH خواندن دیتابیس و لود کردن اطلاعات داخل جدول
+        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++FETCH
         fetch_data();
 
         function fetch_data()
@@ -76,7 +76,7 @@
                 }
             });
         }
-        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++UPDATE بعد از ادیت درون خط آن را به دیتا بیس می فرستد
+        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++UPDATE
 
         function update_data(id, column_name, value)
         {
@@ -108,7 +108,7 @@
             var value = $(this).text();
             update_data(id, column_name, value);
         });
-        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ADD    ADD    ADD دکمه
+        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ADD    ADD    ADD
         $('#add').click(function(){
             var html = '<tr>';
             html += '<td contenteditable id="data1"></td>';
@@ -123,7 +123,7 @@
             html += '</tr>';
             $('#user_data tbody').prepend(html);
         });
-            // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++INSERT دکمه اینسرت
+            // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++INSERT
         $(document).on('click', '#insert', function(){
             var id = $('#data1').text();
             var design_user = $('#data2').text();
@@ -159,7 +159,7 @@
                 alert("Every Fields is required");
             }
         });
-        // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DELETE دکمه
+        // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DELETE
         $(document).on('click', '.delete', function(){
             var id = $(this).attr("id");
             if(confirm("Are you sure you want to remove this?"))
