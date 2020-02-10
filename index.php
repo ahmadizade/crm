@@ -1,25 +1,25 @@
 <?php
 require "./php/common.php";
-session_start();
-if (isset($_SESSION['login_user'])) {
+session_start ();
+if (isset( $_SESSION['login_user'] )) {
     $login_user = $_SESSION['login_user'];
     $userid = $_SESSION['userid'];
     $display_name = $_SESSION['display_name'];
 //    echo("session login user is : " . $login_user);
-} else if (isset($_COOKIE['rememberme'])) {
+} else if (isset( $_COOKIE['rememberme'] )) {
     // Decrypt cookie variable value
-    $cookie_data = json_decode($_COOKIE['rememberme'], true);
+    $cookie_data = json_decode ( $_COOKIE['rememberme'], true );
 //    print_h($cookie_data);
     $login_user = $cookie_data[0];
     $display_name = $cookie_data[1];
     $userid = $cookie_data[2];
 //    echo("cookie login user is : " . $login_user);
-} else if (!isset($_SESSION['login_user'])) {
-    if (!isset($_COOKIE['rememberme'])) {
+} else if (!isset( $_SESSION['login_user'] )) {
+    if (!isset( $_COOKIE['rememberme'] )) {
         $login_user = "";
         $display_name = "";
         $userid = "";
-        header("Location: http://localhost/crm/login.php");
+        header ( "Location: http://localhost/crm/login.php" );
     }
 }
 $admin_group = array("admin", "akbarpour");
@@ -257,13 +257,13 @@ include "./includes/header.php";
                         <div class="row p15 form-group mb-1">
                             <div class="group">
                                 <input id="design_user" name="design_user" type="hidden"
-                                       value="<?php echo($login_user) ?>">
+                                       value="<?php echo ($login_user) ?>">
                                 <label class="font-weight-bold" for="job_list">Job Name</label>
                                 <input class="input" title="Job_List" type="text" name="job_list" id="job_list"
                                        placeholder="For Example : Catalog">
                             </div>
                             <button class="design-table-button hvr-float-shadow" id="design_submit" type="button"
-                                                                         value="Submit">
+                                    value="Submit">
                                 ارسال درخواست
                             </button>
                         </div>
@@ -295,7 +295,7 @@ include "./includes/header.php";
             <p>درخواست های من</p>
         </div>
         <div class="accordion_footer2 show">
-            <p>Arman Server : OK</p>
+            <p id="user_request"></p>
             <p>Transmited : 99,Mbps</p>
             <p>Ping : 2Ms</p>
         </div>
