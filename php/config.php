@@ -1,6 +1,5 @@
 <?php
 require_once 'common.php';
-require '../lib/func.php';
 //session_start ();
 //if (isset( $_SESSION['display_name'] )) {
 //    $login_user = $_SESSION['login_user'];

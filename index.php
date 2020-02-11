@@ -1,28 +1,31 @@
 <?php
 require "./php/common.php";
-session_start ();
-if (isset( $_SESSION['login_user'] )) {
-    $login_user = $_SESSION['login_user'];
-    $userid = $_SESSION['userid'];
-    $display_name = $_SESSION['display_name'];
-//    echo("session login user is : " . $login_user);
-} else if (isset( $_COOKIE['rememberme'] )) {
-    // Decrypt cookie variable value
-    $cookie_data = json_decode ( $_COOKIE['rememberme'], true );
-//    print_h($cookie_data);
-    $login_user = $cookie_data[0];
-    $display_name = $cookie_data[1];
-    $userid = $cookie_data[2];
-//    echo("cookie login user is : " . $login_user);
-} else if (!isset( $_SESSION['login_user'] )) {
-    if (!isset( $_COOKIE['rememberme'] )) {
-        $login_user = "";
-        $display_name = "";
-        $userid = "";
-        header ( "Location: http://localhost/crm/login.php" );
-    }
-}
-$admin_group = array("admin", "akbarpour");
+require "./php/config.php";
+require "./lib/func.php";
+
+//session_start ();
+//if (isset( $_SESSION['login_user'] )) {
+//    $login_user = $_SESSION['login_user'];
+//    $userid = $_SESSION['userid'];
+//    $display_name = $_SESSION['display_name'];
+////    echo("session login user is : " . $login_user);
+//} else if (isset( $_COOKIE['rememberme'] )) {
+//    // Decrypt cookie variable value
+//    $cookie_data = json_decode ( $_COOKIE['rememberme'], true );
+////    print_h($cookie_data);
+//    $login_user = $cookie_data[0];
+//    $display_name = $cookie_data[1];
+//    $userid = $cookie_data[2];
+////    echo("cookie login user is : " . $login_user);
+//} else if (!isset( $_SESSION['login_user'] )) {
+//    if (!isset( $_COOKIE['rememberme'] )) {
+//        $login_user = "";
+//        $display_name = "";
+//        $userid = "";
+//        header ( "Location: http://localhost/crm/login.php" );
+//    }
+//}
+//$admin_group = array("admin", "akbarpour");
 
 //++++++++++++++++++++++++++++++++++++++++++++++++salem bedune coockie
 //session_start ();
@@ -296,7 +299,13 @@ include "./includes/header.php";
         </div>
         <div class="accordion_footer2 show">
             <p id="user_request"></p>
-            <p>Transmited : 99,Mbps</p>
+            <?php
+            $queue_query  = "SELECT * FROM design WHERE design_user = '$login_user';";
+            $requests = $mysqli->query ( $queue_query );
+            $rows = mysqli_num_rows($requests);
+            echo '<p>' . " درخواست طراحی من" . '</p>';
+            echo (" $rows عدد");
+            ?>
             <p>Ping : 2Ms</p>
         </div>
 
