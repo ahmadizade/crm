@@ -3,40 +3,52 @@
 <head>
     <title>Live Add Edit Delete Datatables Records using PHP Ajax</title>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+    <link rel=stylesheet href="../css/fonts.css">
     <style>
-        body
-        {
-            margin:0;
-            padding:0;
-            background-color:#f1f1f1;
+        * {
+            font-family: iranyekan, icomoon, sans-serif !important;
         }
-        .box
-        {
-            width:1270px;
-            padding:20px;
-            background-color:#fff;
-            border:1px solid #ccc;
-            border-radius:5px;
-            margin-top:25px;
-            box-sizing:border-box;
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+        }
+        .box {
+            width: 1270px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 25px;
+            box-sizing: border-box;
+        }
+        #alert_message {
+            position: absolute;
+            top: 0;
+            width: 200px;
+            text-align: center;
+        }
+        .table-responsive {
+            position: relative;
         }
     </style>
 </head>
 <body>
 <div class="container box">
-    <h1 align="center">Live Add Edit Delete Datatables Records using PHP Ajax</h1>
-    <br />
+<!--    <h1 align="center">جدول مدیریت کاربر و زمان تحویل پروژه</h1>-->
+    <br/>
     <div class="table-responsive">
-        <br />
+        <br/>
         <div align="right">
             <button type="button" name="add" id="add" class="btn btn-info">Add</button>
         </div>
-        <br />
+        <br/>
         <div id="alert_message"></div>
         <table id="user_data" class="table table-bordered table-striped">
             <thead>
@@ -58,44 +70,43 @@
 </body>
 </html>
 
-<script type="text/javascript" language="javascript" >
-    $(document).ready(function(){
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
 
         // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++FETCH خواندن دیتابیس و لود کردن اطلاعات داخل جدول
         fetch_data();
 
-        function fetch_data()
-        {
+        function fetch_data() {
             var dataTable = $('#user_data').DataTable({
-                "processing" : true,
-                "serverSide" : true,
-                "order" : [],
-                "ajax" : {
-                    url:"fetch.php",
-                    type:"POST"
+                "processing": true,
+                "serverSide": true,
+                "order": [],
+                "ajax": {
+                    url: "fetch.php",
+                    type: "POST"
                 }
             });
         }
+
         // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++UPDATE بعد از ادیت درون خط آن را به دیتا بیس می فرستد
 
-        function update_data(id, column_name, value)
-        {
+        function update_data(id, column_name, value) {
             $.ajax({
-                url:"update.php",
-                method:"POST",
-                data:{id:id, column_name:column_name, value:value},
-                success:function(data)
-                {
-                    $('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
+                url: "update.php",
+                method: "POST",
+                data: {id: id, column_name: column_name, value: value},
+                success: function (data) {
+                    $('#alert_message').html('<div class="alert alert-success">' + data + '</div>');
                     $('#user_data').DataTable().destroy();
                     fetch_data();
                 }
             });
-            setInterval(function(){
+            setInterval(function () {
                 $('#alert_message').html('');
             }, 5000);
         }
-        $(document).on('blur', '.update', function(){
+
+        $(document).on('blur', '.update', function () {
             var id = $(this).data("id");
             var Design_user = $(this).data("Design_user");
             var Job_List = $(this).data("Job_List");
@@ -109,7 +120,7 @@
             update_data(id, column_name, value);
         });
         // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ADD    ADD    ADD دکمه
-        $('#add').click(function(){
+        $('#add').click(function () {
             var html = '<tr>';
             html += '<td contenteditable id="data1"></td>';
             html += '<td contenteditable id="data2"></td>';
@@ -123,8 +134,8 @@
             html += '</tr>';
             $('#user_data tbody').prepend(html);
         });
-            // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++INSERT دکمه اینسرت
-        $(document).on('click', '#insert', function(){
+        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++INSERT دکمه اینسرت
+        $(document).on('click', '#insert', function () {
             var id = $('#data1').text();
             var design_user = $('#data2').text();
             var job_list = $('#data3').text();
@@ -136,45 +147,40 @@
             // var design_dataString = '&Design_user=' + Design_user + '&Job_List=' + Job_List + '&Conditions=' + Conditions + '&Date_Regestration=' + Date_Regestration + '&Queue=' + Queue + '&Admin_Description=' + Admin_Description + '&User_Description=' + User_Description + "design=";
             var design_dataString = '&design_user=' + design_user + '&job_list=' + job_list + '&conditions=' + conditions + '&queue=' + queue + '&admin_desc=' + admin_desc + '&user_desc=' + user_desc + "&design=";
 
-            if(job_list != '' && admin_desc != '')
-            {
+            if (job_list != '' && admin_desc != '') {
                 $.ajax({
-                    url:"insert.php",
-                    method:"GET",
+                    url: "insert.php",
+                    method: "GET",
                     // data:{id:id, Design_user:Design_user, Job_List:Job_List, Conditions:Conditions, Date_Regestration:Date_Regestration, Queue:Queue, Admin_Description:Admin_Description, User_Description:User_Description},
                     data: design_dataString,
-                    success:function(data)
-                    {
-                        $('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
+                    success: function (data) {
+                        $('#alert_message').html('<div class="alert alert-success">' + data + '</div>');
                         $('#user_data').DataTable().destroy();
                         fetch_data();
                     }
                 });
-                setInterval(function(){
+                setInterval(function () {
                     $('#alert_message').html('');
                 }, 5000);
-            }
-            else
-            {
+            } else {
                 alert("Every Fields is required");
             }
         });
         // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DELETE دکمه
-        $(document).on('click', '.delete', function(){
+        $(document).on('click', '.delete', function () {
             var id = $(this).attr("id");
-            if(confirm("Are you sure you want to remove this?"))
-            {
+            if (confirm("Are you sure you want to remove this?")) {
                 $.ajax({
-                    url:"delete.php",
-                    method:"GET",
-                    data:{id:id},
-                    success:function(data){
-                        $('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
+                    url: "delete.php",
+                    method: "GET",
+                    data: {id: id},
+                    success: function (data) {
+                        $('#alert_message').html('<div class="alert alert-success">' + data + '</div>');
                         $('#user_data').DataTable().destroy();
                         fetch_data();
                     }
                 });
-                setInterval(function(){
+                setInterval(function () {
                     $('#alert_message').html('');
                 }, 5000);
             }

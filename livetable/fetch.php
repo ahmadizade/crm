@@ -74,7 +74,11 @@ while($row = mysqli_fetch_array($result))       //  ریزالت را آرایه
     }
     $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="conditions">' . $row["conditions"] . '</div>';
     $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="date_registration">' . $row["date_registration"] . '</div>';
+    if (!$row["queue"] == "") {
     $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="queue">' . "شما نفر " .$row["queue"]. " از صف انتظار می باشید" . '</div>';
+    }else {
+        $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="queue">' ."هنوز در صف قرار نگرفته اید" . '</div>';
+    }
     $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="admin_desc">' . $row["admin_desc"] . '</div>';
     $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="user_desc">' . $row["user_desc"] . '</div>';
     $sub_array[] = '<button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$row["id"].'">Delete</button>';

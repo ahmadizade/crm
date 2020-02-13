@@ -68,16 +68,8 @@ require "./lib/func.php";
 <?php
 include "./includes/header.php";
 ?>
-
-
 <section class="main">
     <div class="head">
-        <!--            <div class="our-services">-->
-        <!--                <p class="animated zoomInRight delay-6s">Iran accommodation</p>-->
-        <!--                <p class="animated zoomInRight delay-7s">Transfer Services</p>-->
-        <!--                <p class="animated zoomInRight delay-8s">tailor-made tour</p>-->
-        <!--                <p class="animated zoomInRight delay-9s">Visa</p>-->
-        <!--            </div>-->
         <div class="headline text-center mb-5">
             <h5><b class="animated fadeInDown delay-4s">سامانه مدیریت پایگاه داده آژانس هواپیمایی ستاره ونک</b></h5>
             <p class="animated fadeInDown delay-5s">هر جای ایران ، همه جای جهان</p>
@@ -87,19 +79,10 @@ include "./includes/header.php";
                 </a>
             </div>
             <p class="animated fadeInDown delay-7s">88880000</p>
-
-            <!--                <div id="sequence" class="animate-in">-->
-            <!--                    <div id="demo" class="info letter-container">-->
-            <!--                        <h2 class="animated fadeInUp">SepandParvaz Application</h2>-->
-            <!--                    </div>-->
-            <!--                </div>-->
         </div>
     </div>
 
     <div class="information_table">
-        <!--        <div class="container">-->
-        <!--            <div class="row">-->
-        <!--                <div class="col-md-12 d-flex align-items-center justify-content-center">-->
         <div class="data-table">
             <form class="mt-2" id="form" name="form" action="">
                 <div class="row p15 form-group mb-1">
@@ -143,10 +126,6 @@ include "./includes/header.php";
                         <input class="input" title="شماره تماس" type="text" name="mobile" id="mobile"
                                placeholder="mobile number">
                     </div>
-                    <!--                            <div class="group">-->
-                    <!--                                <label class="font-weight-bold" for="date">تاریخ</label>-->
-                    <!--                                <input class="input" title="میلادی" name="date" type="date">-->
-                    <!--                            </div>-->
                     <div class="group">
                         <button class="data-table-button hvr-float-shadow" id="submit" type="button" value="Submit">
                             ذخیره
@@ -169,7 +148,6 @@ include "./includes/header.php";
                     </div>
                     <div class="fancybox_footer text-center mt-4">
                         <span id="fancy_btn"></span>
-                        <!--                        <span id="fancy_btn" onclick="window.location.reload();"></span>-->
                     </div>
                 </div>
             </div>
@@ -177,9 +155,6 @@ include "./includes/header.php";
         </div>
     </div>
 </section>
-<!--<div class="null"></div>-->
-<!--<div class="null"></div>-->
-<!--<div class="null"></div>-->
 <section class="trust">
     <div class="container">
         <div class="row">
@@ -218,12 +193,9 @@ include "./includes/header.php";
         </div>
     </div>
 </section>
-
 <section id="cat" class="cat">
     <div class="cat-flex">
         <div class="accordion1">
-
-
             <div class="accordion_header1">
                 <p>Accounting Server A</p>
             </div>
@@ -232,7 +204,6 @@ include "./includes/header.php";
                 <p>Transmited : 83,Mbps</p>
                 <p>Ping : 8Ms</p>
             </div>
-
             <div class="accordion_header1">
                 <p>Accounting Server B</p>
             </div>
@@ -241,7 +212,6 @@ include "./includes/header.php";
                 <p>Transmited : 69,Mbps</p>
                 <p>Ping : 8Ms</p>
             </div>
-
             <div class="accordion_header1">
                 <p>Accounting Server Airarabia</p>
             </div>
@@ -250,8 +220,6 @@ include "./includes/header.php";
                 <p>Transmited : 75,Mbps</p>
                 <p>Ping : 4Ms</p>
             </div>
-
-
         </div>
         <div class="center_platform">
             <form method="GET" class="mt-2" id="design_form" name="design_form" action="">
@@ -274,8 +242,8 @@ include "./includes/header.php";
                             <div class="group">
                                 <label class="font-weight-bold" for="user_desc">توضیحات</label>
                                 <textarea placeholder="برای مثال سایز عکس 1024 * 800" maxlength="256" wrap="hard"
-                                          rows="4" cols="50" id="user_desc" name="user_desc" form="design_form">
-                            </textarea>
+                                          rows="4" cols="50" id="user_desc" name="user_desc"
+                                          form="design_form"></textarea>
                             </div>
                         </div>
                         <p class="text-center text-white mt-1">فرم درخواست طراحی</p>
@@ -300,31 +268,52 @@ include "./includes/header.php";
         <div class="accordion_footer2 show">
             <p id="user_request"></p>
             <?php
-            $queue_query  = "SELECT * FROM design WHERE design_user = '$login_user';";
+            $queue_query = "SELECT * FROM design WHERE design_user = '$login_user';";
             $requests = $mysqli->query ( $queue_query );
-            $rows = mysqli_num_rows($requests);
-            echo '<p>' . " درخواست طراحی من" . '</p>';
+            $rows = mysqli_num_rows ( $requests );
+            echo '<p>' . " تعداد درخواست طراحی من" . '</p>';
             echo (" $rows عدد");
             ?>
-            <p>Ping : 2Ms</p>
         </div>
-
         <div class="accordion_header2">
-            <p>Artiman/Itour</p>
+            <p>وضعیت آخرین درخواست من</p>
         </div>
         <div class="accordion_footer2">
-            <p>Artiman Server : OK</p>
-            <p>Transmited : 49,Mbps</p>
-            <p>Ping : 12Ms</p>
+            <?php
+            $query_conditions = "SELECT `conditions` FROM design WHERE `design_user` = '$login_user' ORDER BY `date_registration` DESC LIMIT 1;";
+            $req_conditions = $mysqli->query ( $query_conditions );
+            //                print_h ( $req->fetch_all () );
+            $req_conditions = $req_conditions->fetch_all ();
+            if ($req_conditions[0][0] == 1) {
+                echo ("اتمام کار");
+            } elseif ($req_conditions[0][0] == 2) {
+                echo ("تایید نشد");
+            } elseif ($req_conditions[0][0] == 3) {
+                echo ("در حال ویرایش");
+            } else {
+                echo ("وضیتی ثبت نشده");
+            }
+            ?>
         </div>
-
         <div class="accordion_header2">
-            <p>Virtualization VMWare</p>
+            <p>صف طراحی</p>
         </div>
         <div class="accordion_footer2">
-            <p>VMWare Server : OK</p>
-            <p>Transmited : 29,Mbps</p>
-            <p>Ping : 2Ms</p>
+            <?php
+            $query_queue = "SELECT `queue` FROM design WHERE `design_user` = '$login_user' ORDER BY `date_registration` DESC LIMIT 1;";
+            $req_queue = $mysqli->query ( $query_queue );
+            //                print_h ( $req->fetch_all () );
+            $req_queue = $req_queue->fetch_all ();
+            if ($req_queue[0][0] == '') {
+                echo "شما در صف قرار ندارید";
+            } elseif (!$req_queue[0][0] == '' & $req_conditions[0][0] == 1) {
+                echo ("کار شما به اتمام رسیده و درخواست آخر شما از صف خارج شده");
+            } elseif (!$req_queue[0][0] == '' & $req_conditions[0][0] == 2) {
+                echo ("کار شما مورد تایید قرار نگرفته");
+            } elseif (!$req_queue[0][0] == '' & $req_conditions[0][0] == 3) {
+                echo ('<p>' . " شما نفر  " . $req_queue[0][0] . "  از صف انتظار می باشید  " . '</p>');
+            }
+            ?>
         </div>
     </div>
     </div>

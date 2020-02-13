@@ -871,7 +871,7 @@ svg:not(:root) {
     font-family: inherit;
     background: #4c4c4c;
     height: 38px;
-    margin-top: 27px;
+    margin-top: 23px;
     margin-right: 40px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -1003,7 +1003,9 @@ svg:not(:root) {
 .show {
     display: block;
 }
-
+.design-textarea {
+    width: 422px;
+}
 /*--------Accordion-------*/
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ACCORDION*/
