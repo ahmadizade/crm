@@ -1,5 +1,5 @@
 <?php
-$connect = mysqli_connect("localhost", "root", "", "payload");
+$connect = mysqli_connect("localhost", "root", "asdasd", "payload");
 if(isset($_POST["id"]))
 {
     $value = mysqli_real_escape_string($connect, $_POST["value"]);

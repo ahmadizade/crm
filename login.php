@@ -1,32 +1,10 @@
 <?php
 require_once './php/common.php';
-//require_once './php/mysql.php';
-//require_once './lib/func.php';
-//++++++++++++++++++++++++++++++++++ connect to mysql +++++++++++++++++++++++++++++++++++++++
-//echo (@$login_user);
-$dbHost = "localhost";
-$dbUser = "root";
-$dbPass = "";
-$dbName = "payload";
-$conn = mysqli_connect ( $dbHost, $dbUser, $dbPass, "$dbName" );
-if (!$conn) {
-    die( 'Could not Connect My Sql:' . $mysqli->error );
-} else {
-    //echo "Successfull.<br><br>";
-}
-$mysqli = new mysqli( $dbHost, $dbUser, $dbPass );
-if (!$mysqli->select_db ( $dbName )) {
-    echo "probleme in selecting data base";
-    exit( 0 );
-}
-if ($mysqli->connect_errno) {
-    printf ( "connect failed: %s/n", $mysqli->connect_error );
-    exit();
-}
+require_once './php/config.php';
 //++++++++++++++++++++++++++++++++++ connect to mysql +++++++++++++++++++++++++++++++++++++++
 $message = "";
 if (count ( $_POST ) > 0) {
-    $conn = mysqli_connect ( "localhost", "root", "", "payload" );
+    $conn = mysqli_connect ( "localhost", "root", "asdasd", "payload" );
     $result = mysqli_query ( $conn, "SELECT * FROM users WHERE username='" . $_POST["userName"] . "' and password = '" . $_POST["password"] . "'" );
 //    print_r ($result);
     $count = mysqli_num_rows ( $result );
@@ -37,7 +15,7 @@ if (count ( $_POST ) > 0) {
 //        $message = "You are successfully authenticated!";
         session_start ();
         // Store Session Data
-        $_SESSION['login_user'] = $_POST["userName"];
+        $_SESSION['login_user'] = mysqli_real_escape_string($conn, $_POST["userName"]);
         $login_user = $_SESSION['login_user'];
 //ذخیره یوزر در سشن
         //print_r ($_SESSION['login_user']);

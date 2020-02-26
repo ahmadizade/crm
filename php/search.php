@@ -37,7 +37,7 @@
                 }
                 $dbHost = "localhost";
                 $dbUser = "root";
-                $dbPass = "";
+                $dbPass = "asdasd";
                 $dbName = "payload";
                 $conn = mysqli_connect($dbHost, $dbUser, $dbPass, "$dbName");
                 if (!$conn) {

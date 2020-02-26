@@ -4,7 +4,7 @@ require "../php/common.php";
 //$connect = mysqli_connect("localhost", "root", "", "payload");
 $dbHost = "localhost";
 $dbUser = "root";
-$dbPass = "";
+$dbPass = "asdasd";
 $dbName = "payload";
 $connect = mysqli_connect ( $dbHost, $dbUser, $dbPass, "$dbName" );
 if (!$connect) {

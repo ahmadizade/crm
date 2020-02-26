@@ -34,21 +34,21 @@ if (isset( $_SESSION['login_user'] )) {
 }
 $dbHost = "localhost";
 $dbUser = "root";
-$dbPass = "";
+$dbPass = "asdasd";
 $dbName = "payload";
 $conn = mysqli_connect ( $dbHost, $dbUser, $dbPass, "$dbName" );
 if (!$conn) {
-    die( 'Could not Connect My Sql:' . $mysqli->error );
+    die( 'Hamidreza,Could not Connect MySql:' . $mysqli->error );
 } else {
 //    echo "Successfull connect to database<br><br>";
 }
 $mysqli = new mysqli( $dbHost, $dbUser, $dbPass );
 if (!$mysqli->select_db ( $dbName )) {
-    echo "probleme in selecting data base";
+    echo "Hamidreza,probleme in selecting data base";
     exit( 0 );
 }
 if ($mysqli->connect_errno) {
-    printf ( "connect failed: %s/n", $mysqli->connect_error );
+    printf ( "Hamidreza,connect failed: %s/n", $mysqli->connect_error );
     exit();
 }
 $admin_group = array("admin", "akbarpour");

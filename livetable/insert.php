@@ -1,5 +1,5 @@
 <?php
-$connect = mysqli_connect("localhost", "root", "", "payload");
+$connect = mysqli_connect("localhost", "root", "asdasd", "payload");
 
 //if(isset($_GET["design_user"], $_GET["job_list"], $_GET["conditions"], $_GET["date_registration"], $_GET["queue"], $_GET["admin_desc"], $_GET["user_desc"]))
 if (isset( $_GET['design'] ))

@@ -1,5 +1,5 @@
 <?php
-$connect = mysqli_connect("localhost", "root", "", "payload");
+$connect = mysqli_connect("localhost", "root", "asdasd", "payload");
 
 if(isset($_GET["id"]))
 {
