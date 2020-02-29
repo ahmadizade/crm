@@ -56,7 +56,7 @@ require "./lib/func.php";
     <!--    <link rel="stylesheet" href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">-->
     <link rel="stylesheet" href="bs/css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/hover.css">
+    <!--    <link rel="stylesheet" href="./css/hover.css">-->
     <!--    <link rel="stylesheet" href="./aos-master/dist/aos.css">-->
     <!--    <link rel="stylesheet" href="./css/sequencejs.css">-->
     <link href="fonts/stylesheet.css" rel="stylesheet">
@@ -320,6 +320,31 @@ include "./includes/header.php";
     </div>
 </section>
 
+<section class="aboutus">
+    <div class="email_platform data-table">
+
+        <form>
+            <p>Send Email To Us</p>
+            <div class="row p15 form-group mb-1">
+                <div class="group">
+                    <label class="font-weight-bold" for="user_name">نام</label>
+                    <input class="input" title="نام" type="text" id="email_name"
+                           placeholder="enter your name">
+                    <label class="font-weight-bold" for="family">نام خانوادگی</label>
+                    <input class="input" title="نام خانوادگی" type="text" id="email_family"
+                           placeholder="enter your family">
+                    <textarea placeholder="متن ایمیل" maxlength="256" wrap="hard"
+                              rows="4" cols="50" id="email_desc"
+                              form="design_form"></textarea>
+                    <button id="email_btn" class="btn btn-warning mt-2">SEND</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
 
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/jqueryapp.js"></script>

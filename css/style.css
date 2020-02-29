@@ -1042,3 +1042,16 @@ svg:not(:root) {
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DESIGN END*/
 
+.aboutus {
+    width: 100%;
+    height: 700px;
+    background: url("../img/glass/grad.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    text-align: center;
+}
+
+.email_platform {
+    width: 400px;
+}

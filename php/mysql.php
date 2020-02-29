@@ -160,37 +160,13 @@ if (isset( $_GET['save'] )) {
 
 
 if (isset( $_GET['design'] )) {
-//    $design_user = $_GET['design_user'];
-//    $job_list = $_GET['job_list'];
-//    $user_desc = $_GET['user_desc'];
-//    $mysqli->query ( "INSERT INTO design (design_user,job_list,user_desc) VALUES ('$design_user','$job_list','$user_desc')" );
-//     if ($mysqli->errno == 0) {
-//        echo json_encode ( 1001 );
-//    }
-
-
-
-    $to = "hr.ahmadi6722@gmail.com";
-    $subject = "This Is TEST EMAIL";
-
-    $message = "<b>This is HTML message.</b>";
-    $message .= "<h1>This is headline.</h1>";
-
-    $header = "From:hr.ahmadi@setarehvanak.com \r\n";
-    $header .= "Cc:hr.ahmadi689@yahoo.com \r\n";
-    $header .= "MIME-Version: 1.0\r\n";
-    $header .= "Content-type: text/html\r\n";
-
-    $check = mail ($to,$subject,$message,$header);
-
-    if( $check == true ) {
-        echo "Message sent successfully...";
-    }else {
-        echo "Message could not be sent...";
+    $design_user = $_GET['design_user'];
+    $job_list = $_GET['job_list'];
+    $user_desc = $_GET['user_desc'];
+    $mysqli->query ( "INSERT INTO design (design_user,job_list,user_desc) VALUES ('$design_user','$job_list','$user_desc')" );
+     if ($mysqli->errno == 0) {
+        echo json_encode ( 1001 );
     }
-
-
-
 }
 
 ?>

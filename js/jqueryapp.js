@@ -140,7 +140,7 @@ $(document).ready(function () {
 
         // http://localhost/crm/php/mysql.php?&job_list=drrgsdh&user_desc=Hamidrezadesc&design_user=sara&design=&_=1580999491851
 
-            var design_dataString = '&job_list=' + job_list + '&user_desc=' + user_desc + '&design_user=' + design_user + "&design=";
+        var design_dataString = '&job_list=' + job_list + '&user_desc=' + user_desc + '&design_user=' + design_user + "&design=";
 
         if (job_list == '' || user_desc == '' || design_user == '') {
             alert("پر کردن فیلد نام طرح و توضیحات آن اجباری است");
@@ -159,7 +159,7 @@ $(document).ready(function () {
                         $fancy_btn.click(function () {
                             window.location.reload();
                         });
-                    }else {
+                    } else {
                         $fancy_result.html("<h4>اطلاعات به درستی ذخیره نشد! لطفا دوباره تلاش کنید!</h4>");
                         $fancy_btn.html("<button type='button' class='border-color:red btn btn-danger'>بازگشت</button>");
                         $fancy_btn.click(function () {
@@ -174,4 +174,42 @@ $(document).ready(function () {
 
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Design Form
 
+
+// +++++++++++++++++++++++++++SEND EMAILSEND EMAILSEND EMAILSEND EMAILSEND EMAIL+++++++++++++++++++++++++++++++++++++++++++++++++++++++++SEND EMAIL
+
+    $("#email_btn").click(function () {
+
+        var email_name = $("#email_name").val();
+        var email_family = $("#email_family").val();
+        var email_desc = $("#email_desc").val();
+
+
+        var data_email = '&email_name=' +email_name+ '&email_family=' +email_family+ '&email_desc=' +email_desc+ '&send=';
+
+        // http://localhost/crm/php/email.php?&email_name=ali&email_family=rezaie&email_desc=salam%20salam&send
+
+        $.ajax({
+            type: "GET",
+            url: 'http://localhost/crm/php/email.php',
+            data: data_email,
+            cache: false,
+            success: function (emailres) {
+                if (emailres == 1001) {
+                    console.log("SEND Complit");
+                } else if (emailres == 1002) {
+                    console.log("we have problem");
+                }else {
+                    console.log("Email Have a Problem")
+                }
+            }
+        });
+    });
+
+// ++++++++++++++++++++++++SEND EMAILSEND EMAILSEND EMAILSEND EMAILSEND EM++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SEND EMAIL
+
+
 });
+
+
+
+
